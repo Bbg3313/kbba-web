@@ -7,12 +7,8 @@ const steps = [
 /** “How to register” strip above the home consultation form — matches START NOW flow. */
 export function HomeRegisterProcessSection() {
   return (
-    <section
-      id="register-process"
-      aria-labelledby="register-process-heading"
-      className="scroll-mt-28 border-t border-rose-100/80 bg-gradient-to-r from-rose-100/50 via-rose-50/40 to-white"
-    >
-      <div className="mx-auto min-w-0 max-w-5xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+    <div id="register-process" aria-labelledby="register-process-heading">
+      <div className="mx-auto min-w-0 max-w-5xl px-4 pb-2 pt-10 sm:px-6 sm:pb-3 sm:pt-12 lg:px-8">
         <p className="text-xs font-bold uppercase tracking-[0.22em] text-pink-600 sm:text-[0.7rem]">
           START NOW
         </p>
@@ -41,6 +37,6 @@ export function HomeRegisterProcessSection() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

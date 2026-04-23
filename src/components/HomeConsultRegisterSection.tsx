@@ -75,9 +75,9 @@ export function HomeConsultRegisterSection() {
     <section
       id="consult-register"
       aria-labelledby="consult-register-heading"
-      className="scroll-mt-28 border-t border-rose-100/80 bg-rose-50/30"
+      className="scroll-mt-28"
     >
-      <div className="mx-auto grid min-h-0 max-w-5xl overflow-hidden rounded-none shadow-[0_20px_50px_-36px_rgba(15,23,42,0.18)] lg:my-6 lg:rounded-2xl lg:border lg:border-slate-200/50">
+      <div className="mx-auto grid min-h-0 max-w-5xl overflow-hidden rounded-none shadow-[0_20px_50px_-36px_rgba(15,23,42,0.18)] lg:mb-10 lg:mt-2 lg:rounded-2xl lg:border lg:border-slate-200/50">
         <div className="grid min-h-0 lg:grid-cols-12">
           {/* Brand column */}
           <div className="relative order-1 flex min-h-[13rem] flex-col justify-between px-5 py-7 sm:min-h-[14rem] sm:px-6 sm:py-8 lg:order-none lg:col-span-4 lg:min-h-0 lg:px-6 lg:py-8">

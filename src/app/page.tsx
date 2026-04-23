@@ -201,8 +201,14 @@ export default function Home() {
         </div>
       </section>
 
-      <HomeRegisterProcessSection />
-      <HomeConsultRegisterSection />
+      <div
+        className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/55 via-[#fff8fb] to-rose-50/55 pb-12 sm:pb-16"
+        role="region"
+        aria-label="Registration and consultation"
+      >
+        <HomeRegisterProcessSection />
+        <HomeConsultRegisterSection />
+      </div>
     </SiteShell>
   );
 }
