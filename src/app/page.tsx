@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { HeroSection } from "@/components/HeroSection";
 import { HospitalGrid } from "@/components/HospitalGrid";
+import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
 import { OfficialPartnerBanner } from "@/components/OfficialPartnerBanner";
 import { SiteShell } from "@/components/SiteShell";
 import { TestimonialVideos } from "@/components/TestimonialVideos";
@@ -108,7 +109,7 @@ export default function Home() {
       <section className="border-b border-rose-100/60 bg-gradient-to-b from-rose-50/40 via-white to-white py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">Why people start</p>
+            <MainSectionEyebrow label="Why People Start" align="center" />
             <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
               Does this sound like you?
             </h2>
@@ -118,21 +119,24 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid items-stretch gap-5 lg:grid-cols-3">
             {motivationCards.map((card) => (
               <article
                 key={card.step}
-                className="flex min-w-0 flex-col rounded-[1.75rem] border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
+                className="flex min-w-0 h-full flex-col rounded-[1.75rem] border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
               >
                 <div className="flex items-center gap-4">
                   <span className="font-display text-5xl font-semibold leading-none text-pink-600">{card.step}</span>
                   <span className="h-px flex-1 bg-gradient-to-r from-pink-200 to-transparent" aria-hidden />
                 </div>
-                <h3 className="font-display mt-5 text-pretty text-xl font-semibold text-rose-950">{card.title}</h3>
-                <ul className="mt-5 space-y-3 pl-5 text-sm leading-relaxed text-rose-900/82 marker:text-pink-500">
+                <h3 className="font-display mt-5 min-h-[3.5rem] text-pretty text-xl font-semibold leading-snug text-rose-950">
+                  {card.title}
+                </h3>
+                <ul className="mt-5 space-y-3 text-sm leading-relaxed text-rose-900/82">
                   {card.points.map((point) => (
-                    <li key={point} className="text-pretty">
-                      {point}
+                    <li key={point} className="flex items-start gap-3 text-pretty">
+                      <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-pink-500" aria-hidden />
+                      <span>{point}</span>
                     </li>
                   ))}
                 </ul>
@@ -154,6 +158,7 @@ export default function Home() {
         </div>
         <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <header className="max-w-3xl min-w-0 pb-8 sm:pb-16">
+            <MainSectionEyebrow label="Certification Path" />
             <h2 className="font-display text-pretty text-xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
               KOREA BEAUTY BUSINESS ACADEMY
             </h2>
@@ -197,12 +202,9 @@ export default function Home() {
                 href="https://line.me/R/ti/p/@756xidmw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-fit max-w-full items-center gap-2 rounded-lg border-2 border-black bg-[#e200d8] px-3 py-2 text-left text-xs font-bold leading-tight text-white shadow-[0_2px_0_#000,0_8px_16px_-12px_rgba(226,0,216,0.85)] transition duration-200 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_3px_0_#000,0_12px_20px_-12px_rgba(226,0,216,0.95)] sm:rounded-xl sm:px-3.5 sm:py-2 sm:text-sm md:self-center"
+                className="inline-flex min-h-11 w-fit max-w-full items-center justify-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-300/40 transition hover:brightness-110 sm:px-7 md:self-center"
               >
-                <span className="text-pretty">Ask on LINE — fit for you?</span>
-                <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white text-sm leading-none text-[#e200d8] sm:h-6 sm:w-6 sm:text-base">
-                  ›
-                </span>
+                Ask on LINE — fit for you?
               </a>
             </div>
           </div>
@@ -214,6 +216,7 @@ export default function Home() {
         className="border-t border-rose-100/60 bg-gradient-to-b from-rose-50/40 via-white to-white py-14 sm:py-20"
       >
         <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <MainSectionEyebrow label="Programme Overview" />
           <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
             Our Course
           </h2>
@@ -256,6 +259,7 @@ export default function Home() {
         className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/55 via-rose-50/35 to-white pb-14 pt-6 sm:pb-20 sm:pt-8"
       >
         <div className="mx-auto min-w-0 max-w-3xl px-4 sm:px-6 lg:px-8">
+          <MainSectionEyebrow label="Common Questions" align="center" className="mx-auto" />
           <h2 className="text-center text-balance font-display text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
             FAQ
           </h2>

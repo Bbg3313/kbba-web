@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { hospitalPartners } from "@/data/hospitals";
+import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
 
 const partnerLogoAlt = "KBBA partner hospital logo";
 
@@ -31,10 +32,7 @@ export function HospitalGrid() {
     >
       <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl min-w-0">
-          <div className="mb-3 h-px w-12 bg-gradient-to-r from-rose-400/80 to-transparent sm:mb-4 sm:w-16" />
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-rose-500/90 sm:text-xs">
-            Partner network
-          </p>
+          <MainSectionEyebrow label="Partner Network" />
           <h2 className="mt-2 text-pretty text-2xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-950 via-rose-900 to-pink-800 sm:text-3xl">
             60+ partner hospitals
           </h2>

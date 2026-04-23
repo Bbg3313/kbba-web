@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
 import { SocialBrandIconRow } from "@/components/SocialBrandIconRow";
 import { SITE_PHONE_KR } from "@/data/site-contact";
 
@@ -136,6 +137,7 @@ export function HomeConsultRegisterSection() {
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-rose-50/35 to-white" aria-hidden />
             <div className="relative z-10 px-6 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+              <MainSectionEyebrow label="Consultation Desk" />
               <h3 className="font-display text-pretty text-xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-2xl">
                 Consultation &amp; registration
               </h3>

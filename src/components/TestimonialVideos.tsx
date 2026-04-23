@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
 import { useEffect, useState } from "react";
 
 const TESTIMONIAL_EMBEDS = [
@@ -100,10 +101,7 @@ export function TestimonialVideos() {
 
       <div className="relative mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
         <header className="mx-auto mb-10 max-w-2xl min-w-0 text-center sm:mb-14">
-          <div className="mx-auto mb-5 h-px w-16 bg-gradient-to-r from-transparent via-rose-300/80 to-transparent sm:w-24" />
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.38em] text-pink-600/90 sm:text-xs">
-            Voices & stories
-          </p>
+          <MainSectionEyebrow label="Voices & Stories" align="center" className="mx-auto" />
           <h2
             id="testimonials-heading"
             className="font-display mt-3 text-pretty text-3xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-pink-700 sm:text-4xl"
