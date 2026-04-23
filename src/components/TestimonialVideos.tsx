@@ -1,3 +1,8 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
 const TESTIMONIAL_EMBEDS = [
   {
     id: "ajkBFCNCHmw",
@@ -13,6 +18,49 @@ const TESTIMONIAL_EMBEDS = [
   },
 ] as const;
 
+const HOME_REVIEW_CARDS = [
+  {
+    name: "Arm Arinee",
+    business: "Look at me by Arinee",
+    imageSrc: "/images/reviews/arm-arinee.png",
+    imageAlt: "Arm Arinee from Look at me by Arinee",
+    quote:
+      "My interest in beauty and cosmetic surgery naturally grew into a side business helping people find trusted hospitals and skilled doctors in Korea.",
+  },
+  {
+    name: "Margaret Langer",
+    business: "Mar Pa Suay",
+    imageSrc: "/images/reviews/margaret-langer.png",
+    imageAlt: "Margaret Langer from Mar Pa Suay",
+    quote:
+      "KBBA gave me a structured and legal path into the Korean surgery agency business, making client care smoother and more professional.",
+  },
+  {
+    name: "Miew Kiranapat",
+    business: "Queen Management",
+    imageSrc: "/images/reviews/miew-kiranapat.png",
+    imageAlt: "Miew Kiranapat from Queen Management",
+    quote:
+      "With trusted guidance from S.K.I and the KBBA system, I could step confidently into Korean surgery consulting and work more smoothly.",
+  },
+  {
+    name: "Kim Phakin",
+    business: "Kim S.K.I",
+    imageSrc: "/images/reviews/kim-phakin.png",
+    imageAlt: "Kim Phakin from Kim S.K.I",
+    quote:
+      "The KBBA system makes it easier to send clients with confidence while I continue managing my other businesses in Thailand.",
+  },
+  {
+    name: "Pop Supaporn",
+    business: "Pop S.K.I",
+    imageSrc: "/images/reviews/pop-supaporn.png",
+    imageAlt: "Pop Supaporn from Pop S.K.I",
+    quote:
+      "Working with S.K.I and KBBA turned my personal experience into a professional consulting path with stronger client planning and care.",
+  },
+] as const;
+
 function embedSrc(videoId: string) {
   const params = new URLSearchParams({
     rel: "0",
@@ -24,6 +72,20 @@ function embedSrc(videoId: string) {
 }
 
 export function TestimonialVideos() {
+  const [activeReview, setActiveReview] = useState(0);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveReview((current) => (current + 1) % HOME_REVIEW_CARDS.length);
+    }, 3000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
   return (
     <section
       id="testimonials"
@@ -98,6 +160,87 @@ export function TestimonialVideos() {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-10 sm:mt-14">
+          <div className="mb-5 flex items-end justify-between gap-4">
+            <div className="min-w-0">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-pink-600/90 sm:text-xs">
+                Review Cards
+              </p>
+              <p className="mt-2 text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base">
+                Quick participant highlights from the KBBA network.
+              </p>
+            </div>
+            <div className="hidden items-center gap-2 sm:flex" aria-label="Review carousel controls">
+              {HOME_REVIEW_CARDS.map((review, index) => (
+                <button
+                  key={review.name}
+                  type="button"
+                  onClick={() => setActiveReview(index)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    index === activeReview ? "w-8 bg-pink-600" : "w-2.5 bg-rose-200 hover:bg-rose-300"
+                  }`}
+                  aria-label={`Show review ${index + 1}`}
+                  aria-pressed={index === activeReview}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-[1.5rem] border border-rose-100/90 bg-white/95 shadow-[0_24px_60px_-36px_rgba(190,24,93,0.24)]">
+            <div
+              className="flex transition-transform duration-700 ease-out"
+              style={{ transform: `translateX(-${activeReview * 100}%)` }}
+            >
+              {HOME_REVIEW_CARDS.map((review) => (
+                <article
+                  key={review.name}
+                  className="flex min-w-full flex-col gap-5 p-4 sm:p-6 md:flex-row md:items-center md:gap-6 lg:p-7"
+                >
+                  <div className="relative h-44 w-full overflow-hidden rounded-2xl border border-rose-100/90 bg-[#ececf4] shadow-sm sm:h-52 md:w-44 md:shrink-0 lg:h-56 lg:w-48">
+                    <Image
+                      src={review.imageSrc}
+                      alt={review.imageAlt}
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 100vw, 192px"
+                    />
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-pink-600/90 sm:text-xs">
+                      Participant Review
+                    </p>
+                    <h3 className="font-display mt-2 text-pretty text-2xl font-semibold text-rose-950">
+                      {review.name}
+                    </h3>
+                    <p className="mt-2 text-sm font-medium text-rose-800/85 sm:text-base">
+                      Owner, <span className="font-semibold text-pink-700">{review.business}</span>
+                    </p>
+                    <blockquote className="mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base sm:leading-[1.85]">
+                      {review.quote}
+                    </blockquote>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 flex items-center justify-center gap-2 sm:hidden" aria-label="Review carousel controls">
+            {HOME_REVIEW_CARDS.map((review, index) => (
+              <button
+                key={review.name}
+                type="button"
+                onClick={() => setActiveReview(index)}
+                className={`h-2.5 rounded-full transition-all ${
+                  index === activeReview ? "w-8 bg-pink-600" : "w-2.5 bg-rose-200 hover:bg-rose-300"
+                }`}
+                aria-label={`Show review ${index + 1}`}
+                aria-pressed={index === activeReview}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
