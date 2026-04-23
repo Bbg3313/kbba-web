@@ -1,30 +1,37 @@
+import Image from "next/image";
 import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
+import { wixTopStripImages } from "@/data/wix-strip";
 
 const featuredPartners = [
   {
     short: "BBG",
     name: "Blue Bridge Global",
     role: "Korea business bridge",
+    imageSrc: wixTopStripImages[0]?.imageSrc,
   },
   {
     short: "S.K.I",
     name: "Surgery Korea Info",
     role: "Thailand market partner",
+    imageSrc: wixTopStripImages[1]?.imageSrc,
   },
   {
     short: "ILI",
     name: "International License Institute",
     role: "Certification partner",
+    imageSrc: wixTopStripImages[2]?.imageSrc,
   },
   {
     short: "LEI",
     name: "Long Life Education Institute",
     role: "Lifelong learning partner",
+    imageSrc: wixTopStripImages[3]?.imageSrc,
   },
   {
     short: "KRIVET",
-    name: "Korean Research Institute for Vocational Education & Training",
+    name: "KRIVET",
     role: "Curriculum reference",
+    imageSrc: wixTopStripImages[4]?.imageSrc,
   },
 ] as const;
 
@@ -46,7 +53,7 @@ export function OfficialPartnerBanner() {
           <MainSectionEyebrow label="Official Partner" align="center" className="mx-auto" />
           <h2
             id="official-partner-heading"
-            className="font-display mt-3 text-pretty text-xl font-semibold leading-snug text-transparent bg-clip-text bg-gradient-to-r from-rose-900 via-fuchsia-800 to-rose-800 sm:text-3xl"
+            className="font-display mt-3 text-balance text-xl font-semibold leading-snug text-transparent bg-clip-text bg-gradient-to-r from-rose-900 via-fuchsia-800 to-rose-800 sm:text-3xl"
           >
             KBBA is backed by core education and business partners across Korea and Thailand
           </h2>
@@ -61,20 +68,31 @@ export function OfficialPartnerBanner() {
             {featuredPartners.map((partner) => (
               <article
                 key={partner.short}
-                className="group flex min-w-0 flex-col rounded-[1.5rem] border border-rose-100/90 bg-gradient-to-b from-white via-white to-rose-50/35 p-5 shadow-sm shadow-rose-100/30 transition duration-300 hover:-translate-y-0.5 hover:border-pink-200/80 hover:shadow-md"
+                className="group flex min-w-0 min-h-[15.5rem] flex-col rounded-[1.5rem] border border-rose-100/90 bg-gradient-to-b from-white via-white to-rose-50/35 p-5 shadow-sm shadow-rose-100/30 transition duration-300 hover:-translate-y-0.5 hover:border-pink-200/80 hover:shadow-md"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <span className="inline-flex min-h-12 min-w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-600 to-pink-600 px-3 text-sm font-bold tracking-[0.12em] text-white shadow-md shadow-rose-300/40">
-                    {partner.short}
-                  </span>
+                  <div className="flex h-14 min-w-0 flex-1 items-center rounded-2xl border border-rose-100/80 bg-white px-3 shadow-sm">
+                    <div className="relative h-8 w-full">
+                      <Image
+                        src={partner.imageSrc}
+                        alt={partner.name}
+                        fill
+                        className="object-contain object-left"
+                        sizes="160px"
+                      />
+                    </div>
+                  </div>
                   <span className="rounded-full bg-rose-50 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-pink-700">
                     Core
                   </span>
                 </div>
-                <h3 className="mt-5 text-pretty text-sm font-semibold leading-snug text-rose-950 sm:text-[0.95rem]">
+                <p className="mt-5 text-[0.65rem] font-semibold uppercase tracking-[0.26em] text-pink-600/90">
+                  {partner.short}
+                </p>
+                <h3 className="mt-2 min-h-[3.25rem] text-pretty text-sm font-semibold leading-snug text-rose-950 sm:text-[0.95rem]">
                   {partner.name}
                 </h3>
-                <p className="mt-2 text-pretty text-xs font-medium uppercase tracking-[0.16em] text-rose-700/80">
+                <p className="mt-3 text-pretty text-xs font-medium uppercase tracking-[0.16em] text-rose-700/80">
                   {partner.role}
                 </p>
               </article>

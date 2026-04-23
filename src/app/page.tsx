@@ -6,7 +6,6 @@ import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
 import { OfficialPartnerBanner } from "@/components/OfficialPartnerBanner";
 import { SiteShell } from "@/components/SiteShell";
 import { TestimonialVideos } from "@/components/TestimonialVideos";
-import { WixTopStrip } from "@/components/WixTopStrip";
 import { HomeAcademyIntroBlock } from "@/components/HomeAcademyIntroBlock";
 import { HomeConsultRegisterSection } from "@/components/HomeConsultRegisterSection";
 import { HomeRegisterProcessSection } from "@/components/HomeRegisterProcessSection";
@@ -146,7 +145,6 @@ export default function Home() {
         </div>
       </section>
       <OfficialPartnerBanner />
-      <WixTopStrip />
       <HospitalGrid />
 
       <TestimonialVideos />
