@@ -131,12 +131,10 @@ export default function Home() {
                 href="https://line.me/R/ti/p/@756xidmw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full max-w-xl items-center justify-between gap-4 rounded-2xl border-2 border-black bg-[#e200d8] px-5 py-4 text-left text-base font-bold leading-snug text-white shadow-[0_4px_0_#000,0_14px_24px_-16px_rgba(226,0,216,0.85)] transition duration-200 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_5px_0_#000,0_20px_30px_-16px_rgba(226,0,216,0.95)] sm:px-6 sm:py-4 sm:text-[1.05rem]"
+                className="inline-flex w-fit max-w-full items-center gap-2 rounded-lg border-2 border-black bg-[#e200d8] px-3 py-2 text-left text-xs font-bold leading-tight text-white shadow-[0_2px_0_#000,0_8px_16px_-12px_rgba(226,0,216,0.85)] transition duration-200 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_3px_0_#000,0_12px_20px_-12px_rgba(226,0,216,0.95)] sm:rounded-xl sm:px-3.5 sm:py-2 sm:text-sm"
               >
-                <span className="min-w-0 flex-1 text-pretty pr-1">
-                  Ask if this programme is right for you
-                </span>
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-xl leading-none text-[#e200d8]">
+                <span className="text-pretty">Ask on LINE — fit for you?</span>
+                <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white text-sm leading-none text-[#e200d8] sm:h-6 sm:w-6 sm:text-base">
                   ›
                 </span>
               </a>
