@@ -15,12 +15,12 @@ export function HospitalGrid() {
       id="partners"
       className="border-y border-rose-100/70 bg-gradient-to-b from-rose-50/45 via-white to-rose-50/30 py-14 sm:py-20"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
+      <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl min-w-0">
           <h2 className="text-pretty text-2xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
             60+ partner hospitals
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-rose-900/70 sm:text-base">
+          <p className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base">
             Hospitals and clinics that collaborate with KBBA — scroll the strip or browse the full
             partner grid below.
           </p>
@@ -46,7 +46,7 @@ export function HospitalGrid() {
           </div>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+        <div className="mt-10 grid min-w-0 grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {hospitalPartners.map((h) => (
             <article
               key={h.id}

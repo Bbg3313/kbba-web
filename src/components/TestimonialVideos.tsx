@@ -36,8 +36,8 @@ export function TestimonialVideos() {
         <div className="absolute -right-24 top-1/3 h-56 w-56 rounded-full bg-pink-400/10 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <header className="mx-auto mb-10 max-w-2xl text-center sm:mb-14">
+      <div className="relative mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+        <header className="mx-auto mb-10 max-w-2xl min-w-0 text-center sm:mb-14">
           <div className="mx-auto mb-5 h-px w-16 bg-gradient-to-r from-transparent via-rose-300/70 to-transparent sm:w-24" />
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.38em] text-rose-300/90 sm:text-xs">
             Voices & stories
@@ -53,9 +53,9 @@ export function TestimonialVideos() {
           </p>
         </header>
 
-        <div className="grid gap-7 sm:gap-8 lg:grid-cols-3">
+        <div className="grid min-w-0 gap-7 sm:gap-8 lg:grid-cols-3">
           {TESTIMONIAL_EMBEDS.map((video, index) => (
-            <article key={video.id} className="group relative">
+            <article key={video.id} className="group relative min-w-0">
               <div
                 className="absolute -inset-[1px] rounded-[1.35rem] bg-gradient-to-br from-rose-300/35 via-fuchsia-300/20 to-rose-400/25 opacity-60 blur-[1px] transition duration-500 group-hover:opacity-100 group-hover:blur-0"
                 aria-hidden

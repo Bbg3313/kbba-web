@@ -37,6 +37,18 @@ body {
   );
   color: var(--foreground);
   overflow-x: clip;
+  /* Prefer nicer wrapping for long English lines (supported browsers). */
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Headings: avoid single-word spills on narrow viewports */
+h1,
+h2,
+h3 {
+  text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 
 @keyframes marquee {

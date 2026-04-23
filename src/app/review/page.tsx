@@ -32,8 +32,8 @@ export default function ReviewPage() {
       />
 
       <section className="border-b border-rose-100/60 bg-white/90 py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <figure className="rounded-2xl border border-rose-100/90 bg-gradient-to-br from-rose-50/60 to-white p-4 shadow-md sm:p-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <figure className="min-w-0 rounded-2xl border border-rose-100/90 bg-gradient-to-br from-rose-50/60 to-white p-4 shadow-md sm:p-8">
             <figcaption className="text-pretty text-sm font-semibold text-pink-700">
               Arm Arinee — founder, Look at me by Arinee agency
             </figcaption>
@@ -50,7 +50,7 @@ export default function ReviewPage() {
       </section>
 
       <section className="bg-gradient-to-b from-rose-50/40 to-white py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-pink-600">Our Service</p>
           <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-rose-950 sm:text-3xl">
             KBBA supports you end to end
@@ -60,14 +60,14 @@ export default function ReviewPage() {
             market, and serve smoothly before, during, and after the trip — with Thai partner clinics when clients
             return home.
           </p>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
             {services.map((s) => (
               <article
                 key={s.title}
-                className="rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-sm"
+                className="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-sm"
               >
                 <h3 className="font-display text-pretty text-lg font-semibold text-rose-950">{s.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-rose-900/75">{s.body}</p>
+                <p className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/75">{s.body}</p>
               </article>
             ))}
           </div>
@@ -75,7 +75,7 @@ export default function ReviewPage() {
       </section>
 
       <section className="border-t border-rose-100/60 py-12 sm:py-16">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div className="mx-auto grid min-w-0 max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <article className="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md">
             <h2 className="font-display text-pretty text-xl font-semibold text-rose-950">Hi&apos; Seoul Clinic</h2>
             <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/80">

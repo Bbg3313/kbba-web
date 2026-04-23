@@ -20,7 +20,7 @@ export function LineFloatingButton() {
           priority
         />
       </span>
-      <span className="max-w-[9rem] leading-tight sm:max-w-none">
+      <span className="max-w-[10rem] text-pretty leading-tight sm:max-w-none">
         LINE us
       </span>
     </a>

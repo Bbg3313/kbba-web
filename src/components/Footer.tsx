@@ -15,8 +15,8 @@ export function Footer() {
       id="contact"
       className="border-t border-rose-200/40 bg-gradient-to-b from-rose-950 via-fuchsia-950 to-rose-950 text-rose-100/90"
     >
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-3 lg:px-8">
-        <div>
+      <div className="mx-auto grid min-w-0 max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-3 lg:px-8">
+        <div className="min-w-0">
           <Link
             href="/"
             className="mb-4 inline-block rounded-lg ring-rose-400/0 transition hover:ring-2 hover:ring-rose-300/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-200"
@@ -31,13 +31,13 @@ export function Footer() {
               priority
             />
           </Link>
-          <p className="text-sm leading-relaxed text-rose-200/75">
+          <p className="text-pretty text-sm leading-relaxed text-rose-200/75">
             Korea Beauty Business Academy — training and partner network connecting Korean
             hospitals and clinics with beauty businesses, plus practical online marketing programmes.
           </p>
         </div>
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-rose-50">
+        <div className="min-w-0">
+          <h3 className="text-pretty text-sm font-semibold uppercase tracking-wide text-rose-50">
             Main menu
           </h3>
           <ul className="mt-4 space-y-2 text-sm">
@@ -83,8 +83,8 @@ export function Footer() {
             </li>
           </ul>
         </div>
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-rose-50">
+        <div className="min-w-0">
+          <h3 className="text-pretty text-sm font-semibold uppercase tracking-wide text-rose-50">
             Contact
           </h3>
           <p className="mt-4 text-sm text-rose-200/75">

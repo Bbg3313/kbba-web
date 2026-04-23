@@ -109,11 +109,11 @@ function SectionCard({
   id?: string;
 }) {
   return (
-    <section id={id} className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+    <section id={id} className="mx-auto min-w-0 max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
         {title}
       </h2>
-      <div className="mt-6 min-w-0 space-y-4 text-sm leading-relaxed text-rose-900/80 sm:text-base">
+      <div className="mt-6 min-w-0 space-y-4 text-sm leading-relaxed text-rose-900/80 sm:text-base [&_p]:text-pretty">
         {children}
       </div>
     </section>
@@ -130,7 +130,7 @@ export default function WhoWeArePage() {
       />
 
       <div className="border-b border-rose-100/60 bg-white/80">
-        <div className="mx-auto max-w-6xl space-y-6 px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl space-y-6 px-4 py-10 sm:px-6 lg:px-8">
           <p className="text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
             We specialise in Thailand–Korea beauty businesses across the region. From first steps in compliant
             agency work to advanced programmes, KBBA provides training plus launch and scale-up support so teams can
@@ -140,11 +140,11 @@ export default function WhoWeArePage() {
       </div>
 
       <section className="border-b border-rose-100/60 bg-gradient-to-b from-rose-50/40 to-white py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
             Korea Beauty Business Academy
           </h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
             {pillars.map((p, i) => (
               <div
                 key={p.title}
@@ -163,7 +163,7 @@ export default function WhoWeArePage() {
                   {i + 1}
                 </div>
                 <h3 className="mt-4 font-display text-pretty text-lg font-semibold text-rose-950">{p.title}</h3>
-                <p className="mt-2 text-sm text-rose-900/75">{p.desc}</p>
+                <p className="mt-2 text-pretty text-sm text-rose-900/75">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -179,7 +179,7 @@ export default function WhoWeArePage() {
           {supportPills.map((t) => (
             <li
               key={t}
-              className="rounded-full border border-rose-200/80 bg-rose-50/80 px-3 py-1.5 text-xs font-medium text-rose-900 sm:text-sm"
+              className="max-w-full text-pretty rounded-full border border-rose-200/80 bg-rose-50/80 px-3 py-1.5 text-xs font-medium text-rose-900 sm:text-sm"
             >
               {t}
             </li>
@@ -188,7 +188,7 @@ export default function WhoWeArePage() {
       </SectionCard>
 
       <section className="border-y border-rose-100/60 bg-white/90 py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
             Partnerships
           </h2>
@@ -218,12 +218,12 @@ export default function WhoWeArePage() {
       </section>
 
       <section className="bg-gradient-to-b from-rose-50/35 to-white py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-pink-600">What We Do</p>
           <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-rose-950 sm:text-3xl">
             What we deliver
           </h2>
-          <ol className="mt-10 grid gap-6 sm:grid-cols-2">
+          <ol className="mt-10 grid min-w-0 gap-6 sm:grid-cols-2">
             {whatWeDo.map((w) => (
               <li
                 key={w.n}
@@ -240,7 +240,7 @@ export default function WhoWeArePage() {
       </section>
 
       <section className="border-t border-rose-100/60 py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 grid min-w-0 gap-6 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25 md:grid-cols-[minmax(0,220px),1fr]">
             <div className="relative mx-auto h-56 w-full max-w-[11rem] shrink-0 overflow-hidden rounded-xl border border-rose-100/80 bg-white md:mx-0 md:w-44">
               <Image
@@ -255,7 +255,7 @@ export default function WhoWeArePage() {
               <h2 className="font-display text-pretty text-xl font-semibold text-rose-950 sm:text-2xl">
                 {instructors[0].name}
               </h2>
-              <p className="mt-1 text-sm font-medium text-pink-700">{instructors[0].role}</p>
+              <p className="mt-1 text-pretty text-sm font-medium text-pink-700">{instructors[0].role}</p>
               <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/80">{instructors[0].body}</p>
               <p className="mt-3 text-pretty text-sm text-rose-800">
                 <span className="font-semibold">Course: </span>
@@ -270,7 +270,7 @@ export default function WhoWeArePage() {
           <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
             Expert faculty
           </h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
             {instructors.slice(1).map((p) => (
               <article
                 key={p.name}
@@ -286,7 +286,7 @@ export default function WhoWeArePage() {
                   />
                 </div>
                 <h3 className="font-display text-pretty text-lg font-semibold text-rose-950">{p.name}</h3>
-                <p className="mt-1 text-sm font-medium text-pink-700">{p.role}</p>
+                <p className="mt-1 text-pretty text-sm font-medium text-pink-700">{p.role}</p>
                 <p className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/75">{p.body}</p>
                 <p className="mt-4 text-pretty text-sm text-rose-800">
                   <span className="font-semibold">Course: </span>
@@ -300,9 +300,9 @@ export default function WhoWeArePage() {
       </section>
 
       <section className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/40 to-white py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl font-semibold text-rose-950 sm:text-3xl">Gallery</h2>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-pretty text-2xl font-semibold text-rose-950 sm:text-3xl">Gallery</h2>
+          <div className="mt-8 grid min-w-0 grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
             {hospitalPartners.slice(0, 12).map((h) => (
               <div
                 key={`who-gallery-${h.id}`}
@@ -325,15 +325,15 @@ export default function WhoWeArePage() {
         id="official-partners"
         className="border-t border-rose-100/70 bg-gradient-to-b from-white to-rose-50/30 py-12 sm:py-20"
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">Official Partner</p>
           <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-rose-950 sm:text-3xl">
             Official partners
           </h2>
 
           <div className="mt-10 min-w-0 space-y-10">
-            <div>
-              <h3 className="text-lg font-semibold text-rose-900">Institute</h3>
+            <div className="min-w-0">
+              <h3 className="text-pretty text-lg font-semibold text-rose-900">Institute</h3>
               <ol className="mt-4 list-decimal space-y-2 pl-5 text-pretty text-sm text-rose-900/85 sm:text-base">
                 {officialPartners.institutes.map((line) => (
                   <li key={line}>{line}</li>
@@ -341,23 +341,23 @@ export default function WhoWeArePage() {
               </ol>
             </div>
             <div className="min-w-0">
-              <h3 className="text-lg font-semibold text-rose-900">Hospital and Clinic in Korea</h3>
+              <h3 className="text-pretty text-lg font-semibold text-rose-900">Hospital and Clinic in Korea</h3>
               <ol className="mt-4 max-h-[24rem] list-decimal space-y-2 overflow-y-auto overflow-x-hidden pr-2 text-pretty text-sm text-rose-900/85 sm:text-base">
                 {officialPartners.hospitalsKorea.map((line) => (
                   <li key={line}>{line}</li>
                 ))}
               </ol>
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-rose-900">Hospital and Clinic in Thailand</h3>
+            <div className="min-w-0">
+              <h3 className="text-pretty text-lg font-semibold text-rose-900">Hospital and Clinic in Thailand</h3>
               <ol className="mt-4 list-decimal space-y-2 pl-5 text-pretty text-sm text-rose-900/85 sm:text-base">
                 {officialPartners.hospitalsThailand.map((line) => (
                   <li key={line}>{line}</li>
                 ))}
               </ol>
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-rose-900">Company</h3>
+            <div className="min-w-0">
+              <h3 className="text-pretty text-lg font-semibold text-rose-900">Company</h3>
               <ol className="mt-4 list-decimal space-y-2 pl-5 text-pretty text-sm text-rose-900/85 sm:text-base">
                 {officialPartners.companies.map((line) => (
                   <li key={line}>{line}</li>

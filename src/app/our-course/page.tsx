@@ -75,16 +75,16 @@ function CourseBlock({
   return (
     <article
       id={id}
-      className="scroll-mt-28 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-lg shadow-rose-100/30 sm:p-8"
+      className="scroll-mt-28 min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-lg shadow-rose-100/30 sm:p-8"
     >
       <h2 className="font-display text-pretty text-lg font-semibold leading-snug text-rose-950 sm:text-xl md:text-2xl">
         {titleMain}
       </h2>
-      <p className="mt-1 text-sm font-medium text-pink-700">{titleSubtitle}</p>
+      <p className="mt-1 text-pretty text-sm font-medium text-pink-700">{titleSubtitle}</p>
       <h3 className="mt-6 text-sm font-semibold uppercase tracking-wide text-rose-800">
         Endorsed by
       </h3>
-      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-rose-900/85">
+      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-rose-900/85 [&_li]:text-pretty">
         {endorsed.map((x) => (
           <li key={x}>{x}</li>
         ))}
@@ -92,7 +92,7 @@ function CourseBlock({
       <h3 className="mt-6 text-sm font-semibold uppercase tracking-wide text-rose-800">
         Certificates after completion
       </h3>
-      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-rose-900/85">
+      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-rose-900/85 [&_li]:text-pretty">
         {certificates.map((x) => (
           <li key={x}>{x}</li>
         ))}
@@ -119,11 +119,11 @@ export default function OurCoursePage() {
       />
 
       <section className="border-b border-rose-100/60 bg-white/90 py-10 sm:py-14">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div className="min-w-0">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-pink-600">KBBA</p>
-              <h2 className="font-display mt-1 text-2xl font-semibold text-rose-950">Our Course</h2>
+              <h2 className="font-display mt-1 text-pretty text-2xl font-semibold text-rose-950">Our Course</h2>
             </div>
             <Link
               href="/start-now"
@@ -132,17 +132,17 @@ export default function OurCoursePage() {
               Register online →
             </Link>
           </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
             {introCourses.map((c) => (
               <Link
                 key={c.id}
                 href={`#${c.id}`}
-                className="group rounded-2xl border border-rose-100/90 bg-gradient-to-b from-rose-50/50 to-white p-5 shadow-sm transition hover:border-pink-200 hover:shadow-md"
+                className="group min-w-0 rounded-2xl border border-rose-100/90 bg-gradient-to-b from-rose-50/50 to-white p-5 shadow-sm transition hover:border-pink-200 hover:shadow-md"
               >
                 <h3 className="font-display text-pretty text-base font-semibold leading-snug text-rose-950 group-hover:text-pink-800">
                   {c.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-rose-900/75">{c.desc}</p>
+                <p className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/75">{c.desc}</p>
                 <span className="mt-4 inline-block text-sm font-medium text-pink-600">See details ↓</span>
               </Link>
             ))}
@@ -151,7 +151,7 @@ export default function OurCoursePage() {
       </section>
 
       <section className="bg-gradient-to-b from-rose-50/35 to-white py-10 sm:py-14">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <p className="text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
             KBBA is a beauty-business training centre officially working with South Korea&apos;s lifelong
             learning institutes and international licensing bodies to deliver legally aligned Korean
@@ -163,7 +163,7 @@ export default function OurCoursePage() {
       </section>
 
       <section className="border-y border-rose-100/60 bg-white py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-pretty text-xl font-semibold text-rose-950 sm:text-2xl">
             International License Institute
           </h2>
@@ -176,8 +176,8 @@ export default function OurCoursePage() {
       </section>
 
       <section className="bg-rose-50/40 py-10 sm:py-14">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-xl font-semibold text-rose-950 sm:text-2xl">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-pretty text-xl font-semibold text-rose-950 sm:text-2xl">
             Business support
           </h2>
           <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
@@ -189,7 +189,7 @@ export default function OurCoursePage() {
             {supportItems.map((t) => (
               <li
                 key={t}
-                className="rounded-full border border-rose-200 bg-white px-3 py-1.5 text-xs font-medium text-rose-900 sm:text-sm"
+                className="max-w-full text-pretty rounded-full border border-rose-200 bg-white px-3 py-1.5 text-xs font-medium text-rose-900 sm:text-sm"
               >
                 {t}
               </li>
@@ -199,15 +199,19 @@ export default function OurCoursePage() {
       </section>
 
       <section className="border-y border-rose-100/70 bg-gradient-to-br from-rose-950 via-fuchsia-950 to-rose-900 py-14 text-center text-white sm:py-20">
-        <div className="mx-auto max-w-3xl px-4">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-rose-200">More than 10 years of</p>
-          <h2 className="font-display mt-2 text-3xl font-semibold sm:text-4xl">COMBINED EXPERIENCE</h2>
-          <p className="mt-4 text-rose-100/90">We have the know-how you need.</p>
+        <div className="mx-auto min-w-0 max-w-3xl px-4">
+          <p className="text-pretty text-sm font-medium uppercase tracking-[0.2em] text-rose-200">
+            More than 10 years of
+          </p>
+          <h2 className="font-display mt-2 text-pretty text-3xl font-semibold sm:text-4xl">
+            COMBINED EXPERIENCE
+          </h2>
+          <p className="mt-4 text-pretty text-rose-100/90">We have the know-how you need.</p>
         </div>
       </section>
 
       <section className="space-y-12 bg-gradient-to-b from-white to-rose-50/30 py-12 sm:space-y-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <CourseBlock
             id="course-legal"
             titleMain="Compliant Korean plastic surgery agency programme"
@@ -216,7 +220,7 @@ export default function OurCoursePage() {
             certificates={certificatesAgency}
           />
         </div>
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <CourseBlock
             id="course-trip"
             titleMain="Agency programme — compliant track with Korea study tour"
@@ -225,7 +229,7 @@ export default function OurCoursePage() {
             certificates={certificatesAgency}
           />
         </div>
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <CourseBlock
             id="course-surgeon"
             titleMain="Surgeon skills training with Korean specialists"

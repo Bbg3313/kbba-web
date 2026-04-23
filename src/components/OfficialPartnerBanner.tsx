@@ -5,8 +5,8 @@ export function OfficialPartnerBanner() {
       aria-labelledby="official-partner-heading"
       className="bg-gradient-to-b from-pink-50/95 via-rose-50/92 to-rose-50/70"
     >
-      <div className="mx-auto max-w-6xl px-4 pb-5 pt-10 text-center sm:px-6 sm:pb-6 lg:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">
+      <div className="mx-auto min-w-0 max-w-6xl px-4 pb-5 pt-10 text-center sm:px-6 sm:pb-6 lg:px-8">
+        <p className="text-pretty text-xs font-semibold uppercase tracking-[0.2em] text-pink-600 sm:tracking-[0.28em]">
           OFFICIAL PARTNER
         </p>
         <h2
@@ -15,7 +15,7 @@ export function OfficialPartnerBanner() {
         >
           KBBA officially connects you with leading Korean hospitals and clinics
         </h2>
-        <p className="mx-auto mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
+        <p className="mx-auto mt-4 max-w-3xl min-w-0 text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
           KBBA works formally with education institutes and more than 40 top-tier plastic surgery
           providers in South Korea — so your training and business operations meet a serious standard.
         </p>

@@ -111,17 +111,17 @@ export default function Home() {
           <div className="absolute -left-24 top-10 h-56 w-56 rounded-full bg-rose-100/40 blur-3xl" />
           <div className="absolute -right-20 bottom-6 h-64 w-64 rounded-full bg-fuchsia-100/35 blur-3xl" />
         </div>
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <header className="max-w-3xl pb-8 sm:pb-16">
+        <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <header className="max-w-3xl min-w-0 pb-8 sm:pb-16">
             <h2 className="text-pretty text-xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
               KOREA BEAUTY BUSINESS ACADEMY
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-rose-900/70 sm:text-base">
+            <p className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base">
               Korea-focused beauty business training institute
             </p>
           </header>
 
-          <div className="grid items-start gap-8 md:grid-cols-[1.25fr_0.75fr] md:gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+          <div className="grid min-w-0 items-start gap-8 md:grid-cols-[1.25fr_0.75fr] md:gap-6 lg:grid-cols-[1.3fr_0.7fr]">
             <div className="relative mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-2xl bg-white sm:aspect-[16/11] sm:max-w-none md:mx-0 md:aspect-[980/558]">
               <Image
                 src={HOME_CONSULTING_VISUAL}
@@ -168,23 +168,23 @@ export default function Home() {
         id="courses"
         className="border-t border-rose-100/60 bg-gradient-to-b from-rose-50/40 via-white to-white py-14 sm:py-20"
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
             Our Course
           </h2>
           <p className="mt-3 max-w-2xl text-pretty text-sm text-rose-900/70 sm:text-base">
             Programme summaries aligned with KBBA&apos;s official Our Course offering.
           </p>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
             {courses.map((c) => (
               <article
                 key={c.name}
-                className="flex flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
+                className="flex min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
               >
                 <h3 className="font-display text-pretty text-base font-semibold leading-snug text-rose-950 sm:text-lg">
                   {c.name}
                 </h3>
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-rose-900/70">{c.note}</p>
+                <p className="mt-4 flex-1 text-pretty text-sm leading-relaxed text-rose-900/70">{c.note}</p>
                 <p className="mt-4 text-xl font-semibold text-rose-950">{c.price}</p>
                 <p className="mt-5">
                   <Link href="/our-course" className="text-sm font-semibold text-pink-700 hover:underline">
@@ -198,18 +198,18 @@ export default function Home() {
       </section>
 
       <section className="border-t border-rose-100/50 bg-gradient-to-b from-rose-50/50 to-white py-14 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
             Articles & news
           </h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid min-w-0 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
               <div
                 key={post.title}
-                className="rounded-2xl border border-dashed border-rose-200/80 bg-white/80 p-5 text-sm font-medium text-rose-900/85 shadow-sm shadow-rose-100/30"
+                className="min-w-0 rounded-2xl border border-dashed border-rose-200/80 bg-white/80 p-5 text-sm font-medium text-rose-900/85 shadow-sm shadow-rose-100/30"
               >
                 <h3 className="text-pretty font-semibold leading-snug text-rose-950">{post.title}</h3>
-                <p className="mt-2 text-xs font-normal text-rose-700/80">{post.excerpt}</p>
+                <p className="mt-2 text-pretty text-xs font-normal leading-relaxed text-rose-700/80">{post.excerpt}</p>
               </div>
             ))}
           </div>
@@ -225,15 +225,15 @@ export default function Home() {
         id="faq"
         className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/40 via-white to-white py-14 sm:py-20"
       >
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center font-display text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
+        <div className="mx-auto min-w-0 max-w-3xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center text-balance font-display text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
             FAQ
           </h2>
-          <div className="mt-10 space-y-4">
+          <div className="mt-10 min-w-0 space-y-4">
             {faqs.map((f, i) => (
               <details
                 key={f.q}
-                className="group rounded-2xl border border-rose-100/90 bg-white/90 px-4 py-3 shadow-sm shadow-rose-100/25 open:shadow-md"
+                className="group min-w-0 rounded-2xl border border-rose-100/90 bg-white/90 px-4 py-3 shadow-sm shadow-rose-100/25 open:shadow-md"
               >
                 <summary className="flex cursor-pointer list-none items-start justify-between gap-2 text-left text-sm font-semibold text-rose-950 sm:items-center sm:gap-3 [&::-webkit-details-marker]:hidden">
                   <span className="flex min-w-0 flex-1 gap-2 sm:gap-3">
@@ -242,7 +242,7 @@ export default function Home() {
                   </span>
                   <span className="mt-0.5 shrink-0 text-rose-300 transition group-open:rotate-180 sm:mt-0">▾</span>
                 </summary>
-                <p className="mt-3 border-t border-rose-100/80 pt-3 text-sm leading-relaxed text-rose-900/75">
+                <p className="mt-3 border-t border-rose-100/80 pt-3 text-pretty text-sm leading-relaxed text-rose-900/75">
                   {f.a}
                 </p>
               </details>

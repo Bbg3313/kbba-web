@@ -28,14 +28,14 @@ export function HeroSection({
         <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-pink-200/30 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-        <div className="grid gap-6 rounded-[2rem] border border-white/70 bg-white/55 p-3 shadow-[0_30px_80px_-40px_rgba(190,24,93,0.45)] backdrop-blur-sm lg:grid-cols-[1.05fr_1fr] lg:items-stretch lg:gap-0 lg:p-5">
+      <div className="relative mx-auto min-w-0 max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+        <div className="grid min-w-0 gap-6 rounded-[2rem] border border-white/70 bg-white/55 p-3 shadow-[0_30px_80px_-40px_rgba(190,24,93,0.45)] backdrop-blur-sm lg:grid-cols-[1.05fr_1fr] lg:items-stretch lg:gap-0 lg:p-5">
           <div className="min-w-0 rounded-[1.5rem] bg-gradient-to-br from-white/85 to-rose-50/75 p-5 sm:p-8 lg:p-10">
-            <p className="inline-flex rounded-full border border-rose-200 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-rose-600">
+            <p className="inline-flex max-w-full text-pretty rounded-full border border-rose-200 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-rose-600">
               Beauty Business Academy
             </p>
 
-            <h1 className="font-display mt-5 text-[clamp(1.55rem,5.2vw,2.8rem)] font-semibold leading-[1.15] tracking-tight text-rose-950 sm:text-4xl lg:text-[2.8rem]">
+            <h1 className="font-display mt-5 text-pretty text-[clamp(1.55rem,5.2vw,2.8rem)] font-semibold leading-[1.15] tracking-tight text-rose-950 sm:text-4xl lg:text-[2.8rem]">
               {HERO_TITLE_LINES[0]}
               <br />
               {HERO_TITLE_LINES[1]}
@@ -43,7 +43,7 @@ export function HeroSection({
               {HERO_TITLE_LINES[2]}
             </h1>
 
-            <p className="mt-5 max-w-xl text-sm leading-relaxed text-rose-900/70 sm:text-base">
+            <p className="mt-5 max-w-xl text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base">
               Korea Beauty Business Academy — a structured path to grow your beauty business
               as a professional agency and Korean hospital coordinator.
             </p>

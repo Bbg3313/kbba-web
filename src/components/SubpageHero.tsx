@@ -7,7 +7,7 @@ type SubpageHeroProps = {
 export function SubpageHero({ eyebrow, title, subtitle }: SubpageHeroProps) {
   return (
     <div className="border-b border-rose-100/80 bg-gradient-to-br from-fuchsia-50/90 via-rose-50/85 to-amber-50/40 px-4 py-10 text-left sm:px-6 sm:py-16 lg:px-8">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto min-w-0 max-w-6xl">
         {eyebrow ? (
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-pink-600 sm:text-xs sm:tracking-[0.28em]">
             {eyebrow}
@@ -17,7 +17,7 @@ export function SubpageHero({ eyebrow, title, subtitle }: SubpageHeroProps) {
           {title}
         </h1>
         {subtitle ? (
-          <p className="mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base sm:text-lg">
+          <p className="mt-4 max-w-3xl min-w-0 text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base sm:text-lg">
             {subtitle}
           </p>
         ) : null}

@@ -5,7 +5,7 @@ import { wixTopStripImages } from "@/data/wix-strip";
 export function WixTopStrip() {
   return (
     <div className="border-b border-rose-100/70 bg-gradient-to-b from-rose-50/70 via-rose-50/40 to-white pb-7 pt-2 sm:pb-11">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-2 rounded-2xl border border-rose-100/80 bg-white/92 px-3 py-3 shadow-[0_20px_50px_-34px_rgba(190,24,93,0.45)] sm:grid-cols-3 sm:gap-4 sm:rounded-3xl sm:px-5 sm:py-4 md:grid-cols-5 md:gap-6 md:px-6 md:py-5 lg:gap-8 lg:px-8">
+      <div className="mx-auto grid min-w-0 max-w-6xl grid-cols-2 gap-2 rounded-2xl border border-rose-100/80 bg-white/92 px-3 py-3 shadow-[0_20px_50px_-34px_rgba(190,24,93,0.45)] sm:grid-cols-3 sm:gap-4 sm:rounded-3xl sm:px-5 sm:py-4 md:grid-cols-5 md:gap-6 md:px-6 md:py-5 lg:gap-8 lg:px-8">
         {wixTopStripImages.map((img, i) => (
           <div
             key={`${img.imageSrc}-${i}`}

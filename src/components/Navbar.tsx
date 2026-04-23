@@ -49,7 +49,7 @@ export function Navbar() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
+        <nav className="hidden min-w-0 flex-1 items-center justify-end gap-0.5 lg:flex" aria-label="Main">
           {navItems.map((item) =>
             "children" in item ? (
               <div
@@ -73,7 +73,7 @@ export function Navbar() {
                       <Link
                         key={c.href + c.label}
                         href={c.href}
-                        className="block px-4 py-2 text-sm leading-snug text-rose-900/85 hover:bg-rose-50/80"
+                        className="block px-4 py-2 text-pretty text-sm leading-snug text-rose-900/85 hover:bg-rose-50/80"
                       >
                         {c.label}
                       </Link>
@@ -126,9 +126,9 @@ export function Navbar() {
       {open && (
         <div
           id="mobile-menu"
-          className="max-h-[min(70vh,calc(100dvh-4.5rem))] overflow-y-auto overscroll-contain border-t border-rose-100 bg-rose-50/40 px-4 py-4 lg:hidden"
+          className="max-h-[min(70vh,calc(100dvh-4.5rem))] min-w-0 overflow-y-auto overscroll-contain border-t border-rose-100 bg-rose-50/40 px-4 py-4 lg:hidden"
         >
-          <div className="flex flex-col gap-1">
+          <div className="flex min-w-0 flex-col gap-1">
             {navItems.map((item) =>
               "children" in item ? (
                 <details key={item.label} className="rounded-lg border border-rose-100 bg-white/90">
@@ -150,7 +150,7 @@ export function Navbar() {
                       <Link
                         key={c.href + c.label}
                         href={c.href}
-                        className="block rounded-md px-3 py-2 text-sm leading-snug text-rose-900/85"
+                        className="block rounded-md px-3 py-2 text-pretty text-sm leading-snug text-rose-900/85"
                         onClick={() => setOpen(false)}
                       >
                         {c.label}
@@ -162,7 +162,7 @@ export function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="rounded-lg px-3 py-3 text-sm font-medium text-rose-900 hover:bg-rose-50"
+                  className="rounded-lg px-3 py-3 text-pretty text-sm font-medium text-rose-900 hover:bg-rose-50"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
