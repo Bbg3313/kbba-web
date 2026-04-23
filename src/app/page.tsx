@@ -7,6 +7,7 @@ import { SiteShell } from "@/components/SiteShell";
 import { TestimonialVideos } from "@/components/TestimonialVideos";
 import { WixTopStrip } from "@/components/WixTopStrip";
 import { HomeConsultRegisterSection } from "@/components/HomeConsultRegisterSection";
+import { HomeRegisterProcessSection } from "@/components/HomeRegisterProcessSection";
 
 const courses = [
   {
@@ -252,6 +253,7 @@ export default function Home() {
         </div>
       </section>
 
+      <HomeRegisterProcessSection />
       <HomeConsultRegisterSection />
     </SiteShell>
   );

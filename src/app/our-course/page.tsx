@@ -99,7 +99,7 @@ function CourseBlock({
       </ul>
       <p className="mt-6">
         <Link
-          href="/start-now"
+          href="/#consult-register"
           className="inline-flex rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-rose-300/40 transition hover:from-rose-500 hover:to-pink-500"
         >
           Details &amp; register
@@ -126,7 +126,7 @@ export default function OurCoursePage() {
               <h2 className="font-display mt-1 text-pretty text-2xl font-semibold text-rose-950">Our Course</h2>
             </div>
             <Link
-              href="/start-now"
+              href="/#consult-register"
               className="inline-flex w-fit items-center rounded-full border-2 border-rose-200 bg-white px-5 py-2.5 text-sm font-semibold text-rose-800 transition hover:border-rose-300"
             >
               Register online →

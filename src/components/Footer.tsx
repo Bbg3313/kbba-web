@@ -68,7 +68,7 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/start-now" className="text-rose-100/85 transition hover:text-white">
+              <Link href="/#consult-register" className="text-rose-100/85 transition hover:text-white">
                 START NOW
               </Link>
             </li>

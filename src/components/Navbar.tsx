@@ -27,7 +27,7 @@ const navItems = [
   },
   { label: "BLOG & NEWS", href: "/blog" },
   { label: "REVIEW", href: "/review" },
-  { label: "START NOW", href: "/start-now" },
+  { label: "START NOW", href: "/#consult-register" },
 ] as const;
 
 export function Navbar() {
