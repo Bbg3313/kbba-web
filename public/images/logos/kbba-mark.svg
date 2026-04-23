@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="48" viewBox="0 0 200 48" role="img" aria-label="KBBA">
+  <defs>
+    <linearGradient id="kbba-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9f1239"/>
+      <stop offset="100%" stop-color="#86198f"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="48" rx="10" fill="url(#kbba-bg)"/>
+  <text x="100" y="31" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="17" font-weight="800" letter-spacing="0.08em" fill="#fff">KBBA</text>
+</svg>

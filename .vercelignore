@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+.cursor
+agent-transcripts
+terminals
+*.log
+*.zip
+_wix-page.html
+who-we-are-live.html
+scripts

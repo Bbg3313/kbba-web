@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff8fa;
+  --foreground: #4a044e;
+  --beauty-rose: #e11d48;
+  --beauty-blush: #fda4af;
+  --beauty-peach: #ffedd5;
+  --beauty-lilac: #fae8ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-noto-thai);
+  --font-display: var(--font-kanit);
+  --color-beauty-rose: #e11d48;
+  --color-beauty-pink: #ec4899;
+  --color-beauty-blush: #fce7f3;
+  --color-beauty-peach: #fff7ed;
+  --color-beauty-lilac: #faf5ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fff8fa;
+    --foreground: #4a044e;
+  }
+}
+
+body {
+  background: linear-gradient(
+    180deg,
+    #fff5f7 0%,
+    #fffdfb 35%,
+    #ffffff 100%
+  );
+  color: var(--foreground);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 55s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
