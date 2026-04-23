@@ -33,11 +33,11 @@ export default function StartNowPage() {
       />
 
       <section className="border-b border-rose-100/60 bg-white/90 py-12">
-        <div className="mx-auto grid min-w-0 max-w-6xl gap-8 px-4 sm:grid-cols-3 sm:px-6 lg:px-8">
+        <div className="mx-auto grid min-w-0 w-full max-w-6xl grid-cols-1 items-stretch gap-4 px-4 sm:grid-cols-3 sm:gap-5 sm:px-6 lg:gap-6 lg:px-8">
           {steps.map((s) => (
             <div
               key={s.n}
-              className="min-w-0 rounded-2xl border border-rose-100/90 bg-gradient-to-b from-rose-50/50 to-white p-6 text-center shadow-sm"
+              className="flex h-full min-h-0 min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-gradient-to-b from-rose-50/50 to-white px-5 py-6 text-center shadow-sm sm:px-6 sm:py-7"
             >
               <p className="font-display text-3xl font-semibold text-pink-600">{s.n}</p>
               <h2 className="mt-2 font-display text-pretty text-lg font-semibold text-rose-950">{s.title}</h2>
@@ -84,9 +84,10 @@ export default function StartNowPage() {
         </div>
       </section>
 
-      <section className="mx-auto min-w-0 max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-        <h2 className="font-display text-pretty text-xl font-semibold text-rose-950">Consult &amp; register</h2>
-        <form className="mt-8 space-y-4" action="#" method="post">
+      <section className="border-t border-rose-100/60 bg-white py-12 sm:py-16">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-pretty text-xl font-semibold text-rose-950">Consult &amp; register</h2>
+          <form className="mt-8 max-w-3xl space-y-4 sm:mt-10" action="#" method="post">
           {(
             [
               ["Full name", "name", "text"],
@@ -143,6 +144,7 @@ export default function StartNowPage() {
             Submit registration
           </button>
         </form>
+        </div>
       </section>
     </SiteShell>
   );
