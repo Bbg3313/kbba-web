@@ -3,19 +3,19 @@ import { hospitalPartners } from "@/data/hospitals";
 
 const partnerLogoAlt = "KBBA partner hospital logo";
 
-/** Featured marquee — slightly smaller on phones so the strip uses less vertical space. */
+/** Featured marquee — sized for readable logos; still compact on very small screens. */
 const marqueeFrameClass =
-  "flex aspect-square w-[5.75rem] shrink-0 flex-col rounded-lg border border-zinc-200/70 bg-zinc-200/40 p-1.5 shadow-sm sm:w-36 sm:rounded-xl sm:p-2 sm:aspect-[5/4] md:w-40 md:p-2.5";
+  "flex aspect-square w-[7.25rem] shrink-0 flex-col rounded-lg border border-zinc-200/70 bg-zinc-200/40 p-2 shadow-sm sm:w-44 sm:rounded-xl sm:p-2.5 sm:aspect-[5/4] md:w-52 md:p-3";
 
 /** Full grid — width follows the cell; extra columns on narrow screens reduce scroll length. */
 const gridFrameClass =
-  "group flex aspect-square w-full min-w-0 flex-col rounded-md border border-zinc-200/70 bg-zinc-200/40 p-1 shadow-sm sm:rounded-lg sm:p-1.5 md:rounded-xl md:p-2";
+  "group flex aspect-square w-full min-w-0 flex-col rounded-md border border-zinc-200/70 bg-zinc-200/40 p-1.5 shadow-sm sm:rounded-lg sm:p-2 md:rounded-xl md:p-2.5";
 
 const partnerLogoMatClass =
   "flex min-h-0 flex-1 items-center justify-center rounded-md bg-white shadow-[inset_0_1px_0_rgba(255,255,255,1),inset_0_0_0_1px_rgba(0,0,0,0.04)] sm:rounded-lg";
 
 const partnerLogoImgClass =
-  "max-h-[78%] max-w-[88%] object-contain transition duration-200 group-hover:scale-[1.03]";
+  "max-h-[88%] max-w-[94%] object-contain transition duration-200 group-hover:scale-[1.03]";
 
 export function HospitalGrid() {
   const marqueeItems = [
@@ -59,7 +59,7 @@ export function HospitalGrid() {
                 aria-hidden
               />
               <div className="border-b border-rose-100/50 bg-gradient-to-b from-rose-50/15 to-transparent py-4 sm:py-5 md:py-6">
-                <div className="flex w-max animate-marquee items-center gap-3 px-2 pr-8 sm:gap-6 sm:px-4 sm:pr-12">
+                <div className="flex w-max animate-marquee items-center gap-4 px-2 pr-8 sm:gap-8 sm:px-4 sm:pr-12">
                   {marqueeItems.map((h, idx) => (
                     <div
                       key={`${h.id}-marquee-${idx}`}
@@ -69,10 +69,10 @@ export function HospitalGrid() {
                         <Image
                           src={h.imageSrc}
                           alt={partnerLogoAlt}
-                          width={200}
-                          height={120}
+                          width={260}
+                          height={140}
                           className={partnerLogoImgClass}
-                          sizes="(max-width: 640px) 92px, 160px"
+                          sizes="(max-width: 640px) 116px, 208px"
                         />
                       </div>
                     </div>
@@ -98,10 +98,10 @@ export function HospitalGrid() {
                     <Image
                       src={h.imageSrc}
                       alt={partnerLogoAlt}
-                      width={200}
-                      height={120}
+                      width={260}
+                      height={140}
                       className={partnerLogoImgClass}
-                      sizes="(max-width: 640px) 20vw, 140px"
+                      sizes="(max-width: 640px) 22vw, 168px"
                     />
                   </div>
                 </article>

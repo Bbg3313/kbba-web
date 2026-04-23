@@ -8,7 +8,7 @@ import officialPartners from "@/data/official-partners.json";
 export const metadata: Metadata = {
   title: "WHO WE ARE",
   description:
-    "Korea Beauty Business Academy — training and partnerships with S.K.I, BBG, and leading Korean institutions.",
+    "KBBA — training and business support for Korea-connected beauty businesses. Partners: S.K.I, BBG, institutes and hospitals.",
 };
 
 const pillars = [
@@ -16,23 +16,25 @@ const pillars = [
     title: "Korean plastic surgery agency business",
     desc: "Structure and support to launch and scale a professional agency.",
     imageSrc:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&h=520&q=82",
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&h=520&q=82",
     imageAlt:
-      "Doctor consulting with a patient in a clinic, representing professional plastic surgery coordination and agency services",
+      "Two professionals shaking hands in a bright office, representing trusted partnerships for Korea-facing agency business",
   },
   {
     title: "Beauty & aesthetics business",
     desc: "Connect services and networks between Thailand and Korea.",
     imageSrc:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee3a37e?auto=format&fit=crop&w=800&h=520&q=82",
-    imageAlt: "Professional makeup station with brushes and cosmetics, representing beauty and aesthetics business",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&h=520&q=82",
+    imageAlt:
+      "Beauty products and cosmetics flat lay, representing aesthetics and beauty industry business",
   },
   {
     title: "Surgeon skills training",
     desc: "Technique programmes with top hospitals in South Korea.",
     imageSrc:
-      "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&h=520&q=82",
-    imageAlt: "Operating theatre lighting and surgical environment, representing hands-on surgeon technique training",
+      "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=800&h=520&q=82",
+    imageAlt:
+      "Sterile surgical environment and clinical focus, representing hands-on surgeon skills training",
   },
 ] as const;
 
@@ -79,49 +81,26 @@ const businessSupportItems = [
   },
 ] as const;
 
-/** Sequential “what we deliver” journey — copy + imagery for landing-style depth. */
-const whatWeDeliver = [
+const whatWeDeliverCards = [
   {
     step: "01",
-    emoji: "📚",
-    title: "Education & skills hub",
-    lead: "Structured learning for Korea-connected plastic surgery and beauty businesses.",
-    body: "KBBA is a dedicated training centre—not a one-off seminar. You move through modules that bridge Thai market reality and Korean hospital culture: consultation tone, cross-border paperwork, risk-aware messaging, and coordinator etiquette. The point is to leave with shared vocabulary, templates, and judgement you can reuse from week one—not slides you never open again.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1524178232363-1e2a58e3c8f6?auto=format&fit=crop&w=900&h=600&q=82",
-    imageAlt: "People in a focused learning environment, representing KBBA’s structured training hub",
+    body: "Comprehensive education in plastic surgery business operations and market strategies.",
   },
   {
     step: "02",
-    emoji: "🤝",
-    title: "Post-training business support",
-    lead: "Help that starts after certificates are issued.",
-    body: "Graduation is the beginning of operations. KBBA keeps specialists beside you for licensing questions, hospital introductions, campaign feedback, and the operational detail that quietly derails new agencies. We shorten the distance between “I understand the model” and “I am running it with fewer blind spots”—without asking you to fund a full back-office on day zero.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&h=600&q=82",
-    imageAlt: "Team collaborating on business planning and client operations after training",
+    body: "Post-training support for setup, compliance, and practical business launch.",
   },
   {
     step: "03",
-    emoji: "🌐",
-    title: "Platform to expand",
-    lead: "A springboard into adjacent beauty and surgery lines.",
-    body: "Once your core offer is stable, KBBA’s network and curriculum are meant to compound: new city partners, complementary programmes, or deeper Korean clinic relationships. You are not boxed into a single product—the ecosystem is built so disciplined operators can widen revenue and trust without rebuilding from scratch each time.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&h=600&q=82",
-    imageAlt: "Analytics and strategy workspace, symbolising growth and expansion beyond the first service line",
+    body: "Expansion into broader beauty business opportunities in the Korean market.",
   },
   {
     step: "04",
-    emoji: "⚕️",
-    title: "Surgeon technique programmes",
-    lead: "Korean technique intensives for practising doctors.",
-    body: "Separate from agency tracks, KBBA hosts hands-on programmes led by specialist Korean plastic surgeons. Practising physicians refine approaches that map to real operating workflows—case discussion, technique detail, and standards you can defend to patients and peers. It is continuing education for teams that need depth, not conference headlines alone.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=900&h=600&q=82",
-    imageAlt: "Operating theatre environment representing advanced surgical technique training",
+    body: "Surgeon-focused technique programmes led by experienced Korean specialists.",
   },
 ] as const;
+
+const koreaPartnersPreview = officialPartners.hospitalsKorea.slice(0, 18);
 
 const instructors = [
   {
@@ -131,8 +110,9 @@ const instructors = [
     body: "Executive with Surgery Korea Info (S.K.I), a Korea-focused plastic surgery information and agency business. She brings 10+ years of professional experience across the Korean plastic surgery market—bridging client expectations, hospital protocols, and compliant agency operations.",
     course: "Practical Korean plastic surgery consulting programme",
     tag: "@SKI.May",
-    imageSrc: hospitalPartners[17]?.imageSrc,
+    imageSrc: "/images/faculty/may-kanyanat-sutpa.png",
     imageAlt: "May Kanyanat Sutpa — Surgery Korea Info",
+    portraitClassName: "object-cover object-[50%_28%]",
   },
   {
     name: "Prof. Lee Eun-young",
@@ -141,8 +121,9 @@ const instructors = [
     body: "Professor specialising in hospital operations and coordinator practice, aligned with the International License Institute and Korea’s lifelong learning pathways—grounding KBBA’s coordinator track in documentation, etiquette, and real ward realities.",
     course: "Hospital coordinator programme",
     tag: "Lee Eun-young",
-    imageSrc: hospitalPartners[14]?.imageSrc,
+    imageSrc: "/images/faculty/lee-eun-young.png",
     imageAlt: "Professor Lee Eun-young",
+    portraitClassName: "object-contain object-center",
   },
   {
     name: "Sun Sathapon Wisakasat",
@@ -151,8 +132,9 @@ const instructors = [
     body: "Online marketing specialist for beauty and clinic brands: finding the right audiences, building content that carries a consultative tone, and engineering follow-up so campaigns actually close—without vanity metrics that waste ad spend.",
     course: "Digital marketing programme",
     tag: "Son Digital Marketing",
-    imageSrc: hospitalPartners[16]?.imageSrc,
+    imageSrc: "/images/faculty/sun-sathapon-wisakasat.png",
     imageAlt: "Sun Sathapon Wisakasat",
+    portraitClassName: "object-contain object-[52%_45%]",
   },
   {
     name: "Dr. Cho In-chang",
@@ -161,8 +143,9 @@ const instructors = [
     body: "Plastic surgeon with 20+ years in practice. BIO Plastic Surgery has delivered structured surgical education for more than a decade—including delicate aesthetic work recognised at the highest public level, alongside technique programmes for practising surgeons.",
     course: "Surgical technique training for doctors",
     tag: "Cho In-chang",
-    imageSrc: hospitalPartners[24]?.imageSrc,
+    imageSrc: "/images/faculty/cho-in-chang.png",
     imageAlt: "Dr. Cho In-chang — BIO Plastic Surgery",
+    portraitClassName: "object-cover object-[50%_42%]",
   },
 ] as const;
 
@@ -172,16 +155,27 @@ export default function WhoWeArePage() {
       <SubpageHero
         eyebrow="KBBA — KOREA BEAUTY BUSINESS ACADEMY"
         title="WHO WE ARE"
-        subtitle="Training and resources for Korea beauty businesses — in partnership with Surgery Korea Info (S.K.I), Blue Bridge Global (BBG) in South Korea, and leading institutes and hospitals."
+        subtitle="Training and business support for Thailand–Korea beauty and surgery ventures—with S.K.I, BBG in Korea, and a network of institutes and hospitals."
       />
 
-      <div className="border-b border-rose-100/60 bg-white/80">
-        <div className="mx-auto min-w-0 max-w-6xl space-y-6 px-4 py-10 sm:px-6 lg:px-8">
-          <p className="text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
-            We specialise in Thailand–Korea beauty businesses across the region. From first steps in compliant
-            agency work to advanced programmes, KBBA provides training plus launch and scale-up support so teams can
-            reach their goals faster.
-          </p>
+      <div className="border-b border-rose-100/60 bg-white/90">
+        <div className="mx-auto grid min-w-0 max-w-6xl gap-3 px-4 py-7 sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-8 lg:px-8">
+          <div className="rounded-xl border border-rose-100/90 bg-rose-50/40 px-4 py-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-pink-700">Focus</p>
+            <p className="mt-1 text-pretty text-sm text-rose-900/85">Thailand–Korea beauty business and compliant agency operations.</p>
+          </div>
+          <div className="rounded-xl border border-rose-100/90 bg-rose-50/40 px-4 py-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-pink-700">Partners</p>
+            <p className="mt-1 text-pretty text-sm text-rose-900/85">
+              Surgery Korea Info (S.K.I), Blue Bridge Global (BBG), institutes and hospitals.
+            </p>
+          </div>
+          <div className="rounded-xl border border-rose-100/90 bg-rose-50/40 px-4 py-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-pink-700">What you get</p>
+            <p className="mt-1 text-pretty text-sm text-rose-900/85">
+              Programmes from foundations to advanced tracks, plus launch and scale-up support.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -262,19 +256,20 @@ export default function WhoWeArePage() {
             KBBA works officially with hospitals and clinics in the network plus Korean accreditation bodies so
             curricula and business support meet international expectations.
           </p>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-rose-100/90 bg-white py-4 shadow-sm">
-            <div className="flex w-max animate-marquee items-center gap-6 px-4 pr-10">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-rose-100/90 bg-white py-5 shadow-sm sm:py-6">
+            <div className="flex w-max animate-marquee items-center gap-8 px-4 pr-10 sm:gap-10 sm:px-6 sm:pr-12">
               {[...hospitalPartners, ...hospitalPartners].map((h, i) => (
                 <div
                   key={`${h.id}-who-${i}`}
-                  className="flex h-16 w-28 shrink-0 items-center justify-center"
+                  className="flex h-20 w-36 shrink-0 items-center justify-center sm:h-24 sm:w-44"
                 >
                   <Image
                     src={h.imageSrc}
                     alt="Partner logo"
-                    width={140}
-                    height={80}
+                    width={220}
+                    height={110}
                     className="max-h-full w-auto object-contain"
+                    sizes="(max-width: 640px) 144px, 176px"
                   />
                 </div>
               ))}
@@ -286,69 +281,39 @@ export default function WhoWeArePage() {
       <section
         id="what-we-deliver"
         aria-labelledby="what-we-deliver-heading"
-        className="relative overflow-x-clip bg-gradient-to-b from-rose-50/50 via-white to-rose-50/25 py-14 sm:py-20"
+        className="border-y border-rose-100/60 bg-gradient-to-b from-rose-50/55 via-white to-white py-12 sm:py-16"
       >
-        <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(251,113,133,0.12),transparent)]"
-          aria-hidden
-        />
-        <div className="relative mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">What we do</p>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">What we do</p>
           <h2
             id="what-we-deliver-heading"
-            className="font-display mt-2 text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl lg:text-[2rem]"
+            className="font-display mt-2 text-center text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl"
           >
-            What we deliver — in order
+            What We Deliver
           </h2>
-          <p className="mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
-            Four linked chapters, from classroom to operating theatre: learn the Korea-facing playbook, run with
-            post-training support, widen your footprint, and—where clinically appropriate—level up surgeon technique
-            with Korean specialists.
+          <p className="mx-auto mt-4 max-w-3xl text-center text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
+            Four focused outcomes designed for teams building Korea-connected beauty and surgery businesses.
           </p>
 
-          <ol className="relative mt-12 flex min-w-0 list-none flex-col gap-8 sm:gap-10 lg:gap-12">
-            {whatWeDeliver.map((item, i) => (
-              <li key={item.step} className="relative min-w-0">
-                {i > 0 ? (
-                  <div
-                    className="absolute -top-4 left-6 hidden h-4 w-px bg-gradient-to-b from-rose-200 to-transparent sm:left-8 md:block lg:left-10"
-                    aria-hidden
-                  />
-                ) : null}
-                <article
-                  className={`overflow-hidden rounded-2xl border border-rose-100/90 bg-white/95 shadow-[0_20px_50px_-28px_rgba(190,24,93,0.35)] ring-1 ring-rose-50/80 md:flex md:min-h-[280px] ${
-                    i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
-                  }`}
+          <ol className="mt-10 grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {whatWeDeliverCards.map((item) => (
+              <li
+                key={item.step}
+                className="group flex min-h-[230px] flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-5 shadow-md shadow-rose-100/25 transition hover:-translate-y-0.5 hover:border-pink-200/80 hover:shadow-lg hover:shadow-rose-100/35"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="font-display text-4xl italic leading-none text-rose-900/90">{item.step}</span>
+                  <span className="h-px flex-1 bg-gradient-to-r from-rose-200/80 to-transparent" aria-hidden />
+                </div>
+                <p className="mt-5 text-pretty text-sm font-semibold leading-relaxed text-rose-900/85 sm:text-base">
+                  {item.body}
+                </p>
+                <div
+                  className="mt-auto pt-4 text-xs font-medium uppercase tracking-[0.22em] text-pink-600/85"
+                  aria-hidden
                 >
-                  <div className="relative h-52 w-full shrink-0 sm:h-60 md:h-auto md:min-h-[260px] md:w-[44%] lg:w-[42%]">
-                    <Image
-                      src={item.imageSrc}
-                      alt={item.imageAlt}
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 768px) 100vw, 42vw"
-                    />
-                    <div
-                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-rose-950/25 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-white/15"
-                      aria-hidden
-                    />
-                    <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/70 bg-white/90 px-3 py-1 text-xs font-bold text-rose-950 shadow-sm backdrop-blur-sm sm:left-5 sm:top-5">
-                      <span className="text-base leading-none" aria-hidden>
-                        {item.emoji}
-                      </span>
-                      <span className="tracking-wide">Step {item.step}</span>
-                    </div>
-                  </div>
-                  <div className="flex min-w-0 flex-1 flex-col justify-center px-5 py-6 sm:px-7 sm:py-8 lg:px-10 lg:py-10">
-                    <h3 className="font-display text-pretty text-xl font-semibold text-rose-950 sm:text-2xl">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-pretty text-sm font-medium text-pink-800/90 sm:text-base">{item.lead}</p>
-                    <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/78 sm:text-[0.95rem] sm:leading-[1.7]">
-                      {item.body}
-                    </p>
-                  </div>
-                </article>
+                  KBBA
+                </div>
               </li>
             ))}
           </ol>
@@ -388,17 +353,14 @@ export default function WhoWeArePage() {
                 }`}
               >
                 <div className="relative shrink-0">
-                  <div
-                    className="absolute left-1/2 top-1/2 h-[min(100%,13.5rem)] w-[min(100%,13.5rem)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-zinc-100 via-rose-50/80 to-zinc-100/90 sm:h-56 sm:w-56"
-                    aria-hidden
-                  />
-                  <div className="relative h-44 w-44 overflow-hidden rounded-full border-[5px] border-white shadow-[0_20px_50px_-24px_rgba(190,24,93,0.45)] ring-1 ring-rose-100/70 sm:h-52 sm:w-52">
+                  <div className="relative h-44 w-44 overflow-hidden rounded-full bg-[#d9dce5] sm:h-52 sm:w-52">
                     <Image
                       src={person.imageSrc}
                       alt={person.imageAlt}
                       fill
-                      className="bg-white object-contain p-3 sm:p-4"
+                      className={person.portraitClassName}
                       sizes="(max-width: 768px) 176px, 208px"
+                      priority={index < 2}
                     />
                   </div>
                 </div>
@@ -434,41 +396,107 @@ export default function WhoWeArePage() {
         className="border-t border-rose-100/70 bg-gradient-to-b from-white to-rose-50/30 py-12 sm:py-20"
       >
         <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">Official Partner</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">Official partners</p>
           <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-rose-950 sm:text-3xl">
             Official partners
           </h2>
+          <p className="mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
+            A curated snapshot of our trusted network across institutes, clinics, and partner companies.
+          </p>
 
-          <div className="mt-10 min-w-0 space-y-10">
-            <div className="min-w-0">
-              <h3 className="text-pretty text-lg font-semibold text-rose-900">Institute</h3>
-              <ol className="mt-4 list-decimal space-y-2 pl-5 text-pretty text-sm text-rose-900/85 sm:text-base">
+          <div className="mt-10 grid min-w-0 gap-5 lg:grid-cols-12">
+            <div className="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-5 shadow-md shadow-rose-100/20 lg:col-span-4">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="font-display text-pretty text-lg font-semibold text-rose-950">
+                  <span className="mr-2" aria-hidden>
+                    🏛️
+                  </span>
+                  Institutes
+                </h3>
+                <span className="rounded-full bg-rose-100 px-2.5 py-1 text-xs font-semibold text-rose-800">
+                  {officialPartners.institutes.length}
+                </span>
+              </div>
+              <ul className="mt-4 space-y-2">
                 {officialPartners.institutes.map((line) => (
-                  <li key={line}>{line}</li>
+                  <li
+                    key={line}
+                    className="rounded-xl border border-rose-100/80 bg-rose-50/55 px-3 py-2 text-sm text-rose-900/85"
+                  >
+                    {line}
+                  </li>
                 ))}
-              </ol>
+              </ul>
             </div>
-            <div className="min-w-0">
-              <h3 className="text-pretty text-lg font-semibold text-rose-900">Hospital and Clinic in Korea</h3>
-              <ol className="mt-4 max-h-[24rem] list-decimal space-y-2 overflow-y-auto overflow-x-hidden pr-2 text-pretty text-sm text-rose-900/85 sm:text-base">
-                {officialPartners.hospitalsKorea.map((line) => (
-                  <li key={line}>{line}</li>
+
+            <div className="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-5 shadow-md shadow-rose-100/20 lg:col-span-8">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="font-display text-pretty text-lg font-semibold text-rose-950">
+                  <span className="mr-2" aria-hidden>
+                    🇰🇷
+                  </span>
+                  Hospitals & Clinics in Korea
+                </h3>
+                <span className="rounded-full bg-pink-100 px-2.5 py-1 text-xs font-semibold text-pink-800">
+                  {officialPartners.hospitalsKorea.length}
+                </span>
+              </div>
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                {koreaPartnersPreview.map((line) => (
+                  <li
+                    key={line}
+                    className="rounded-xl border border-rose-100/80 bg-white px-3 py-2 text-sm text-rose-900/85 shadow-sm shadow-rose-100/20"
+                  >
+                    {line}
+                  </li>
                 ))}
-              </ol>
+              </ul>
+              {officialPartners.hospitalsKorea.length > koreaPartnersPreview.length ? (
+                <p className="mt-4 text-xs font-medium uppercase tracking-[0.18em] text-pink-700/90">
+                  + {officialPartners.hospitalsKorea.length - koreaPartnersPreview.length} more Korea partners in our
+                  network
+                </p>
+              ) : null}
             </div>
-            <div className="min-w-0">
-              <h3 className="text-pretty text-lg font-semibold text-rose-900">Hospital and Clinic in Thailand</h3>
-              <ol className="mt-4 list-decimal space-y-2 pl-5 text-pretty text-sm text-rose-900/85 sm:text-base">
+
+            <div className="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-5 shadow-md shadow-rose-100/20 lg:col-span-6">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="font-display text-pretty text-lg font-semibold text-rose-950">
+                  <span className="mr-2" aria-hidden>
+                    🏥
+                  </span>
+                  Hospitals & Clinics in Thailand
+                </h3>
+                <span className="rounded-full bg-rose-100 px-2.5 py-1 text-xs font-semibold text-rose-800">
+                  {officialPartners.hospitalsThailand.length}
+                </span>
+              </div>
+              <ol className="mt-4 list-none space-y-2 text-sm text-rose-900/85">
                 {officialPartners.hospitalsThailand.map((line) => (
-                  <li key={line}>{line}</li>
+                  <li key={line} className="rounded-xl border border-rose-100/80 bg-rose-50/55 px-3 py-2">
+                    {line}
+                  </li>
                 ))}
               </ol>
             </div>
-            <div className="min-w-0">
-              <h3 className="text-pretty text-lg font-semibold text-rose-900">Company</h3>
-              <ol className="mt-4 list-decimal space-y-2 pl-5 text-pretty text-sm text-rose-900/85 sm:text-base">
+
+            <div className="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-5 shadow-md shadow-rose-100/20 lg:col-span-6">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="font-display text-pretty text-lg font-semibold text-rose-950">
+                  <span className="mr-2" aria-hidden>
+                    🤝
+                  </span>
+                  Companies
+                </h3>
+                <span className="rounded-full bg-rose-100 px-2.5 py-1 text-xs font-semibold text-rose-800">
+                  {officialPartners.companies.length}
+                </span>
+              </div>
+              <ol className="mt-4 list-none space-y-2 text-sm text-rose-900/85">
                 {officialPartners.companies.map((line) => (
-                  <li key={line}>{line}</li>
+                  <li key={line} className="rounded-xl border border-rose-100/80 bg-rose-50/55 px-3 py-2">
+                    {line}
+                  </li>
                 ))}
               </ol>
             </div>
