@@ -12,8 +12,9 @@ const stats = [
     value: "3,000++",
     label: "Estimated market demand for professional surgery agency services",
     imageSrc:
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=640&h=480&q=82",
-    imageAlt: "Team consultation at a table, representing agency and client coordination demand",
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=640&h=480&q=82",
+    imageAlt:
+      "Doctor consulting with a patient in a clinic, representing demand for professional plastic surgery agency and coordination services",
   },
   {
     value: "60++",

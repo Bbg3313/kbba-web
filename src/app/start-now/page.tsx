@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteShell } from "@/components/SiteShell";
 import { SubpageHero } from "@/components/SubpageHero";
 import { HomeConsultRegisterSection } from "@/components/HomeConsultRegisterSection";
+import { RegisterStepsCards } from "@/components/RegisterStepsCards";
 import { SITE_EMAIL_FORM, SITE_PHONE_KR, SITE_ADDRESS_SEOUL_START } from "@/data/site-contact";
 import { SITE_FACEBOOK_URL, SITE_LINE_URL } from "@/data/site-links";
 
@@ -9,12 +10,6 @@ export const metadata: Metadata = {
   title: "START NOW",
   description: "How to register for KBBA training — steps and contact details.",
 };
-
-const steps = [
-  { n: "01", title: "Register", desc: "Fill the form or contact our team." },
-  { n: "02", title: "Contract & training", desc: "Complete the agreed onboarding steps." },
-  { n: "03", title: "Launch your agency", desc: "Ongoing support after you graduate." },
-] as const;
 
 export default function StartNowPage() {
   return (
@@ -26,18 +21,10 @@ export default function StartNowPage() {
       />
 
       <section className="border-b border-rose-100/60 bg-white/90 py-12">
-        <div className="mx-auto grid min-w-0 w-full max-w-6xl grid-cols-1 items-stretch gap-3 px-4 sm:grid-cols-3 sm:gap-4 sm:px-6 lg:gap-5 lg:px-8">
-          {steps.map((s) => (
-            <div
-              key={s.n}
-              className="flex h-full min-h-0 min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-gradient-to-b from-rose-50/50 to-white px-4 py-6 text-center shadow-sm sm:px-5 sm:py-7"
-            >
-              <p className="font-display text-3xl font-semibold text-pink-600">{s.n}</p>
-              <h2 className="mt-2 font-display text-pretty text-lg font-semibold text-rose-950">{s.title}</h2>
-              <p className="mt-2 text-pretty text-sm text-rose-900/75">{s.desc}</p>
-            </div>
-          ))}
-        </div>
+        <RegisterStepsCards
+          gridClassName="mx-auto grid min-w-0 w-full max-w-6xl grid-cols-1 items-stretch gap-3 px-4 sm:grid-cols-3 sm:gap-4 sm:px-6 lg:gap-5 lg:px-8"
+          cardClassName="flex h-full min-h-0 min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-gradient-to-b from-rose-50/50 to-white px-4 pb-6 pt-6 text-center shadow-sm sm:px-5 sm:pb-7 sm:pt-7"
+        />
       </section>
 
       <section className="bg-gradient-to-b from-rose-50/40 to-white py-12 sm:py-16">

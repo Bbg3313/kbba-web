@@ -5,6 +5,7 @@ import {
   SITE_ADDRESS_SEOUL_FOOTER,
   SITE_EMAIL_DISPLAY,
   SITE_LEGAL_BUSINESS_NAME,
+  SITE_PHONE_KR,
 } from "@/data/site-contact";
 import { SocialBrandIconRow } from "@/components/SocialBrandIconRow";
 
@@ -44,6 +45,13 @@ export function Footer() {
           <p className="mt-4 text-sm text-rose-200/75">
             <a href={`mailto:${SITE_EMAIL_DISPLAY}`} className="hover:text-white">
               {SITE_EMAIL_DISPLAY}
+            </a>
+            <br />
+            <a
+              href={`tel:${SITE_PHONE_KR.replace(/-/g, "")}`}
+              className="mt-2 inline-block font-medium text-rose-100 hover:text-white"
+            >
+              {SITE_PHONE_KR}
             </a>
             <br />
             <span className="mt-2 block break-words text-rose-300/80">{SITE_ADDRESS_SEOUL_FOOTER}</span>

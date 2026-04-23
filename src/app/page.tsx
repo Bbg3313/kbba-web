@@ -98,19 +98,25 @@ export default function Home() {
 
           <HomeAcademyIntroBlock />
 
-          <div className="mt-10 grid min-w-0 items-start gap-8 md:grid-cols-[1.25fr_0.75fr] md:gap-6 lg:mt-14 lg:grid-cols-[1.3fr_0.7fr]">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-2xl bg-white sm:aspect-[16/11] sm:max-w-none md:mx-0 md:aspect-[980/558] md:min-h-[300px] lg:min-h-[340px]">
-              <Image
-                src={HOME_CONSULTING_VISUAL}
-                alt="KBBA presenter visual"
-                fill
-                className="object-contain object-[4%_100%] sm:object-[2%_100%] md:object-[0%_100%]"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
+          <div className="mt-10 grid min-w-0 items-start gap-y-10 rounded-2xl border border-rose-100/50 bg-white/40 px-4 py-8 shadow-sm shadow-rose-100/20 sm:gap-y-12 sm:px-6 sm:py-10 md:grid-cols-[1.52fr_0.48fr] md:gap-x-12 md:gap-y-10 md:px-7 md:py-11 lg:mt-14 lg:grid-cols-[1.58fr_0.42fr] lg:gap-x-16 lg:px-8 lg:py-12">
+            <div className="relative isolate w-full max-w-none justify-self-stretch overflow-visible">
+              <div className="relative aspect-[4/5] min-h-[300px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 via-white to-pink-50/80 p-4 shadow-md shadow-rose-100/50 ring-1 ring-rose-100/80 sm:aspect-[16/11] sm:min-h-[360px] sm:p-5 md:aspect-[980/558] md:min-h-[400px] md:p-6 lg:min-h-[460px] lg:p-7 xl:min-h-[500px]">
+                <Image
+                  src={HOME_CONSULTING_VISUAL}
+                  alt="KBBA presenter visual"
+                  fill
+                  className="object-contain object-[6%_100%] origin-bottom scale-[1.06] sm:object-[3%_100%] sm:scale-[1.08] md:object-[0%_100%] md:scale-[1.1] lg:scale-[1.12]"
+                  sizes="(max-width: 768px) 100vw, 62vw"
+                  priority
+                />
+              </div>
             </div>
-            <div className="flex min-w-0 flex-col gap-4 text-left md:items-end md:text-right">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)] sm:aspect-[16/11] md:aspect-[980/558]">
+            <div className="flex min-w-0 flex-col gap-6 text-left md:items-end md:gap-7 md:pl-2 md:text-right lg:gap-8 lg:pl-4">
+              <p className="text-pretty text-base leading-relaxed text-zinc-900 sm:text-lg">
+                &ldquo;Become a certified beauty consultant with strong earning potential — and earn your
+                Korean hospital coordinator credentials with us.&rdquo;
+              </p>
+              <div className="relative aspect-[4/3] w-full max-w-xl overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)] sm:aspect-[16/11] md:ml-auto md:aspect-[980/558] md:max-w-md lg:max-w-lg">
                 <Image
                   src={HOME_CONSULTING_CERT_IMAGE}
                   alt="Hospital coordinator certificates"
@@ -119,10 +125,6 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <p className="text-pretty text-base leading-relaxed text-zinc-900 sm:text-lg">
-                &ldquo;Become a certified beauty consultant with strong earning potential — and earn your
-                Korean hospital coordinator credentials with us.&rdquo;
-              </p>
               <a
                 href="https://line.me/R/ti/p/@756xidmw"
                 target="_blank"
@@ -175,7 +177,7 @@ export default function Home() {
       </section>
 
       <div
-        className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/55 via-[#fff8fb] to-rose-50/55 pb-12 sm:pb-16"
+        className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/55 via-[#fff8fb] to-rose-50/55 pb-0"
         role="region"
         aria-label="Registration and consultation"
       >
@@ -185,7 +187,7 @@ export default function Home() {
 
       <section
         id="faq"
-        className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/40 via-white to-white py-14 sm:py-20"
+        className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/55 via-rose-50/35 to-white pb-14 pt-6 sm:pb-20 sm:pt-8"
       >
         <div className="mx-auto min-w-0 max-w-3xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-balance font-display text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">

@@ -78,7 +78,7 @@ export function HomeConsultRegisterSection() {
       className="scroll-mt-28"
     >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="w-full overflow-hidden rounded-none border-rose-100/80 shadow-[0_20px_50px_-36px_rgba(190,24,93,0.2)] lg:mb-10 lg:mt-2 lg:rounded-2xl lg:border lg:border-rose-100/90">
+        <div className="w-full overflow-hidden rounded-none border-rose-100/80 shadow-[0_20px_50px_-36px_rgba(190,24,93,0.2)] lg:mb-0 lg:mt-2 lg:rounded-2xl lg:border lg:border-rose-100/90">
           <div className="grid min-h-0 lg:grid-cols-12">
           {/* Brand column */}
           <div className="relative order-1 flex min-h-[15.5rem] flex-col justify-between px-6 py-8 sm:min-h-[17rem] sm:px-8 sm:py-10 lg:order-none lg:col-span-4 lg:min-h-[22rem] lg:px-8 lg:py-10">
