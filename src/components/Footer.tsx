@@ -16,7 +16,7 @@ export function Footer() {
       id="contact"
       className="border-t border-rose-200/40 bg-gradient-to-b from-rose-950 via-fuchsia-950 to-rose-950 text-rose-100/90"
     >
-      <div className="mx-auto grid min-w-0 max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-3 lg:px-8">
+      <div className="mx-auto grid min-w-0 max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-12 lg:px-8">
         <div className="min-w-0">
           <Link
             href="/"
@@ -36,48 +36,6 @@ export function Footer() {
             Korea Beauty Business Academy — training and partner network connecting Korean
             hospitals and clinics with beauty businesses, plus practical online marketing programmes.
           </p>
-        </div>
-        <div className="min-w-0">
-          <h3 className="text-pretty text-sm font-semibold uppercase tracking-wide text-rose-50">
-            Main menu
-          </h3>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              <Link href="/" className="text-rose-100/85 transition hover:text-white">
-                HOME
-              </Link>
-            </li>
-            <li>
-              <Link href="/who-we-are" className="text-rose-100/85 transition hover:text-white">
-                WHO WE ARE
-              </Link>
-            </li>
-            <li>
-              <Link href="/our-course" className="text-rose-100/85 transition hover:text-white">
-                OUR COURSE
-              </Link>
-            </li>
-            <li>
-              <Link href="/review" className="text-rose-100/85 transition hover:text-white">
-                REVIEW
-              </Link>
-            </li>
-            <li>
-              <Link href="/#consult-register" className="text-rose-100/85 transition hover:text-white">
-                START NOW
-              </Link>
-            </li>
-            <li>
-              <Link href="/#partners" className="text-rose-100/85 transition hover:text-white">
-                Partners (home)
-              </Link>
-            </li>
-            <li>
-              <Link href="/#faq" className="text-rose-100/85 transition hover:text-white">
-                FAQ
-              </Link>
-            </li>
-          </ul>
         </div>
         <div className="min-w-0">
           <h3 className="text-pretty text-sm font-semibold uppercase tracking-wide text-rose-50">
