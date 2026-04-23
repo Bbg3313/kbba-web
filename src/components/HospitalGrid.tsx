@@ -71,49 +71,22 @@ export function HospitalGrid() {
           <p className="mb-4 text-center text-[0.7rem] font-medium uppercase tracking-[0.22em] text-rose-400/90 sm:text-left sm:text-xs">
             Full partner grid
           </p>
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-rose-200/35 bg-gradient-to-b from-white/90 via-rose-50/20 to-pink-50/15 p-4 shadow-[0_28px_80px_-48px_rgba(190,24,93,0.22),inset_0_1px_0_rgba(255,255,255,0.85)] sm:p-5 md:p-6">
-            <div
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-10%,rgba(251,113,133,0.09),transparent_52%),radial-gradient(ellipse_70%_45%_at_100%_100%,rgba(244,114,182,0.06),transparent_50%)]"
-              aria-hidden
-            />
-            <div className="relative grid min-w-0 grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-3.5 md:grid-cols-4 md:gap-4 lg:grid-cols-5 lg:gap-4 xl:grid-cols-6">
-              {hospitalPartners.map((h, i) => (
-                <article key={h.id} className="group relative aspect-square min-h-0 sm:aspect-[5/4]">
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-rose-200/55 via-white to-pink-100/45 p-px shadow-[0_10px_28px_-14px_rgba(190,24,93,0.18)] transition-all duration-500 group-hover:from-rose-300/50 group-hover:shadow-[0_18px_40px_-12px_rgba(244,63,94,0.28),0_0_0_1px_rgba(251,113,133,0.12)]">
-                    <div
-                      className={`relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[calc(1rem-1px)] ${
-                        i % 2 === 0
-                          ? "bg-gradient-to-b from-white via-rose-50/[0.12] to-stone-100/35"
-                          : "bg-gradient-to-b from-stone-50/90 via-white to-rose-50/25"
-                      } `}
-                    >
-                      <div
-                        className="pointer-events-none absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/95 via-white/35 to-transparent"
-                        aria-hidden
-                      />
-                      <div
-                        className="pointer-events-none absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-rose-950/[0.04] via-transparent to-transparent"
-                        aria-hidden
-                      />
-                      <div
-                        className="pointer-events-none absolute inset-[8%] rounded-xl bg-gradient-to-b from-white/25 to-transparent opacity-70"
-                        aria-hidden
-                      />
-                      <div
-                        className="pointer-events-none absolute inset-y-[-15%] -left-2/3 z-20 w-[70%] -translate-x-full skew-x-[-16deg] bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 blur-[0.5px] transition duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-[320%] group-hover:opacity-100"
-                        aria-hidden
-                      />
-                      <div className="relative z-10 flex h-full w-full items-center justify-center p-2.5 sm:p-3.5">
-                        <Image
-                          src={h.imageSrc}
-                          alt={partnerLogoAlt}
-                          width={200}
-                          height={120}
-                          className="max-h-[82%] max-w-[90%] object-contain opacity-[0.88] drop-shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition duration-500 ease-out group-hover:scale-[1.05] group-hover:opacity-100 group-hover:drop-shadow-[0_4px_14px_rgba(190,24,93,0.12)]"
-                          sizes="(max-width: 640px) 45vw, 160px"
-                        />
-                      </div>
-                    </div>
+          <div className="rounded-2xl border border-zinc-200/90 bg-zinc-100/80 p-3 shadow-sm sm:p-4 md:p-5">
+            <div className="grid min-w-0 grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-3.5 lg:grid-cols-5 lg:gap-3.5 xl:grid-cols-6">
+              {hospitalPartners.map((h) => (
+                <article
+                  key={h.id}
+                  className="group flex aspect-square min-h-0 flex-col rounded-xl border border-zinc-200/70 bg-zinc-200/40 p-2 shadow-sm transition duration-200 hover:border-rose-200/70 hover:bg-zinc-200/55 hover:shadow-md sm:aspect-[5/4] sm:p-2.5"
+                >
+                  <div className="flex min-h-0 flex-1 items-center justify-center rounded-lg bg-white shadow-[inset_0_1px_0_rgba(255,255,255,1),inset_0_0_0_1px_rgba(0,0,0,0.04)]">
+                    <Image
+                      src={h.imageSrc}
+                      alt={partnerLogoAlt}
+                      width={200}
+                      height={120}
+                      className="max-h-[78%] max-w-[88%] object-contain transition duration-200 group-hover:scale-[1.03]"
+                      sizes="(max-width: 640px) 45vw, 160px"
+                    />
                   </div>
                 </article>
               ))}
