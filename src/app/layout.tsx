@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Kanit, Noto_Sans_Thai } from "next/font/google";
 import { LineFloatingButton } from "@/components/LineFloatingButton";
 import "./globals.css";
@@ -19,6 +19,12 @@ const kanit = Kanit({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://jsmh8292.wixsite.com/korea-beauty-busines";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#fff5f7",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

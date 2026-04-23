@@ -36,6 +36,7 @@ body {
     #ffffff 100%
   );
   color: var(--foreground);
+  overflow-x: clip;
 }
 
 @keyframes marquee {

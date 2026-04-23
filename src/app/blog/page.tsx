@@ -48,7 +48,9 @@ export default function BlogPage() {
           {posts.map((post) => (
             <li key={post.title}>
               <article className="flex h-full flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25 transition hover:border-pink-200 hover:shadow-lg">
-                <h2 className="font-display text-lg font-semibold text-rose-950">{post.title}</h2>
+                <h2 className="font-display text-pretty text-lg font-semibold leading-snug text-rose-950">
+                  {post.title}
+                </h2>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-rose-900/75">{post.excerpt}</p>
               </article>
             </li>

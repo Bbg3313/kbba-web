@@ -52,7 +52,7 @@ export default function StartNowPage() {
           <h2 className="font-display text-xl font-semibold text-rose-950 sm:text-2xl">
             KOREA BEAUTY BUSINESS ACADEMY
           </h2>
-          <address className="mt-4 not-italic text-sm leading-relaxed text-rose-900/80">
+          <address className="mt-4 not-italic break-words text-sm leading-relaxed text-rose-900/80">
             {SITE_ADDRESS_SEOUL_START}
             <br />
             <a href={`tel:${SITE_PHONE_KR.replace(/\s/g, "")}`} className="font-medium text-pink-700">

@@ -37,15 +37,15 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-rose-100/90 bg-white/80 shadow-sm shadow-rose-100/20 backdrop-blur-lg">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
+      <div className="mx-auto flex max-w-6xl min-w-0 items-center justify-between gap-2 px-3 py-2.5 sm:gap-4 sm:px-6 sm:py-3 lg:px-8">
+        <Link href="/" className="flex min-w-0 shrink items-center gap-2">
           <Image
             src={brandSrc}
             alt="Korea Beauty Business Academy"
             width={340}
             height={150}
             priority
-            className="h-16 w-auto max-w-[320px] object-contain object-left sm:h-20 sm:max-w-[360px]"
+            className="h-11 w-auto max-w-[220px] object-contain object-left sm:h-16 sm:max-w-[280px] lg:h-20 lg:max-w-[360px]"
           />
         </Link>
 
@@ -101,7 +101,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-lg border border-rose-200 bg-white/80 p-2 text-rose-900 lg:hidden"
+          className="inline-flex shrink-0 items-center justify-center rounded-lg border border-rose-200 bg-white/80 p-2 text-rose-900 touch-manipulation lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
@@ -126,7 +126,7 @@ export function Navbar() {
       {open && (
         <div
           id="mobile-menu"
-          className="border-t border-rose-100 bg-rose-50/40 px-4 py-4 lg:hidden"
+          className="max-h-[min(70vh,calc(100dvh-4.5rem))] overflow-y-auto overscroll-contain border-t border-rose-100 bg-rose-50/40 px-4 py-4 lg:hidden"
         >
           <div className="flex flex-col gap-1">
             {navItems.map((item) =>

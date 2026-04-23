@@ -77,7 +77,9 @@ function CourseBlock({
       id={id}
       className="scroll-mt-28 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-lg shadow-rose-100/30 sm:p-8"
     >
-      <h2 className="font-display text-xl font-semibold text-rose-950 sm:text-2xl">{titleTh}</h2>
+      <h2 className="font-display text-pretty text-lg font-semibold leading-snug text-rose-950 sm:text-xl md:text-2xl">
+        {titleTh}
+      </h2>
       <p className="mt-1 text-sm font-medium text-pink-700">{titleEn}</p>
       <h3 className="mt-6 text-sm font-semibold uppercase tracking-wide text-rose-800">
         รับรองหลักสูตรโดย
@@ -137,7 +139,7 @@ export default function OurCoursePage() {
                 href={`#${c.id}`}
                 className="group rounded-2xl border border-rose-100/90 bg-gradient-to-b from-rose-50/50 to-white p-5 shadow-sm transition hover:border-pink-200 hover:shadow-md"
               >
-                <h3 className="font-display text-base font-semibold text-rose-950 group-hover:text-pink-800">
+                <h3 className="font-display text-pretty text-base font-semibold leading-snug text-rose-950 group-hover:text-pink-800">
                   {c.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-rose-900/75">{c.desc}</p>

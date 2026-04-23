@@ -12,11 +12,11 @@ export function OfficialPartnerBanner() {
         </p>
         <h2
           id="official-partner-heading"
-          className="font-display mt-3 text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-800 to-fuchsia-800 sm:text-2xl"
+          className="font-display mt-3 text-pretty text-lg font-semibold leading-snug text-transparent bg-clip-text bg-gradient-to-r from-rose-800 to-fuchsia-800 sm:text-2xl sm:leading-normal"
         >
           KBBA เชื่อมโยงพันธมิตรโรงพยาบาลและคลินิกชั้นนำในเกาหลีอย่างเป็นทางการ
         </h2>
-        <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-rose-900/75 sm:text-base">
+        <p className="mx-auto mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
           KBBA ร่วมมืออย่างเป็นทางการกับสถาบันการศึกษาและโรงพยาบาลศัลยกรรมชั้นนำกว่า 40 แห่งในเกาหลีใต้
           เพื่อการอบรมและการทำธุรกิจอย่างมีมาตรฐาน
         </p>

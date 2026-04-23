@@ -33,7 +33,7 @@ export default function ReviewPage() {
 
       <section className="border-b border-rose-100/60 bg-white/90 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <figure className="rounded-2xl border border-rose-100/90 bg-gradient-to-br from-rose-50/60 to-white p-8 shadow-md">
+          <figure className="rounded-2xl border border-rose-100/90 bg-gradient-to-br from-rose-50/60 to-white p-4 shadow-md sm:p-8">
             <figcaption className="text-sm font-semibold text-pink-700">
               คุณ อาร์ม อาริณี — เจ้าของธุรกิจเอเจนซี่ Look at me by Arinee
             </figcaption>

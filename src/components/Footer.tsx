@@ -92,7 +92,7 @@ export function Footer() {
               {SITE_EMAIL_DISPLAY}
             </a>
             <br />
-            <span className="mt-2 block text-rose-300/80">{SITE_ADDRESS_SEOUL_FOOTER}</span>
+            <span className="mt-2 block break-words text-rose-300/80">{SITE_ADDRESS_SEOUL_FOOTER}</span>
           </p>
           <p className="mt-3 text-sm text-rose-200/75">
             ทีมงานพร้อมให้คำปรึกษาเรื่องคอร์สและการเชื่อมโยงโรงพยาบาลในเกาหลี

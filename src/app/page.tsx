@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { HospitalGrid } from "@/components/HospitalGrid";
 import { OfficialPartnerBanner } from "@/components/OfficialPartnerBanner";
 import { SiteShell } from "@/components/SiteShell";
+import { TestimonialVideos } from "@/components/TestimonialVideos";
 import { WixTopStrip } from "@/components/WixTopStrip";
 
 const courses = [
@@ -103,14 +104,16 @@ export default function Home() {
         <WixTopStrip />
         <HospitalGrid />
 
-        <section className="relative overflow-hidden border-b border-rose-100/70 bg-white py-10 sm:py-14">
+        <TestimonialVideos />
+
+        <section className="relative overflow-x-clip border-b border-rose-100/70 bg-white py-8 sm:py-14">
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute -left-24 top-10 h-56 w-56 rounded-full bg-rose-100/40 blur-3xl" />
             <div className="absolute -right-20 bottom-6 h-64 w-64 rounded-full bg-fuchsia-100/35 blur-3xl" />
           </div>
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <header className="max-w-3xl pb-12 sm:pb-16">
-              <h2 className="text-2xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
+          <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <header className="max-w-3xl pb-8 sm:pb-16">
+              <h2 className="text-pretty text-xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
                 KOREA BEAUTY BUSINESS ACADEMY
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-rose-900/70 sm:text-base">
@@ -118,21 +121,19 @@ export default function Home() {
               </p>
             </header>
 
-            <div className="relative z-10 grid items-start gap-5 md:grid-cols-[1.3fr_0.7fr] md:gap-6">
-              <div className="relative aspect-[980/558] overflow-visible rounded-2xl bg-white">
-                <div className="absolute -bottom-3 right-0 h-[118%] w-[140%]">
-                  <Image
-                    src={HOME_CONSULTING_VISUAL}
-                    alt="KBBA presenter visual"
-                    fill
-                    className="object-contain object-right-bottom"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
-                </div>
+            <div className="grid items-start gap-8 md:grid-cols-[1.25fr_0.75fr] md:gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-2xl bg-white sm:aspect-[16/11] sm:max-w-none md:mx-0 md:aspect-[980/558]">
+                <Image
+                  src={HOME_CONSULTING_VISUAL}
+                  alt="KBBA presenter visual"
+                  fill
+                  className="object-contain object-bottom sm:object-right-bottom"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
               </div>
-              <div className="flex flex-col items-end text-right">
-                <div className="relative aspect-[980/558] w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)]">
+              <div className="flex min-w-0 flex-col gap-4 text-left md:items-end md:text-right">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)] sm:aspect-[16/11] md:aspect-[980/558]">
                   <Image
                     src={HOME_CONSULTING_CERT_IMAGE}
                     alt="Hospital coordinator certificates"
@@ -141,7 +142,7 @@ export default function Home() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
-                <p className="mt-5 text-[1.12rem] leading-[1.6] text-zinc-900 sm:text-[1.26rem]">
+                <p className="text-pretty text-base leading-relaxed text-zinc-900 sm:text-lg">
                   "มาร่วมเป็นที่ปรึกษาความงามมืออาชีพที่ผ่านการรับรองและมีรายได้สูง
                   พร้อมรับใบรับรองผู้ประสานงานโรงพยาบาลเกาหลีกับเรากันค่ะ"
                 </p>
@@ -149,10 +150,12 @@ export default function Home() {
                   href="https://line.me/R/ti/p/@756xidmw"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-3 rounded-full border-2 border-black bg-[#e200d8] px-5 py-2.5 text-base font-bold text-white shadow-[0_4px_0_#000,0_14px_24px_-16px_rgba(226,0,216,0.85)] transition duration-200 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_5px_0_#000,0_20px_30px_-16px_rgba(226,0,216,0.95)]"
+                  className="inline-flex min-h-11 w-full flex-wrap items-center justify-center gap-2 rounded-full border-2 border-black bg-[#e200d8] px-4 py-3 text-center text-sm font-bold text-white shadow-[0_4px_0_#000,0_14px_24px_-16px_rgba(226,0,216,0.85)] transition duration-200 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_5px_0_#000,0_20px_30px_-16px_rgba(226,0,216,0.95)] sm:w-auto sm:flex-nowrap sm:px-5 sm:text-base md:ml-auto"
                 >
-                  <span>สอบถาม “ว่าคุณ” เหมาะกับคอร์สนี้หรือไม่</span>
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white text-lg leading-none text-[#e200d8]">
+                  <span className="max-w-[20rem] sm:max-w-none">
+                    สอบถาม “ว่าคุณ” เหมาะกับคอร์สนี้หรือไม่
+                  </span>
+                  <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-lg leading-none text-[#e200d8]">
                     ›
                   </span>
                 </a>
@@ -178,7 +181,7 @@ export default function Home() {
                   key={c.name}
                   className="flex flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
                 >
-                  <h3 className="font-display text-lg font-semibold text-rose-950">
+                  <h3 className="font-display text-pretty text-base font-semibold leading-snug text-rose-950 sm:text-lg">
                     {c.name}
                   </h3>
                   <p className="mt-4 flex-1 text-sm leading-relaxed text-rose-900/70">{c.note}</p>
@@ -205,7 +208,7 @@ export default function Home() {
                   key={post.title}
                   className="rounded-2xl border border-dashed border-rose-200/80 bg-white/80 p-5 text-sm font-medium text-rose-900/85 shadow-sm shadow-rose-100/30"
                 >
-                  <h3 className="font-semibold text-rose-950">{post.title}</h3>
+                  <h3 className="text-pretty font-semibold leading-snug text-rose-950">{post.title}</h3>
                   <p className="mt-2 text-xs font-normal text-rose-700/80">{post.excerpt}</p>
                 </div>
               ))}
@@ -232,12 +235,12 @@ export default function Home() {
                   key={f.q}
                   className="group rounded-2xl border border-rose-100/90 bg-white/90 px-4 py-3 shadow-sm shadow-rose-100/25 open:shadow-md"
                 >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-rose-950 [&::-webkit-details-marker]:hidden">
-                    <span className="flex gap-3">
-                      <span className="text-pink-600">{String(i + 1).padStart(2, "0")}</span>
-                      {f.q}
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-2 text-left text-sm font-semibold text-rose-950 sm:items-center sm:gap-3 [&::-webkit-details-marker]:hidden">
+                    <span className="flex min-w-0 flex-1 gap-2 sm:gap-3">
+                      <span className="shrink-0 text-pink-600">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-pretty">{f.q}</span>
                     </span>
-                    <span className="text-rose-300 transition group-open:rotate-180">▾</span>
+                    <span className="mt-0.5 shrink-0 text-rose-300 transition group-open:rotate-180 sm:mt-0">▾</span>
                   </summary>
                   <p className="mt-3 border-t border-rose-100/80 pt-3 text-sm leading-relaxed text-rose-900/75">
                     {f.a}
