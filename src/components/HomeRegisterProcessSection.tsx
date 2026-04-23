@@ -8,7 +8,7 @@ const steps = [
 export function HomeRegisterProcessSection() {
   return (
     <div id="register-process" aria-labelledby="register-process-heading">
-      <div className="mx-auto min-w-0 max-w-5xl px-4 pb-2 pt-10 sm:px-6 sm:pb-3 sm:pt-12 lg:px-8">
+      <div className="mx-auto min-w-0 w-full max-w-6xl px-4 pb-2 pt-10 sm:px-6 sm:pb-3 sm:pt-12 lg:px-8">
         <p className="text-xs font-bold uppercase tracking-[0.22em] text-pink-600 sm:text-[0.7rem]">
           START NOW
         </p>

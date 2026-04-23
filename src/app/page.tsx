@@ -98,14 +98,14 @@ export default function Home() {
 
           <HomeAcademyIntroBlock />
 
-          <div className="mt-10 grid min-w-0 items-start gap-8 md:grid-cols-[1.5fr_0.5fr] md:gap-6 lg:mt-14 lg:grid-cols-[1.58fr_0.42fr]">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-2xl bg-white sm:aspect-[16/11] sm:max-w-none md:mx-0 md:aspect-[980/558] md:min-h-[300px] lg:min-h-[380px]">
+          <div className="mt-10 grid min-w-0 items-start gap-8 md:grid-cols-[1.25fr_0.75fr] md:gap-6 lg:mt-14 lg:grid-cols-[1.3fr_0.7fr]">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-2xl bg-white sm:aspect-[16/11] sm:max-w-none md:mx-0 md:aspect-[980/558] md:min-h-[300px] lg:min-h-[340px]">
               <Image
                 src={HOME_CONSULTING_VISUAL}
                 alt="KBBA presenter visual"
                 fill
-                className="object-contain object-bottom origin-bottom scale-[1.14] sm:object-right-bottom sm:scale-[1.18] md:scale-[1.22] lg:scale-[1.26]"
-                sizes="(max-width: 768px) 100vw, 58vw"
+                className="object-contain object-[4%_100%] sm:object-[2%_100%] md:object-[0%_100%]"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 priority
               />
             </div>
