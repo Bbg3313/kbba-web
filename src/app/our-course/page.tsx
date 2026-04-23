@@ -9,33 +9,6 @@ export const metadata: Metadata = {
     "KBBA — compliant Korean plastic surgery agency training, Korea study tours, and surgeon skills programmes.",
 };
 
-const introCourses = [
-  {
-    title: "Compliant Korean plastic surgery agency programme",
-    desc: "For people starting an agency, consulting, or working in hospital / clinic plastic surgery.",
-    id: "course-legal" as const,
-  },
-  {
-    title: "Agency programme with a study tour in Korea",
-    desc: "For those who want agency or consulting careers plus observation experience at Korean hospitals.",
-    id: "course-trip" as const,
-  },
-  {
-    title: "Skills training with Korean plastic surgeons",
-    desc: "For surgeons who want to sharpen skills and learn techniques from Korean specialists.",
-    id: "course-surgeon" as const,
-  },
-] as const;
-
-const supportItems = [
-  "Business advisory",
-  "Data & promotions",
-  "Documentation",
-  "Transfers",
-  "Interpreter support",
-  "Partner hospitals",
-] as const;
-
 const endorsedBy = [
   "International License Institute",
   "Long Life Education Institute, South Korea",
@@ -132,21 +105,6 @@ export default function OurCoursePage() {
               Register online →
             </Link>
           </div>
-          <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
-            {introCourses.map((c) => (
-              <Link
-                key={c.id}
-                href={`#${c.id}`}
-                className="group min-w-0 rounded-2xl border border-rose-100/90 bg-gradient-to-b from-rose-50/50 to-white p-5 shadow-sm transition hover:border-pink-200 hover:shadow-md"
-              >
-                <h3 className="font-display text-pretty text-base font-semibold leading-snug text-rose-950 group-hover:text-pink-800">
-                  {c.title}
-                </h3>
-                <p className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/75">{c.desc}</p>
-                <span className="mt-4 inline-block text-sm font-medium text-pink-600">See details ↓</span>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -172,29 +130,6 @@ export default function OurCoursePage() {
             certification pathways so graduates can apply the knowledge to medical-service careers —
             including agency work, consulting, and hospital or aesthetic clinic roles.
           </p>
-        </div>
-      </section>
-
-      <section className="bg-rose-50/40 py-10 sm:py-14">
-        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-pretty text-xl font-semibold text-rose-950 sm:text-2xl">
-            Business support
-          </h2>
-          <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
-            KBBA is not only a training institute — we continue to support your business after the
-            programme so you can start immediately without extra capital, with a team backing you
-            across operations.
-          </p>
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {supportItems.map((t) => (
-              <li
-                key={t}
-                className="max-w-full text-pretty rounded-full border border-rose-200 bg-white px-3 py-1.5 text-xs font-medium text-rose-900 sm:text-sm"
-              >
-                {t}
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
