@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SITE_FACEBOOK_URL, SITE_INSTAGRAM_URL, SITE_LINE_URL } from "@/data/site-links";
 
@@ -46,19 +47,18 @@ export function SocialBrandIconRow({ size = "md", className = "" }: SocialBrandI
         href={SITE_LINE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${tile} ${dim} rounded-[0.45rem] bg-[#06C755] focus-visible:outline-emerald-500`}
+        className={`${tile} ${dim} rounded-[0.5rem] bg-[#06C755] p-[3px] focus-visible:outline-emerald-500`}
         aria-label="LINE"
       >
-        <svg className={size === "lg" ? "h-6 w-6" : "h-5 w-5"} viewBox="0 0 32 32" aria-hidden>
-          <path
-            fill="#ffffff"
-            d="M26 15.2c0 4.4-4.5 8-10 8-.9 0-1.8-.1-2.6-.3L8 25l1.1-4.2C8.4 19.6 8 17.4 8 15.2 8 10.8 12.5 7 18 7s8 3.8 8 8.2z"
+        <span className="flex h-full w-full items-center justify-center rounded-[0.35rem] bg-white">
+          <Image
+            src="/images/shared/line-icon.svg"
+            alt=""
+            width={36}
+            height={36}
+            className={size === "lg" ? "h-8 w-8 object-contain" : "h-7 w-7 object-contain"}
           />
-          <path
-            fill="#06C755"
-            d="M13.5 12.5h1v5h-1zm2.5 0h1.2c.9 0 1.5.5 1.5 1.3 0 .8-.6 1.3-1.5 1.3H17v2.4h-1zm1.1 2.1c.4 0 .7-.2.7-.6s-.3-.6-.7-.6H17v1.2zm3.1-2.1h1v5h-1z"
-          />
-        </svg>
+        </span>
       </Link>
     </div>
   );

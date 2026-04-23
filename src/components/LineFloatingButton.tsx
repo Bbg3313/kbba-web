@@ -7,22 +7,20 @@ export function LineFloatingButton() {
       href={SITE_LINE_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-[100] flex items-center gap-2 rounded-full bg-[#06C755] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-900/20 ring-2 ring-white/90 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 sm:px-5 sm:text-base"
+      className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-[100] flex items-center gap-3 rounded-full bg-[#06C755] py-2.5 pl-2.5 pr-5 text-[0.9375rem] font-bold tracking-wide text-white shadow-[0_6px_24px_rgba(6,199,85,0.45)] ring-2 ring-white/95 transition hover:bg-[#05b34c] hover:shadow-[0_8px_28px_rgba(6,199,85,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#06C755] sm:py-3 sm:pl-3 sm:pr-6 sm:text-base"
       aria-label="Contact us on LINE"
     >
-      <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full bg-white/15">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white shadow-[inset_0_1px_0_rgba(255,255,255,1)] sm:h-12 sm:w-12">
         <Image
           src="/images/shared/line-icon.svg"
           alt=""
-          width={32}
-          height={32}
-          className="object-contain p-1"
+          width={40}
+          height={40}
+          className="h-9 w-9 object-contain sm:h-10 sm:w-10"
           priority
         />
       </span>
-      <span className="max-w-[10rem] text-pretty leading-tight sm:max-w-none">
-        LINE us
-      </span>
+      <span className="max-w-[9.5rem] text-pretty leading-tight sm:max-w-none">LINE us</span>
     </a>
   );
 }
