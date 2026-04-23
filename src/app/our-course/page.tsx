@@ -159,6 +159,11 @@ export default function OurCoursePage() {
             <div className="min-w-0">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-pink-600">KBBA</p>
               <h2 className="font-display mt-1 text-pretty text-2xl font-semibold text-rose-950">Our Course</h2>
+              <p className="mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
+                KBBA partners with the International License Institute to offer hospital coordinator certification
+                pathways so graduates can apply the knowledge to medical-service careers — including agency work,
+                consulting, and hospital or aesthetic clinic roles.
+              </p>
             </div>
             <Link
               href="/#consult-register"
@@ -202,19 +207,6 @@ export default function OurCoursePage() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      <section className="border-y border-rose-100/60 bg-white py-12 sm:py-16">
-        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-pretty text-xl font-semibold text-rose-950 sm:text-2xl">
-            International License Institute
-          </h2>
-          <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
-            KBBA partners with the International License Institute to offer hospital coordinator
-            certification pathways so graduates can apply the knowledge to medical-service careers —
-            including agency work, consulting, and hospital or aesthetic clinic roles.
-          </p>
         </div>
       </section>
 
