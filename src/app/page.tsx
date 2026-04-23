@@ -6,6 +6,7 @@ import { OfficialPartnerBanner } from "@/components/OfficialPartnerBanner";
 import { SiteShell } from "@/components/SiteShell";
 import { TestimonialVideos } from "@/components/TestimonialVideos";
 import { WixTopStrip } from "@/components/WixTopStrip";
+import { HomeConsultRegisterSection } from "@/components/HomeConsultRegisterSection";
 
 const courses = [
   {
@@ -250,6 +251,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <HomeConsultRegisterSection />
     </SiteShell>
   );
 }

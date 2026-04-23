@@ -5,3 +5,6 @@ export const SITE_LINE_URL =
 export const SITE_FACEBOOK_URL =
   process.env.NEXT_PUBLIC_FACEBOOK_URL ??
   "https://www.facebook.com/kbba.agency/";
+
+export const SITE_INSTAGRAM_URL =
+  process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "https://www.instagram.com/";
