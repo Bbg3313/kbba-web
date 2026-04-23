@@ -47,18 +47,16 @@ export function SocialBrandIconRow({ size = "md", className = "" }: SocialBrandI
         href={SITE_LINE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${tile} ${dim} rounded-[0.5rem] bg-[#06C755] p-[3px] focus-visible:outline-emerald-500`}
+        className={`${tile} ${dim} flex items-center justify-center overflow-hidden rounded-2xl bg-[#06C755] ring-1 ring-black/10 focus-visible:outline-emerald-500`}
         aria-label="LINE"
       >
-        <span className="flex h-full w-full items-center justify-center rounded-[0.35rem] bg-white">
-          <Image
-            src="/images/shared/line-icon.svg"
-            alt=""
-            width={36}
-            height={36}
-            className={size === "lg" ? "h-8 w-8 object-contain" : "h-7 w-7 object-contain"}
-          />
-        </span>
+        <Image
+          src="/images/shared/line-brand-logo.svg"
+          alt=""
+          width={128}
+          height={128}
+          className="h-[92%] w-[92%] object-contain"
+        />
       </Link>
     </div>
   );
