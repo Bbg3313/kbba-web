@@ -25,7 +25,6 @@ const navItems = [
       },
     ],
   },
-  { label: "BLOG & NEWS", href: "/blog" },
   { label: "REVIEW", href: "/review" },
   { label: "START NOW", href: "/#consult-register" },
 ] as const;

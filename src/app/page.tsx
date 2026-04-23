@@ -27,34 +27,6 @@ const courses = [
   },
 ] as const;
 
-const blogPosts = [
-  {
-    title: "KBBA & Mabel Clinic — aftercare in Thailand after surgery in Korea",
-    excerpt:
-      "KBBA focuses on full-cycle service before and after the sale. With Mabel Clinic, patients receive follow-up care after surgery from experienced physicians...",
-  },
-  {
-    title: "KBBA & Hi' Seoul Clinic — continuous care when clients return home",
-    excerpt:
-      "Comfort and outcomes matter. Together with Hi' Seoul Clinic, KBBA supports clients with a full Korean-style aesthetic clinic experience...",
-  },
-  {
-    title: "Why is the Korean plastic surgery agency business growing?",
-    excerpt:
-      "Korean government statistics show tens of thousands of medical travellers each year — among the highest globally — seeking surgery in Korea...",
-  },
-  {
-    title: "Why formal agency training matters",
-    excerpt:
-      "Agency work demands deep expertise. Without structured training and experience, it is difficult to build a sustainable, compliant business...",
-  },
-  {
-    title: "Why build your agency journey with KBBA",
-    excerpt:
-      "Operating a medical tourism / agency business in Korea requires the right licences for attracting foreign patients — KBBA aligns you with the legal framework...",
-  },
-] as const;
-
 const faqs = [
   {
     q: "What does KBBA offer clinics outside Korea?",
@@ -196,30 +168,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="border-t border-rose-100/50 bg-gradient-to-b from-rose-50/50 to-white py-14 sm:py-20">
-        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
-            Articles & news
-          </h2>
-          <div className="mt-8 grid min-w-0 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {blogPosts.map((post) => (
-              <div
-                key={post.title}
-                className="min-w-0 rounded-2xl border border-dashed border-rose-200/80 bg-white/80 p-5 text-sm font-medium text-rose-900/85 shadow-sm shadow-rose-100/30"
-              >
-                <h3 className="text-pretty font-semibold leading-snug text-rose-950">{post.title}</h3>
-                <p className="mt-2 text-pretty text-xs font-normal leading-relaxed text-rose-700/80">{post.excerpt}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-6 text-sm text-rose-900/70">
-            <Link href="/blog" className="font-semibold text-pink-700 hover:underline">
-              View all articles
-            </Link>
-          </p>
         </div>
       </section>
 
