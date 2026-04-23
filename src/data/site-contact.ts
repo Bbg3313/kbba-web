@@ -1,4 +1,4 @@
-/** ข้อมูลติดต่อตามหน้า Wix (footer / START NOW) */
+/** Contact details (footer / START NOW). */
 export const SITE_EMAIL_DISPLAY = "kbba.thai@gmail.com";
 export const SITE_EMAIL_FORM = "kbba.co.th@gmail.com";
 export const SITE_PHONE_KR = "+82-10-4164-3263";

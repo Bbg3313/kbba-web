@@ -6,69 +6,69 @@ import { SubpageHero } from "@/components/SubpageHero";
 export const metadata: Metadata = {
   title: "OUR COURSE",
   description:
-    "หลักสูตรเอเจนซี่ศัลยกรรมเกาหลีแบบถูกกฎหมาย ศึกษาดูงานเกาหลี และเทรนนิ่งอัพสกิลกับศัลยแพทย์ — KBBA",
+    "KBBA — compliant Korean plastic surgery agency training, Korea study tours, and surgeon skills programmes.",
 };
 
 const introCourses = [
   {
-    title: "หลักสูตรสร้างเอเจนซี่ศัลยกรรมเกาหลีแบบถูกต้องตามกฎหมาย",
-    desc: "เหมาะสำหรับผู้ที่ต้องการเริ่มต้นธุรกิจเอเจนซี่, ที่ปรึกษาศัลยกรรม, พนักงานโรงพยาบาลศัลยกรรม/คลีนิก",
+    title: "Compliant Korean plastic surgery agency programme",
+    desc: "For people starting an agency, consulting, or working in hospital / clinic plastic surgery.",
     id: "course-legal" as const,
   },
   {
-    title: "หลักสูตรสร้างเอเจนซี่ศัลยกรรมพร้อมศึกษาดูงานที่ประเทศเกาหลี",
-    desc: "เหมาะสำหรับผู้ที่ต้องการเริ่มต้นธุรกิจเอเจนซี่, ที่ปรึกษาศัลยกรรม และประสบการณ์ศึกษาดูงาน ณ โรงพยาบาลเกาหลี",
+    title: "Agency programme with a study tour in Korea",
+    desc: "For those who want agency or consulting careers plus observation experience at Korean hospitals.",
     id: "course-trip" as const,
   },
   {
-    title: "หลักสูตรสร้างเทรนนิ่งอัพสกิลกับศัลยแพทย์เกาหลี",
-    desc: "เหมาะสำหรับศัลยแพทย์ที่ต้องการฝึกฝนทักษะการศัลยกรรมและเรียนรู้เทคนิคจากศัลยแพทย์เกาหลี",
+    title: "Skills training with Korean plastic surgeons",
+    desc: "For surgeons who want to sharpen skills and learn techniques from Korean specialists.",
     id: "course-surgeon" as const,
   },
 ] as const;
 
 const supportItems = [
-  "ที่ปรึกษาทางธุรกิจ",
-  "ข้อมูลและโปรโมชั่น",
-  "เอกสารต่างๆ",
-  "รถรับ-ส่ง",
-  "ล่ามดูแลลูกค้า",
-  "โรงพยาบาลในเครือ",
+  "Business advisory",
+  "Data & promotions",
+  "Documentation",
+  "Transfers",
+  "Interpreter support",
+  "Partner hospitals",
 ] as const;
 
 const endorsedBy = [
-  "สถาบันใบอนุญาตระหว่างประเทศ (International License Institute)",
-  "สถาบันการศึกษาตลอดชีพ ประเทศเกาหลีใต้ (Long Life Education Institute)",
-  "หลักสูตรผ่านมาตรฐานของกระทรวงสาธารณะสุขเกาหลีใต้",
-  "บริษัท Blue Bridge Global จำกัด (จดทะเบียนธุรกิจดึงดูดผู้ป่วยต่างชาติในเกาหลีอย่างถูกกฎหมาย และร่วมมืออย่างเป็นทางการกับ Gangnam Medical Tour Center องค์กรการส่งเสริมการท่องเที่ยวเชิงการแพทย์เกาหลี)",
+  "International License Institute",
+  "Long Life Education Institute, South Korea",
+  "Curriculum aligned with South Korea Ministry of Health standards",
+  "Blue Bridge Global Co., Ltd. (legally registered foreign patient attraction business in Korea, official collaboration with Gangnam Medical Tour Center)",
 ] as const;
 
 const certificatesAgency = [
-  "ใบรับรองการผ่านการอบรมหลักสูตรที่ปรึกษาศัลยกรรมเกาหลี",
-  "ใบรับรองผู้ประสานงานโรงพยาบาล",
-  "บัตรประจำตัว License ผู้ประสานงานโรงพยาบาล (สามารถใช้ยื่นประกอบการสมัครงานระดับโรงพยาบาลในเกาหลีได้)",
+  "Certificate — Korean plastic surgery consultant programme",
+  "Hospital coordinator certificate",
+  "Hospital coordinator licence ID (may be used when applying for hospital-level roles in Korea)",
 ] as const;
 
 const endorsedSurgeon = [
-  "โรงพยาบาลศัลยกรรมบีไอโอ",
-  "หลักสูตรผ่านมาตรฐานของกระทรวงสาธารณะสุขเกาหลีใต้",
-  "บริษัท Blue Bridge Global จำกัด (จดทะเบียนธุรกิจดึงดูดผู้ป่วยต่างชาติในเกาหลีอย่างถูกกฎหมาย และร่วมมืออย่างเป็นทางการกับ Gangnam Medical Tour Center องค์กรการส่งเสริมการท่องเที่ยวเชิงการแพทย์เกาหลี)",
+  "BIO Plastic Surgery Hospital",
+  "Curriculum aligned with South Korea Ministry of Health standards",
+  "Blue Bridge Global Co., Ltd. (legally registered foreign patient attraction business in Korea, official collaboration with Gangnam Medical Tour Center)",
 ] as const;
 
 const certificateSurgeon = [
-  "ใบรับรองการผ่านการอบรมเทคนิคการทำศัลยกรรมเกาหลี",
+  "Certificate — Korean plastic surgery techniques training",
 ] as const;
 
 function CourseBlock({
   id,
-  titleTh,
-  titleEn,
+  titleMain,
+  titleSubtitle,
   endorsed,
   certificates,
 }: {
   id: string;
-  titleTh: string;
-  titleEn: string;
+  titleMain: string;
+  titleSubtitle: string;
   endorsed: readonly string[];
   certificates: readonly string[];
 }) {
@@ -78,11 +78,11 @@ function CourseBlock({
       className="scroll-mt-28 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-lg shadow-rose-100/30 sm:p-8"
     >
       <h2 className="font-display text-pretty text-lg font-semibold leading-snug text-rose-950 sm:text-xl md:text-2xl">
-        {titleTh}
+        {titleMain}
       </h2>
-      <p className="mt-1 text-sm font-medium text-pink-700">{titleEn}</p>
+      <p className="mt-1 text-sm font-medium text-pink-700">{titleSubtitle}</p>
       <h3 className="mt-6 text-sm font-semibold uppercase tracking-wide text-rose-800">
-        รับรองหลักสูตรโดย
+        Endorsed by
       </h3>
       <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-rose-900/85">
         {endorsed.map((x) => (
@@ -90,7 +90,7 @@ function CourseBlock({
         ))}
       </ul>
       <h3 className="mt-6 text-sm font-semibold uppercase tracking-wide text-rose-800">
-        ใบรับรองที่จะได้รับหลังจบการอบรม
+        Certificates after completion
       </h3>
       <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-rose-900/85">
         {certificates.map((x) => (
@@ -102,7 +102,7 @@ function CourseBlock({
           href="/start-now"
           className="inline-flex rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-rose-300/40 transition hover:from-rose-500 hover:to-pink-500"
         >
-          รายละเอียด / ลงทะเบียน
+          Details &amp; register
         </Link>
       </p>
     </article>
@@ -114,8 +114,8 @@ export default function OurCoursePage() {
     <SiteShell>
       <SubpageHero
         eyebrow="OUR COURSE"
-        title="หลักสูตร KBBA"
-        subtitle="ศูนย์รวมการฝึกอบรมธุรกิจความงาม ร่วมมืออย่างเป็นทางการกับสถาบันการศึกษาตลอดชีพและสถาบันใบรับรองระหว่างประเทศของประเทศเกาหลีใต้"
+        title="KBBA programmes"
+        subtitle="Beauty-business training in partnership with South Korea's lifelong learning institutes and international licensing bodies."
       />
 
       <section className="border-b border-rose-100/60 bg-white/90 py-10 sm:py-14">
@@ -129,7 +129,7 @@ export default function OurCoursePage() {
               href="/start-now"
               className="inline-flex w-fit items-center rounded-full border-2 border-rose-200 bg-white px-5 py-2.5 text-sm font-semibold text-rose-800 transition hover:border-rose-300"
             >
-              Online Register →
+              Register online →
             </Link>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -143,7 +143,7 @@ export default function OurCoursePage() {
                   {c.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-rose-900/75">{c.desc}</p>
-                <span className="mt-4 inline-block text-sm font-medium text-pink-600">ดูรายละเอียด ↓</span>
+                <span className="mt-4 inline-block text-sm font-medium text-pink-600">See details ↓</span>
               </Link>
             ))}
           </div>
@@ -152,24 +152,25 @@ export default function OurCoursePage() {
 
       <section className="bg-gradient-to-b from-rose-50/35 to-white py-10 sm:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm leading-relaxed text-rose-900/80 sm:text-base">
-            KBBA ศูนย์รวมการฝึกอบรมธุรกิจเกี่ยวกับความงาม ซึ่งร่วมมืออย่างเป็นทางการกับสถาบันการศึกษาตลอดชีพ
-            และสถาบันใบรับรองระหว่างประเทศของประเทศเกาหลีใต้ ในการจัดหลักสูตรอบรมเอเจนซี่ศัลยกรรมเกาหลีอย่างถูกต้องตามกฎหมาย
-            รวมถึงมีทีมงานสนับสนุนในการทำธุรกิจหลังจบหลักสูตร ให้คุณสามารถเริ่มต้นทำธุรกิจได้ทันทีโดยไม่ต้องลงทุนเพิ่ม
-            นอกจากนี้ยังมีหลักสูตรอบรมเทคนิคการผ่าตัดของศัลยแพทย์ โดยโรงพยาบาลบีไอโอ
+          <p className="text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
+            KBBA is a beauty-business training centre officially working with South Korea&apos;s lifelong
+            learning institutes and international licensing bodies to deliver legally aligned Korean
+            plastic surgery agency programmes. After graduation, our team helps you launch without
+            extra capital overhead. Surgeon-level technique training is delivered with BIO Plastic Surgery
+            Hospital.
           </p>
         </div>
       </section>
 
       <section className="border-y border-rose-100/60 bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-xl font-semibold text-rose-950 sm:text-2xl">
-            สถาบันใบอนุญาตระหว่างประเทศ — International License Institue
+          <h2 className="font-display text-pretty text-xl font-semibold text-rose-950 sm:text-2xl">
+            International License Institute
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-rose-900/80 sm:text-base">
-            KBBA ร่วมมืออย่างเป็นทางการกับสถาบันใบอนุญาตระหว่างประเทศ ในการเปิดหลักสูตรใบรับรองผู้ประสานงานโรงพยาบาลเป็นภาษาไทย
-            เพื่อให้ผู้ที่สนใจสามารถศึกษาและนำความรู้ที่ได้มาต่อยอดในการทำธุรกิจหรือการประกอบอาชีพเกี่ยวกับการบริการทางการแพทย์
-            เช่น เอเจนซี่ศัลยกรรมเกาหลี ที่ปรึกษาศัลยกรรมเกาหลี พนักงานโรงพยาบาลศัลยกรรมหรือคลีนิคความงาม เป็นต้น
+          <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
+            KBBA partners with the International License Institute to offer hospital coordinator
+            certification pathways so graduates can apply the knowledge to medical-service careers —
+            including agency work, consulting, and hospital or aesthetic clinic roles.
           </p>
         </div>
       </section>
@@ -177,11 +178,12 @@ export default function OurCoursePage() {
       <section className="bg-rose-50/40 py-10 sm:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-xl font-semibold text-rose-950 sm:text-2xl">
-            การสนับสนุนทางธุรกิจ
+            Business support
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-rose-900/80 sm:text-base">
-            KBBA ไม่เพียงแต่เป็นสถาบันฝึกอบรมเท่านั้น แต่ยังสนับสนุนการทำธุรกิจของคุณอย่างต่อเนื่องหลังจบหลักสูตร
-            เพื่อให้คุณสามารถเริ่มต้นธุรกิจของคุณเองทันทีได้โดยไม่ต้องลงทุนเพิ่ม พร้อมมีทีมงานที่จะช่วยสนับสนุนคุณในทุกด้าน
+          <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
+            KBBA is not only a training institute — we continue to support your business after the
+            programme so you can start immediately without extra capital, with a team backing you
+            across operations.
           </p>
           <ul className="mt-6 flex flex-wrap gap-2">
             {supportItems.map((t) => (
@@ -208,8 +210,8 @@ export default function OurCoursePage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <CourseBlock
             id="course-legal"
-            titleTh="หลักสูตรสร้างเอเจนซี่ศัลยกรรมเกาหลีแบบถูกต้องตามกฎหมาย"
-            titleEn="Korea Plastic Surgery Agency and Consultant Program"
+            titleMain="Compliant Korean plastic surgery agency programme"
+            titleSubtitle="Korea Plastic Surgery Agency and Consultant Program"
             endorsed={endorsedBy}
             certificates={certificatesAgency}
           />
@@ -217,8 +219,8 @@ export default function OurCoursePage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <CourseBlock
             id="course-trip"
-            titleTh="หลักสูตรสร้างเอเจนซี่ศัลยกรรมเกาหลีแบบถูกต้องตามกฎหมาย พร้อมศึกษาดูงานที่ประเทศเกาหลี"
-            titleEn="Intensive Korea Plastic Surgery Agency and Consultant Program"
+            titleMain="Agency programme — compliant track with Korea study tour"
+            titleSubtitle="Intensive Korea Plastic Surgery Agency and Consultant Program"
             endorsed={endorsedBy}
             certificates={certificatesAgency}
           />
@@ -226,8 +228,8 @@ export default function OurCoursePage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <CourseBlock
             id="course-surgeon"
-            titleTh="หลักสูตรเทรนนิ่งอัพสกิลกับศัลยแพทย์เกาหลี (สำหรับศัลยแพทย์)"
-            titleEn="Korea Special Plastic Surgery Techniques Program For Doctor"
+            titleMain="Surgeon skills training with Korean specialists"
+            titleSubtitle="Korea Special Plastic Surgery Techniques Program For Doctor"
             endorsed={endorsedSurgeon}
             certificates={certificateSurgeon}
           />

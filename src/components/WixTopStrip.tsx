@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { wixTopStripImages } from "@/data/wix-strip";
 
-/** แถบโลโก้ 5 ช่อง — ขนาดเท่ากันทุกช่อง (ตามแถบขาวบนหน้า Wix) */
+/** Five-slot partner logo strip (uniform cell sizes, Wix-aligned). */
 export function WixTopStrip() {
   return (
     <div className="border-b border-rose-100/70 bg-gradient-to-b from-rose-50/70 via-rose-50/40 to-white pb-7 pt-2 sm:pb-11">

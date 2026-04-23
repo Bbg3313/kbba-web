@@ -12,15 +12,15 @@ const navItems = [
     href: "/our-course",
     children: [
       {
-        label: "คอร์สเอเจนซี่ศัลยกรรมเกาหลีแบบถูกกฎหมาย",
+        label: "Compliant Korean plastic surgery agency course",
         href: "/our-course#course-legal",
       },
       {
-        label: "คอร์สเอเจนซี่ศัลยกรรมพร้อมศึกษาดูงาน",
+        label: "Agency course with study tour in Korea",
         href: "/our-course#course-trip",
       },
       {
-        label: "คอร์สเทรนนิ่งอัพสกิลกับศัลยแพทย์เกาหลี",
+        label: "Skills training with Korean surgeons",
         href: "/our-course#course-surgeon",
       },
     ],
@@ -49,7 +49,7 @@ export function Navbar() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="หลัก">
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
           {navItems.map((item) =>
             "children" in item ? (
               <div
@@ -68,7 +68,7 @@ export function Navbar() {
                   </span>
                 </Link>
                 {openDropdown === item.label && (
-                  <div className="absolute left-0 top-full z-30 min-w-[280px] rounded-xl border border-rose-100 bg-white/98 py-2 shadow-lg shadow-rose-100/40 backdrop-blur-md">
+                  <div className="absolute left-0 top-full z-30 min-w-[280px] max-w-[min(100vw-2rem,22rem)] rounded-xl border border-rose-100 bg-white/98 py-2 shadow-lg shadow-rose-100/40 backdrop-blur-md">
                     {item.children.map((c) => (
                       <Link
                         key={c.href + c.label}
@@ -95,7 +95,7 @@ export function Navbar() {
             href="/#contact"
             className="ml-2 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-rose-300/40 transition hover:from-rose-500 hover:to-pink-500"
           >
-            ติดต่อเรา
+            Contact
           </Link>
         </nav>
 
@@ -106,7 +106,7 @@ export function Navbar() {
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
         >
-          <span className="sr-only">เปิดเมนู</span>
+          <span className="sr-only">Open menu</span>
           <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden>
             {open ? (
               <path
@@ -133,9 +133,9 @@ export function Navbar() {
               "children" in item ? (
                 <details key={item.label} className="rounded-lg border border-rose-100 bg-white/90">
                   <summary className="cursor-pointer list-none px-3 py-3 text-sm font-medium text-rose-900 [&::-webkit-details-marker]:hidden">
-                    <span className="flex items-center justify-between">
-                      {item.label}
-                      <span className="text-xs text-rose-500">▾</span>
+                    <span className="flex items-center justify-between gap-2">
+                      <span className="min-w-0 text-pretty">{item.label}</span>
+                      <span className="shrink-0 text-xs text-rose-500">▾</span>
                     </span>
                   </summary>
                   <div className="border-t border-rose-100 bg-rose-50/50 px-2 py-2">
@@ -144,13 +144,13 @@ export function Navbar() {
                       className="mb-1 block rounded-md px-3 py-2 text-sm font-semibold text-pink-700"
                       onClick={() => setOpen(false)}
                     >
-                      ดูหน้าหลักสูตรทั้งหมด
+                      All courses overview
                     </Link>
                     {item.children.map((c) => (
                       <Link
                         key={c.href + c.label}
                         href={c.href}
-                        className="block rounded-md px-3 py-2 text-sm text-rose-900/85"
+                        className="block rounded-md px-3 py-2 text-sm leading-snug text-rose-900/85"
                         onClick={() => setOpen(false)}
                       >
                         {c.label}
@@ -174,7 +174,7 @@ export function Navbar() {
               className="mt-2 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-md shadow-rose-300/30"
               onClick={() => setOpen(false)}
             >
-              ติดต่อเรา
+              Contact
             </Link>
           </div>
         </div>

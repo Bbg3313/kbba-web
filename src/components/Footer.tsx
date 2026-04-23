@@ -20,7 +20,7 @@ export function Footer() {
           <Link
             href="/"
             className="mb-4 inline-block rounded-lg ring-rose-400/0 transition hover:ring-2 hover:ring-rose-300/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-200"
-            aria-label="KBBA — หน้าแรก"
+            aria-label="KBBA — Home"
           >
             <Image
               src={brandSrc}
@@ -32,13 +32,13 @@ export function Footer() {
             />
           </Link>
           <p className="text-sm leading-relaxed text-rose-200/75">
-            Korea Beauty Business Academy — สถาบันที่รวมเครือข่ายโรงพยาบาลและคลินิกเกาหลี
-            พร้อมหลักสูตรการตลาดออนไลน์สำหรับธุรกิจความงาม
+            Korea Beauty Business Academy — training and partner network connecting Korean
+            hospitals and clinics with beauty businesses, plus practical online marketing programmes.
           </p>
         </div>
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-rose-50">
-            เมนูหลัก
+            Main menu
           </h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
@@ -73,19 +73,19 @@ export function Footer() {
             </li>
             <li>
               <Link href="/#partners" className="text-rose-100/85 transition hover:text-white">
-                พันธมิตร (หน้าแรก)
+                Partners (home)
               </Link>
             </li>
             <li>
               <Link href="/#faq" className="text-rose-100/85 transition hover:text-white">
-                คำถามที่พบบ่อย
+                FAQ
               </Link>
             </li>
           </ul>
         </div>
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-rose-50">
-            ติดต่อ
+            Contact
           </h3>
           <p className="mt-4 text-sm text-rose-200/75">
             <a href={`mailto:${SITE_EMAIL_DISPLAY}`} className="hover:text-white">
@@ -95,7 +95,7 @@ export function Footer() {
             <span className="mt-2 block break-words text-rose-300/80">{SITE_ADDRESS_SEOUL_FOOTER}</span>
           </p>
           <p className="mt-3 text-sm text-rose-200/75">
-            ทีมงานพร้อมให้คำปรึกษาเรื่องคอร์สและการเชื่อมโยงโรงพยาบาลในเกาหลี
+            Our team can help with course options and hospital connections in Korea.
           </p>
           <div className="mt-4 flex flex-col gap-3">
             <a
@@ -104,7 +104,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-[#06C755] px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-110"
             >
-              แชทผ่าน LINE
+              Chat on LINE
             </a>
             <a
               href={SITE_FACEBOOK_URL}
@@ -126,7 +126,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-6 text-center text-xs text-rose-300/70">
-        © {new Date().getFullYear()} Korea Beauty Business Academy (KBBA). สงวนลิขสิทธิ์
+        © {new Date().getFullYear()} Korea Beauty Business Academy (KBBA). All rights reserved.
       </div>
     </footer>
   );

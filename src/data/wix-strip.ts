@@ -1,6 +1,6 @@
 export type WixStripImage = { imageSrc: string; alt: string };
 
-/** แถบโลโก้ 5 พันธมิตร (แถบขาวใต้ฮีโร่ — ลำดับเดียวกับหน้า Wix) */
+/** Five partner logos in the strip below the hero (Wix order). */
 export const wixTopStripImages: WixStripImage[] = [
   {
     imageSrc:

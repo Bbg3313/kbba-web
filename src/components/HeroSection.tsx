@@ -8,16 +8,15 @@ type HeroSectionProps = {
   heroImageAlt?: string;
 };
 
-/** ข้อความหัวเรื่องตรงกับหน้าแรก Wix */
 const HERO_TITLE_LINES = [
-  "คอร์สสร้างอาชีพเอเจนซี่",
-  "ศัลยกรรมเกาหลี",
-  "และ ผู้ประสานงานโรงพยาบาล",
+  "Build a career as a",
+  "Korean plastic surgery",
+  "agency & hospital coordinator",
 ] as const;
 
 export function HeroSection({
   heroImageSrc = WIX_HERO_IMAGE || "/images/hero/hero.svg",
-  heroImageAlt = "KBBA — คอร์สเอเจนซี่ศัลยกรรมเกาหลี",
+  heroImageAlt = "KBBA — Korean plastic surgery agency programme",
 }: HeroSectionProps) {
   return (
     <section
@@ -45,8 +44,8 @@ export function HeroSection({
             </h1>
 
             <p className="mt-5 max-w-xl text-sm leading-relaxed text-rose-900/70 sm:text-base">
-              Korea Beauty Business Academy — เส้นทางอัปสกิลธุรกิจความงาม
-              สำหรับเอเจนซี่และผู้ประสานงานโรงพยาบาลเกาหลีแบบมืออาชีพ
+              Korea Beauty Business Academy — a structured path to grow your beauty business
+              as a professional agency and Korean hospital coordinator.
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -56,13 +55,13 @@ export function HeroSection({
                 rel="noopener noreferrer"
                 className="inline-flex min-h-11 items-center justify-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-300/40 transition hover:brightness-110 sm:px-7"
               >
-                สอบถามเพิ่มเติม
+                Ask on LINE
               </a>
               <Link
                 href="/our-course"
                 className="inline-flex min-h-11 items-center justify-center rounded-full border border-rose-200 bg-white px-6 py-3 text-sm font-semibold text-rose-800 transition hover:border-rose-300 hover:bg-rose-50/40 sm:px-7"
               >
-                ดูหลักสูตร
+                View courses
               </Link>
             </div>
           </div>

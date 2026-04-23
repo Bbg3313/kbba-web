@@ -1,15 +1,15 @@
 const TESTIMONIAL_EMBEDS = [
   {
     id: "ajkBFCNCHmw",
-    title: "KBBA testimonial — วิดีโอที่ 1",
+    title: "KBBA testimonial video 1",
   },
   {
     id: "j6ZO8s0I81g",
-    title: "KBBA testimonial — วิดีโอที่ 2",
+    title: "KBBA testimonial video 2",
   },
   {
     id: "90crr8ymhKc",
-    title: "KBBA testimonial — วิดีโอที่ 3",
+    title: "KBBA testimonial video 3",
   },
 ] as const;
 
@@ -18,7 +18,7 @@ function embedSrc(videoId: string) {
     rel: "0",
     modestbranding: "1",
     playsinline: "1",
-    hl: "th",
+    hl: "en",
   });
   return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
 }
@@ -49,16 +49,13 @@ export function TestimonialVideos() {
             Testimonial
           </h2>
           <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-200/80 sm:text-base">
-            รับฟังประสบการณ์จริงจากผู้เข้าร่วมและพันธมิตรของ Korea Beauty Business Academy
+            Hear from participants and partners of Korea Beauty Business Academy.
           </p>
         </header>
 
         <div className="grid gap-7 sm:gap-8 lg:grid-cols-3">
           {TESTIMONIAL_EMBEDS.map((video, index) => (
-            <article
-              key={video.id}
-              className="group relative"
-            >
+            <article key={video.id} className="group relative">
               <div
                 className="absolute -inset-[1px] rounded-[1.35rem] bg-gradient-to-br from-rose-300/35 via-fuchsia-300/20 to-rose-400/25 opacity-60 blur-[1px] transition duration-500 group-hover:opacity-100 group-hover:blur-0"
                 aria-hidden
@@ -75,8 +72,8 @@ export function TestimonialVideos() {
                     referrerPolicy="strict-origin-when-cross-origin"
                   />
                 </div>
-                <div className="flex items-center justify-between gap-3 border-t border-white/10 px-4 py-3.5 sm:px-5">
-                  <div className="flex min-w-0 items-center gap-3">
+                <div className="flex min-w-0 items-center justify-between gap-2 border-t border-white/10 px-4 py-3.5 sm:gap-3 sm:px-5">
+                  <div className="flex min-w-0 items-center gap-2 sm:gap-3">
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-rose-500 to-pink-600 text-xs font-bold text-white shadow-inner shadow-black/20">
                       {String(index + 1).padStart(2, "0")}
                     </span>
@@ -93,9 +90,9 @@ export function TestimonialVideos() {
                     href={`https://www.youtube.com/watch?v=${video.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="shrink-0 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-rose-100 transition hover:border-rose-300/40 hover:bg-white/10"
+                    className="shrink-0 rounded-full border border-white/15 bg-white/5 px-2.5 py-1.5 text-[0.7rem] font-semibold text-rose-100 transition hover:border-rose-300/40 hover:bg-white/10 sm:px-3 sm:text-xs"
                   >
-                    เปิดใน YouTube
+                    Open in YouTube
                   </a>
                 </div>
               </div>

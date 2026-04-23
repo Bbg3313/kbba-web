@@ -1,4 +1,4 @@
-/** ลิงก์ช่องทางหลัก — แก้ค่าเริ่มต้นที่นี่ หรือใช้ NEXT_PUBLIC_* ใน env */
+/** Primary outbound links — override here or with NEXT_PUBLIC_* env vars. */
 export const SITE_LINE_URL =
   process.env.NEXT_PUBLIC_LINE_URL ?? "https://line.me/R/ti/p/@756xidmw";
 

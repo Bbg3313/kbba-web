@@ -1,4 +1,3 @@
-/** แถบคำอธิบายใต้แถบโลโก้ — ข้อความเดียวกับบล็อก Wix ถัดจากแถบ 5 โลโก้ */
 export function OfficialPartnerBanner() {
   return (
     <section
@@ -14,11 +13,11 @@ export function OfficialPartnerBanner() {
           id="official-partner-heading"
           className="font-display mt-3 text-pretty text-lg font-semibold leading-snug text-transparent bg-clip-text bg-gradient-to-r from-rose-800 to-fuchsia-800 sm:text-2xl sm:leading-normal"
         >
-          KBBA เชื่อมโยงพันธมิตรโรงพยาบาลและคลินิกชั้นนำในเกาหลีอย่างเป็นทางการ
+          KBBA officially connects you with leading Korean hospitals and clinics
         </h2>
         <p className="mx-auto mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
-          KBBA ร่วมมืออย่างเป็นทางการกับสถาบันการศึกษาและโรงพยาบาลศัลยกรรมชั้นนำกว่า 40 แห่งในเกาหลีใต้
-          เพื่อการอบรมและการทำธุรกิจอย่างมีมาตรฐาน
+          KBBA works formally with education institutes and more than 40 top-tier plastic surgery
+          providers in South Korea — so your training and business operations meet a serious standard.
         </p>
       </div>
     </section>

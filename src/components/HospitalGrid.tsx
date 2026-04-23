@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { hospitalPartners } from "@/data/hospitals";
 
-const partnerLogoAlt = "โลโก้พันธมิตร KBBA";
+const partnerLogoAlt = "KBBA partner hospital logo";
 
 export function HospitalGrid() {
-  /** แถบเลื่อนใช้ชุดเดียวกับกริด — ขนาด/สีตรงกัน (ไม่ใช้แถบ 5 โลโก้แยก) */
   const marqueeItems = [
     ...hospitalPartners,
     ...hospitalPartners,
@@ -18,12 +17,12 @@ export function HospitalGrid() {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <h2 className="text-2xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
-            โรงพยาบาลพันธมิตรกว่า 60 แห่ง
+          <h2 className="text-pretty text-2xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
+            60+ partner hospitals
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-rose-900/70 sm:text-base">
-            เครือข่ายโรงพยาบาลและคลินิกพันธมิตรที่ร่วมมือกับ KBBA
-            สามารถดูโลโก้พาร์ทเนอร์ทั้งหมดได้ในส่วนนี้
+            Hospitals and clinics that collaborate with KBBA — scroll the strip or browse the full
+            partner grid below.
           </p>
         </div>
 
@@ -48,7 +47,7 @@ export function HospitalGrid() {
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-            {hospitalPartners.map((h) => (
+          {hospitalPartners.map((h) => (
             <article
               key={h.id}
               className="group flex min-h-[7.5rem] flex-col items-center justify-center rounded-2xl border border-rose-100/90 bg-white/95 px-3 py-4 text-center shadow-sm shadow-rose-50/50 transition duration-200 hover:-translate-y-1 hover:border-rose-200 hover:shadow-lg hover:shadow-rose-100/45 sm:min-h-[8.5rem] sm:px-4 sm:py-5"

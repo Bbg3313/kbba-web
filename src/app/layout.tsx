@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Kanit, Noto_Sans_Thai } from "next/font/google";
+import { Inter, Kanit } from "next/font/google";
 import { LineFloatingButton } from "@/components/LineFloatingButton";
 import "./globals.css";
 
-const notoThai = Noto_Sans_Thai({
-  variable: "--font-noto-thai",
-  subsets: ["latin", "thai"],
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 const kanit = Kanit({
   variable: "--font-kanit",
-  subsets: ["latin", "thai"],
+  subsets: ["latin"],
   weight: ["500", "600", "700"],
   display: "swap",
 });
@@ -30,38 +30,38 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "KBBA | Korea Beauty Business Academy — คอร์สโฆษณา Google Ads & เครือข่ายโรงพยาบาลเกาหลี",
+      "KBBA | Korea Beauty Business Academy — Google Ads training & Korean hospital network",
     template: "%s | KBBA",
   },
   description:
-    "Korea Beauty Business Academy (KBBA) — สถาบันพันธมิตรโรงพยาบาลและคลินิกเกาหลี 40+ แห่ง หลักสูตรการตลาดออนไลน์ Google Ads สำหรับธุรกิจความงาม ที่ปรึกษาคลินิกไทยเชื่อมเกาหลี ราคาแพ็กเกจชัดเจน รองรับเจ้าของคลินิกและเอเจนซี่",
+    "Korea Beauty Business Academy (KBBA) — training and partner network for Korean plastic surgery agencies, hospital coordinators, and beauty businesses. Practical courses, compliance guidance, and ongoing support.",
   keywords: [
     "KBBA",
     "Korea Beauty Business Academy",
-    "ศัลยกรรมเกาหลี",
-    "คลินิกความงาม",
+    "Korean plastic surgery",
+    "beauty clinic",
     "Google Ads",
-    "โฆษณาออนไลน์",
-    "พันธมิตรโรงพยาบาลเกาหลี",
-    "ทัวร์ศัลยกรรมเกาหลี",
-    "ตัวแทนโรงพยาบาลเกาหลี",
-    "การตลาดคลินิก",
-    "LINE ปรึกษา",
+    "online marketing",
+    "Korean hospital partners",
+    "medical tourism Korea",
+    "Korean hospital representative",
+    "clinic marketing",
+    "LINE consultation",
   ],
   openGraph: {
     type: "website",
-    locale: "th_TH",
+    locale: "en_US",
     siteName: "Korea Beauty Business Academy",
     title:
-      "KBBA — Korea Beauty Business Academy | พันธมิตรโรงพยาบาลเกาหลี & คอร์ส Google Ads",
+      "KBBA — Korea Beauty Business Academy | Korean hospital partners & marketing courses",
     description:
-      "เชื่อมธุรกิจความงามกับโรงพยาบาลและคลินิกเกาหลี พร้อมหลักสูตรโฆษณาออนไลน์ที่ออกแบบสำหรับคลินิกโดยเฉพาะ",
+      "Connect your beauty business with Korean hospitals and clinics, with practical training and marketing programmes built for clinics and agencies.",
   },
   twitter: {
     card: "summary_large_image",
     title: "KBBA | Korea Beauty Business Academy",
     description:
-      "พันธมิตรโรงพยาบาลเกาหลี 40+ | คอร์ส Google Ads สำหรับธุรกิจความงาม",
+      "Korean hospital partner network & professional courses for beauty and agency businesses.",
   },
   alternates: {
     canonical: "/",
@@ -79,8 +79,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="th"
-      className={`${notoThai.variable} ${kanit.variable} h-full scroll-smooth antialiased`}
+      lang="en"
+      className={`${inter.variable} ${kanit.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full font-sans text-rose-950 antialiased">
         {children}
