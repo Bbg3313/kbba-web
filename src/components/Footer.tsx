@@ -4,6 +4,7 @@ import { BRAND_LOGO_SRC } from "@/data/brand";
 import {
   SITE_ADDRESS_SEOUL_FOOTER,
   SITE_EMAIL_DISPLAY,
+  SITE_LEGAL_BUSINESS_NAME,
 } from "@/data/site-contact";
 import { SITE_FACEBOOK_URL, SITE_LINE_URL } from "@/data/site-links";
 
@@ -126,7 +127,10 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-6 text-center text-xs text-rose-300/70">
-        © {new Date().getFullYear()} Korea Beauty Business Academy (KBBA). All rights reserved.
+        <p>© {new Date().getFullYear()} Korea Beauty Business Academy (KBBA). All rights reserved.</p>
+        <p className="mt-2 text-pretty text-[0.7rem] font-medium tracking-wide text-rose-200/80 sm:text-xs">
+          {SITE_LEGAL_BUSINESS_NAME}
+        </p>
       </div>
     </footer>
   );
