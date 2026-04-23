@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 
 const navItems = [
   { label: "HOME", href: "/" },
@@ -14,7 +15,41 @@ const navItems = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [hash, setHash] = useState("");
   const brandSrc = "/images/logos/kbba-header.svg";
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const syncHash = () => setHash(window.location.hash);
+
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, []);
+
+  const activeLabel = useMemo(() => {
+    if (pathname === "/start-now" || (pathname === "/" && hash === "#consult-register")) {
+      return "START NOW";
+    }
+
+    if (pathname === "/who-we-are") {
+      return "WHO WE ARE";
+    }
+
+    if (pathname === "/our-course") {
+      return "OUR COURSE";
+    }
+
+    if (pathname === "/review") {
+      return "REVIEW";
+    }
+
+    if (pathname === "/") {
+      return "HOME";
+    }
+
+    return null;
+  }, [hash, pathname]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-rose-100/90 bg-white/80 shadow-sm shadow-rose-100/20 backdrop-blur-lg">
@@ -35,7 +70,11 @@ export function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className="rounded-lg px-2.5 py-2 text-sm font-medium text-rose-900/90 transition hover:bg-rose-50"
+              className={`rounded-lg px-2.5 py-2 text-sm font-medium transition ${
+                activeLabel === item.label
+                  ? "bg-rose-100 text-pink-700"
+                  : "text-rose-900/90 hover:bg-rose-50"
+              }`}
             >
               {item.label}
             </Link>
@@ -82,7 +121,11 @@ export function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="rounded-lg px-3 py-3 text-pretty text-sm font-medium text-rose-900 hover:bg-rose-50"
+                className={`rounded-lg px-3 py-3 text-pretty text-sm font-medium transition ${
+                  activeLabel === item.label
+                    ? "bg-rose-100 text-pink-700"
+                    : "text-rose-900 hover:bg-rose-50"
+                }`}
                 onClick={() => setOpen(false)}
               >
                 {item.label}

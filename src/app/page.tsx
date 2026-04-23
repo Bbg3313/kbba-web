@@ -28,6 +28,36 @@ const courses = [
   },
 ] as const;
 
+const motivationCards = [
+  {
+    step: "01",
+    title: "Tired of the same routine",
+    points: [
+      "Your main job feels repetitive and no longer helps you grow.",
+      "You want to use your ideas and creativity in a more meaningful way.",
+      "You want to keep learning, meeting new people, and building a more flexible career path.",
+    ],
+  },
+  {
+    step: "02",
+    title: "Ready to build something of your own",
+    points: [
+      "You want work that feels personal and valuable.",
+      "You want to become a business owner, not only a worker inside someone else’s system.",
+      "You want to guide others and grow your own presence online and offline.",
+    ],
+  },
+  {
+    step: "03",
+    title: "Aiming for financial freedom",
+    points: [
+      "You want to increase your income and create stronger long-term stability.",
+      "You want more freedom to care for yourself and your family.",
+      "You want a business path that can support travel, lifestyle goals, and personal independence.",
+    ],
+  },
+] as const;
+
 const faqs = [
   {
     q: "What does KBBA offer clinics outside Korea?",
@@ -75,6 +105,42 @@ export default function Home() {
   return (
     <SiteShell>
       <HeroSection />
+      <section className="border-b border-rose-100/60 bg-gradient-to-b from-rose-50/40 via-white to-white py-12 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">Why people start</p>
+            <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
+              Does this sound like you?
+            </h2>
+            <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
+              Many people come to KBBA not only for training, but because they are ready for a more independent,
+              more meaningful, and more flexible future.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {motivationCards.map((card) => (
+              <article
+                key={card.step}
+                className="flex min-w-0 flex-col rounded-[1.75rem] border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="font-display text-5xl font-semibold leading-none text-pink-600">{card.step}</span>
+                  <span className="h-px flex-1 bg-gradient-to-r from-pink-200 to-transparent" aria-hidden />
+                </div>
+                <h3 className="font-display mt-5 text-pretty text-xl font-semibold text-rose-950">{card.title}</h3>
+                <ul className="mt-5 space-y-3 pl-5 text-sm leading-relaxed text-rose-900/82 marker:text-pink-500">
+                  {card.points.map((point) => (
+                    <li key={point} className="text-pretty">
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
       <OfficialPartnerBanner />
       <WixTopStrip />
       <HospitalGrid />
