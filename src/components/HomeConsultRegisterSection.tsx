@@ -95,12 +95,12 @@ export function HomeConsultRegisterSection() {
             />
             <div className="relative z-10 flex flex-1 flex-col justify-between gap-6">
               <div>
-                <p className="font-serif text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-violet-700/85 sm:text-[0.65rem]">
+                <p className="font-display text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-violet-700/85 sm:text-[0.65rem]">
                   Korea Beauty Business Academy
                 </p>
                 <h2
                   id="consult-register-heading"
-                  className="font-serif mt-2 text-pretty text-xl font-semibold leading-snug tracking-wide text-slate-900 sm:text-2xl"
+                  className="font-display mt-2 text-pretty text-xl font-semibold leading-snug tracking-tight text-slate-900 sm:text-2xl"
                 >
                   KOREA BEAUTY
                   <br />

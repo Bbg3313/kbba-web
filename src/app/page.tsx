@@ -114,7 +114,7 @@ export default function Home() {
         </div>
         <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <header className="max-w-3xl min-w-0 pb-8 sm:pb-16">
-            <h2 className="text-pretty text-xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
+            <h2 className="font-display text-pretty text-xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
               KOREA BEAUTY BUSINESS ACADEMY
             </h2>
             <p className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base">

@@ -9,7 +9,7 @@ export function SubpageHero({ eyebrow, title, subtitle }: SubpageHeroProps) {
     <div className="border-b border-rose-100/80 bg-gradient-to-br from-fuchsia-50/90 via-rose-50/85 to-amber-50/40 px-4 py-10 text-left sm:px-6 sm:py-16 lg:px-8">
       <div className="mx-auto min-w-0 max-w-6xl">
         {eyebrow ? (
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-pink-600 sm:text-xs sm:tracking-[0.28em]">
+          <p className="font-display text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-pink-600 sm:text-xs sm:tracking-[0.28em]">
             {eyebrow}
           </p>
         ) : null}
