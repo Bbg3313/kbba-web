@@ -3,17 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import {
-  SITE_ADDRESS_SEOUL_START,
-  SITE_EMAIL_FORM,
-  SITE_PHONE_KR,
-} from "@/data/site-contact";
+import { SITE_PHONE_KR } from "@/data/site-contact";
 import { SITE_FACEBOOK_URL, SITE_INSTAGRAM_URL, SITE_LINE_URL } from "@/data/site-links";
 
+/** Bright, airy interiors — minimal overlay so photos stay light. */
 const LEFT_BG =
-  "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1400&q=80";
+  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=82";
 const RIGHT_BG =
-  "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80";
+  "https://images.unsplash.com/photo-1524758631624-e2822eacd904?auto=format&fit=crop&w=1200&q=82";
 
 const COURSE_OPTIONS = [
   {
@@ -48,7 +45,7 @@ type FormValues = {
 };
 
 const inputShell =
-  "w-full min-w-0 rounded-t-lg border-0 border-b-2 border-violet-500/80 bg-[#E8FBF4] px-3 py-2.5 text-sm text-slate-900 outline-none ring-0 transition placeholder:text-slate-400 focus:border-violet-700 focus:bg-[#dff8ef]";
+  "w-full min-w-0 rounded-t-md border-0 border-b-2 border-violet-500/80 bg-[#E8FBF4] px-2.5 py-2 text-sm text-slate-900 outline-none ring-0 transition placeholder:text-slate-400 focus:border-violet-700 focus:bg-[#dff8ef]";
 
 export function HomeConsultRegisterSection() {
   const {
@@ -78,57 +75,58 @@ export function HomeConsultRegisterSection() {
     <section
       id="consult-register"
       aria-labelledby="consult-register-heading"
-      className="scroll-mt-28 border-t border-rose-100/80 bg-slate-100/40"
+      className="scroll-mt-28 border-t border-rose-100/80 bg-rose-50/30"
     >
-      <div className="mx-auto grid min-h-0 max-w-6xl overflow-hidden rounded-none shadow-[0_40px_100px_-48px_rgba(15,23,42,0.35)] lg:my-10 lg:rounded-3xl lg:border lg:border-slate-200/60">
+      <div className="mx-auto grid min-h-0 max-w-5xl overflow-hidden rounded-none shadow-[0_20px_50px_-36px_rgba(15,23,42,0.18)] lg:my-6 lg:rounded-2xl lg:border lg:border-slate-200/50">
         <div className="grid min-h-0 lg:grid-cols-12">
           {/* Brand column */}
-          <div className="relative order-1 flex min-h-[22rem] flex-col justify-between bg-slate-950 px-6 py-10 text-white sm:px-10 sm:py-12 lg:order-none lg:col-span-5 lg:min-h-[36rem] lg:px-8 lg:py-14">
+          <div className="relative order-1 flex min-h-[13rem] flex-col justify-between px-5 py-7 sm:min-h-[14rem] sm:px-6 sm:py-8 lg:order-none lg:col-span-4 lg:min-h-0 lg:px-6 lg:py-8">
             <Image
               src={LEFT_BG}
               alt=""
               fill
-              className="object-cover brightness-[0.45] contrast-[1.05] grayscale"
-              sizes="(max-width: 1024px) 100vw, 42vw"
+              className="object-cover object-center"
+              sizes="(max-width: 1024px) 100vw, 36vw"
               priority={false}
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-950/88 via-slate-900/80 to-violet-950/55" aria-hidden />
-            <div className="relative z-10 flex flex-1 flex-col justify-between gap-10">
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-white/88 via-white/65 to-violet-50/45"
+              aria-hidden
+            />
+            <div className="relative z-10 flex flex-1 flex-col justify-between gap-6">
               <div>
-                <p className="font-serif text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-white/70 sm:text-xs">
+                <p className="font-serif text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-violet-700/85 sm:text-[0.65rem]">
                   Korea Beauty Business Academy
                 </p>
                 <h2
                   id="consult-register-heading"
-                  className="font-serif mt-4 text-pretty text-2xl font-semibold leading-snug tracking-wide text-white sm:text-3xl"
+                  className="font-serif mt-2 text-pretty text-xl font-semibold leading-snug tracking-wide text-slate-900 sm:text-2xl"
                 >
                   KOREA BEAUTY
                   <br />
                   BUSINESS ACADEMY
                 </h2>
               </div>
-              <div className="space-y-4 text-sm leading-relaxed text-white/85">
-                <p className="text-pretty">{SITE_ADDRESS_SEOUL_START}</p>
-                <p>
-                  <a href={`tel:${SITE_PHONE_KR.replace(/\s/g, "")}`} className="hover:text-white">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Phone</p>
+                <p className="mt-1 text-sm font-medium text-slate-800">
+                  <a
+                    href={`tel:${SITE_PHONE_KR.replace(/\s/g, "")}`}
+                    className="hover:text-violet-700"
+                  >
                     {SITE_PHONE_KR}
                   </a>
                 </p>
-                <p>
-                  <a href={`mailto:${SITE_EMAIL_FORM}`} className="break-all hover:text-white">
-                    {SITE_EMAIL_FORM}
-                  </a>
-                </p>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <a
                   href={SITE_FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/25 p-2.5 text-white transition hover:border-white/50 hover:bg-white/10"
+                  className="rounded-full border border-violet-200/90 bg-white/90 p-2 text-violet-700 shadow-sm transition hover:border-violet-300 hover:bg-white"
                   aria-label="Facebook"
                 >
-                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                   </svg>
                 </a>
@@ -136,10 +134,10 @@ export function HomeConsultRegisterSection() {
                   href={SITE_INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/25 p-2.5 text-white transition hover:border-white/50 hover:bg-white/10"
+                  className="rounded-full border border-violet-200/90 bg-white/90 p-2 text-violet-700 shadow-sm transition hover:border-violet-300 hover:bg-white"
                   aria-label="Instagram"
                 >
-                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                   </svg>
                 </a>
@@ -147,15 +145,15 @@ export function HomeConsultRegisterSection() {
                   href={SITE_LINE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/25 p-2.5 text-white transition hover:border-white/50 hover:bg-white/10"
+                  className="rounded-full border border-violet-200/90 bg-white/90 p-2 shadow-sm transition hover:border-violet-300 hover:bg-white"
                   aria-label="LINE"
                 >
                   <Image
                     src="/images/shared/line-icon.svg"
                     alt=""
-                    width={20}
-                    height={20}
-                    className="h-5 w-5 brightness-0 invert"
+                    width={18}
+                    height={18}
+                    className="h-4 w-4"
                   />
                 </a>
               </div>
@@ -163,25 +161,25 @@ export function HomeConsultRegisterSection() {
           </div>
 
           {/* Form column */}
-          <div className="relative order-2 bg-white lg:col-span-7">
+          <div className="relative order-2 bg-white lg:col-span-8">
             <Image
               src={RIGHT_BG}
               alt=""
               fill
-              className="object-cover opacity-[0.07]"
-              sizes="(max-width: 1024px) 100vw, 58vw"
+              className="object-cover opacity-[0.06]"
+              sizes="(max-width: 1024px) 100vw, 62vw"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-violet-50/30 to-emerald-50/20" aria-hidden />
-            <div className="relative z-10 px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-14">
-              <h3 className="font-display text-pretty text-2xl font-bold tracking-tight text-violet-700 sm:text-3xl">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-violet-50/25 to-emerald-50/15" aria-hidden />
+            <div className="relative z-10 px-5 py-7 sm:px-6 sm:py-8 lg:px-8 lg:py-9">
+              <h3 className="font-display text-pretty text-xl font-bold tracking-tight text-violet-700 sm:text-2xl">
                 Consultation &amp; registration
               </h3>
-              <p className="mt-2 text-pretty text-sm text-slate-600">
+              <p className="mt-1.5 text-pretty text-xs text-slate-600 sm:text-sm">
                 Tell us how to reach you. We will follow up with course options and next steps.
               </p>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6" noValidate>
-                <div className="grid gap-5 sm:grid-cols-2">
+              <form onSubmit={handleSubmit(onSubmit)} className="mt-5 space-y-4 sm:mt-6 sm:space-y-5" noValidate>
+                <div className="grid gap-4 sm:grid-cols-2 sm:gap-4">
                   <div className="min-w-0">
                     <label className="block text-xs font-semibold uppercase tracking-wide text-violet-800/90">
                       Full name
@@ -277,11 +275,11 @@ export function HomeConsultRegisterSection() {
                   <legend className="text-xs font-semibold uppercase tracking-wide text-violet-800/90">
                     Select course <span className="text-rose-600">*</span>
                   </legend>
-                  <div className="mt-3 space-y-2.5 rounded-xl border border-violet-100/90 bg-white/70 p-4 shadow-sm">
+                  <div className="mt-2 space-y-1.5 rounded-lg border border-violet-100/90 bg-white/80 p-3 shadow-sm">
                     {COURSE_OPTIONS.map((opt) => (
                       <label
                         key={opt.value}
-                        className="flex cursor-pointer gap-3 rounded-lg p-2 text-sm text-slate-800 transition hover:bg-[#E8FBF4]/80"
+                        className="flex cursor-pointer gap-2.5 rounded-md p-1.5 text-xs text-slate-800 transition hover:bg-[#E8FBF4]/80 sm:text-sm"
                       >
                         <input
                           type="radio"
@@ -320,11 +318,11 @@ export function HomeConsultRegisterSection() {
                   </div>
                 </fieldset>
 
-                <div className="flex flex-col items-stretch gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-col items-stretch gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-500 px-10 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-emerald-600/25 transition hover:bg-emerald-600 disabled:opacity-60"
+                    className="inline-flex min-h-10 items-center justify-center rounded-full bg-emerald-500 px-8 text-xs font-bold uppercase tracking-wide text-white shadow-md shadow-emerald-600/20 transition hover:bg-emerald-600 disabled:opacity-60 sm:min-h-11 sm:px-9 sm:text-sm"
                   >
                     {isSubmitting ? "Sending…" : "Apply now"}
                   </button>
