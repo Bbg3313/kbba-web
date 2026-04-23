@@ -98,43 +98,45 @@ export default function Home() {
 
           <HomeAcademyIntroBlock />
 
-          <div className="mt-10 grid min-w-0 items-start gap-y-10 rounded-2xl border border-rose-100/50 bg-white/40 px-4 py-8 shadow-sm shadow-rose-100/20 sm:gap-y-12 sm:px-6 sm:py-10 md:grid-cols-[1.52fr_0.48fr] md:gap-x-12 md:gap-y-10 md:px-7 md:py-11 lg:mt-14 lg:grid-cols-[1.58fr_0.42fr] lg:gap-x-16 lg:px-8 lg:py-12">
+          <div className="mt-10 grid min-w-0 items-start gap-y-10 rounded-2xl border border-rose-100/50 bg-white/40 px-4 py-8 shadow-sm shadow-rose-100/20 sm:gap-y-12 sm:px-6 sm:py-10 md:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] md:items-stretch md:gap-x-8 md:gap-y-0 md:px-7 md:py-11 lg:mt-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1fr)] lg:gap-x-10 lg:px-8 lg:py-12">
             <div className="relative isolate w-full max-w-none justify-self-stretch overflow-visible">
-              <div className="relative aspect-[4/5] min-h-[300px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 via-white to-pink-50/80 p-4 shadow-md shadow-rose-100/50 ring-1 ring-rose-100/80 sm:aspect-[16/11] sm:min-h-[360px] sm:p-5 md:aspect-[980/558] md:min-h-[400px] md:p-6 lg:min-h-[460px] lg:p-7 xl:min-h-[500px]">
+              <div className="relative aspect-[4/5] min-h-[240px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 via-white to-pink-50/80 p-3 shadow-md shadow-rose-100/50 ring-1 ring-rose-100/80 sm:aspect-[16/11] sm:min-h-[300px] sm:p-5 md:aspect-[980/558] md:min-h-[380px] md:p-6 lg:min-h-[440px] lg:p-7 xl:min-h-[500px]">
                 <Image
                   src={HOME_CONSULTING_VISUAL}
                   alt="KBBA presenter visual"
                   fill
                   className="object-contain object-[6%_100%] origin-bottom scale-[1.06] sm:object-[3%_100%] sm:scale-[1.08] md:object-[0%_100%] md:scale-[1.1] lg:scale-[1.12]"
-                  sizes="(max-width: 768px) 100vw, 62vw"
+                  sizes="(max-width: 768px) 100vw, 52vw"
                   priority
                 />
               </div>
             </div>
-            <div className="flex min-w-0 flex-col gap-6 text-left md:items-end md:gap-7 md:pl-2 md:text-right lg:gap-8 lg:pl-4">
-              <p className="text-pretty text-base leading-relaxed text-zinc-900 sm:text-lg">
-                &ldquo;Become a certified beauty consultant with strong earning potential — and earn your
-                Korean hospital coordinator credentials with us.&rdquo;
+            <div className="flex min-h-0 min-w-0 flex-col justify-start gap-7 text-left sm:gap-8 md:h-full md:max-w-none md:justify-center md:py-1 lg:py-2">
+              <p className="text-pretty text-base font-medium leading-relaxed text-zinc-900 sm:text-lg lg:text-xl">
+                Become a certified beauty consultant with strong earning potential — and earn your Korean
+                hospital coordinator credentials with us.
               </p>
-              <div className="relative aspect-[4/3] w-full max-w-xl overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)] sm:aspect-[16/11] md:ml-auto md:aspect-[980/558] md:max-w-md lg:max-w-lg">
-                <Image
-                  src={HOME_CONSULTING_CERT_IMAGE}
-                  alt="Hospital coordinator certificates"
-                  fill
-                  className="object-contain object-center"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+              <div className="relative w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)]">
+                <div className="relative mx-auto aspect-[16/10] w-full max-w-2xl min-h-[9rem] sm:min-h-[11rem] md:min-h-[13rem] lg:min-h-[15rem]">
+                  <Image
+                    src={HOME_CONSULTING_CERT_IMAGE}
+                    alt="Hospital coordinator certificates"
+                    fill
+                    className="object-contain object-center p-2 sm:p-3"
+                    sizes="(max-width: 768px) 100vw, 46vw"
+                  />
+                </div>
               </div>
               <a
                 href="https://line.me/R/ti/p/@756xidmw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 w-full flex-wrap items-center justify-center gap-2 rounded-full border-2 border-black bg-[#e200d8] px-4 py-3 text-center text-sm font-bold text-white shadow-[0_4px_0_#000,0_14px_24px_-16px_rgba(226,0,216,0.85)] transition duration-200 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_5px_0_#000,0_20px_30px_-16px_rgba(226,0,216,0.95)] sm:w-auto sm:flex-nowrap sm:px-5 sm:text-base md:ml-auto"
+                className="inline-flex w-full max-w-xl items-center justify-between gap-4 rounded-2xl border-2 border-black bg-[#e200d8] px-5 py-4 text-left text-base font-bold leading-snug text-white shadow-[0_4px_0_#000,0_14px_24px_-16px_rgba(226,0,216,0.85)] transition duration-200 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_5px_0_#000,0_20px_30px_-16px_rgba(226,0,216,0.95)] sm:px-6 sm:py-4 sm:text-[1.05rem]"
               >
-                <span className="max-w-[20rem] text-pretty sm:max-w-none">
+                <span className="min-w-0 flex-1 text-pretty pr-1">
                   Ask if this programme is right for you
                 </span>
-                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-lg leading-none text-[#e200d8]">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-xl leading-none text-[#e200d8]">
                   ›
                 </span>
               </a>

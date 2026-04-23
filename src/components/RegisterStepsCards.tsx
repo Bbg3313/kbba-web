@@ -1,67 +1,87 @@
 type StepIconProps = { className?: string };
 
+/** 01 Register — clipboard checklist = fill the application form. */
 function IconRegister({ className }: StepIconProps) {
   return (
     <svg className={className} viewBox="0 0 48 48" fill="none" aria-hidden>
       <circle cx="24" cy="24" r="20" className="fill-rose-100 stroke-rose-200/90" strokeWidth="1.5" />
       <path
-        d="M17 14h14a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H17a2 2 0 0 1-2-2V16a2 2 0 0 1 2-2Z"
+        d="M18 10h12v3h2.5a2 2 0 0 1 2 2v21a2 2 0 0 1-2 2H15.5a2 2 0 0 1-2-2V15a2 2 0 0 1 2-2H18v-3Z"
         className="stroke-rose-900"
-        strokeWidth="2"
+        strokeWidth="1.85"
         strokeLinejoin="round"
       />
-      <path d="M19 20h10M19 24h10M19 28h6" className="stroke-rose-700" strokeWidth="1.75" strokeLinecap="round" />
-      <path
-        d="M26 32h6l2 2v-4h-4"
-        className="stroke-pink-600"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M20 10v3h8v-3" className="stroke-rose-900" strokeWidth="1.85" strokeLinecap="round" />
+      <path d="M16.5 19h3.2v3h-3.2z" className="stroke-pink-600" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M21.5 20.5h10" className="stroke-rose-700" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M16.5 24.5h3.2v3h-3.2z" className="stroke-rose-700" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M21.5 26h8.5" className="stroke-rose-700" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M16.5 30h3.2v3h-3.2z" className="stroke-rose-700" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M21.5 31.5h7" className="stroke-rose-700" strokeWidth="1.6" strokeLinecap="round" />
+      {/* Envelope — contact the team */}
+      <path d="M26 13.5h10v7H26z" className="stroke-pink-600" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M26 13.5 31 17.5 36 13.5" className="stroke-pink-600" strokeWidth="1.45" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
+/** 02 Contract & training — document + signature (contract) and open book (training). */
 function IconContractTraining({ className }: StepIconProps) {
   return (
     <svg className={className} viewBox="0 0 48 48" fill="none" aria-hidden>
       <circle cx="24" cy="24" r="20" className="fill-rose-100 stroke-rose-200/90" strokeWidth="1.5" />
+      {/* Contract (left) */}
       <path
-        d="M16 17h18v14H16a2 2 0 0 1-2-2V19a2 2 0 0 1 2-2Z"
+        d="M9.5 14.5h12.5v19H9.5a1.5 1.5 0 0 1-1.5-1.5V16a1.5 1.5 0 0 1 1.5-1.5Z"
         className="stroke-rose-900"
-        strokeWidth="2"
+        strokeWidth="1.75"
         strokeLinejoin="round"
       />
-      <path d="M18 22h12M18 26h9" className="stroke-rose-700" strokeWidth="1.75" strokeLinecap="round" />
+      <path d="M11.5 18.5h7.5M11.5 21.5h9M11.5 24.5h6" className="stroke-rose-700" strokeWidth="1.45" strokeLinecap="round" />
       <path
-        d="M28 30.5 31 33.5 36 26.5"
+        d="M11 28.5c1.2-.8 2.2.4 3.5 0s2.3-1.6 3.8-1 2 2 3.5 1.2"
         className="stroke-pink-600"
-        strokeWidth="2"
+        strokeWidth="1.65"
         strokeLinecap="round"
+      />
+      <path d="M17 26.5l3-3.5" className="stroke-rose-900" strokeWidth="1.5" strokeLinecap="round" />
+      {/* Open book (right) — training / onboarding materials */}
+      <path
+        d="M24 17.5c-3.8 1-6.2 3.8-6.2 7.5v8.2H24V17.5Z"
+        className="stroke-rose-900"
+        strokeWidth="1.75"
         strokeLinejoin="round"
       />
-      <path d="M14 33l4-3" className="stroke-rose-900" strokeWidth="1.75" strokeLinecap="round" />
+      <path
+        d="M24 17.5c3.8 1 6.2 3.8 6.2 7.5v8.2H24V17.5Z"
+        className="stroke-rose-900"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <path d="M24 17.5V33.2" className="stroke-rose-700/85" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M20.2 21.8h3.2M28.6 21.8h3.2M20.2 25h2.8M29 25h2.8" className="stroke-rose-700/65" strokeWidth="1.15" strokeLinecap="round" />
     </svg>
   );
 }
 
+/** 03 Launch your agency — storefront: open your own agency / office. */
 function IconLaunch({ className }: StepIconProps) {
   return (
     <svg className={className} viewBox="0 0 48 48" fill="none" aria-hidden>
       <circle cx="24" cy="24" r="20" className="fill-rose-100 stroke-rose-200/90" strokeWidth="1.5" />
+      {/* Awning */}
+      <path d="M11 19h26v2.5H11V19Z" className="stroke-rose-900" strokeWidth="1.75" strokeLinejoin="round" />
       <path
-        d="M22 14c8 4 12 10 12 18-4-2-8-3-12-3s-8 1-12 3c0-8 4-14 12-18Z"
-        className="stroke-rose-900"
-        strokeWidth="2"
+        d="M11 21.5h4.3l3.2-2.5 3.3 2.5 3.2-2.5 3.3 2.5 3.2-2.5 4.7 2.5"
+        className="stroke-pink-600"
+        strokeWidth="1.5"
         strokeLinejoin="round"
       />
-      <path d="M22 22v6M19 25h6" className="stroke-pink-600" strokeWidth="1.75" strokeLinecap="round" />
-      <path
-        d="M30 12v5M27.5 14.5h5"
-        className="stroke-pink-600"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-      />
+      {/* Shop front */}
+      <path d="M12 21.5h24V36H12V21.5Z" className="stroke-rose-900" strokeWidth="1.85" strokeLinejoin="round" />
+      <path d="M20 36V28.5a1.8 1.8 0 0 1 1.8-1.8h4.4a1.8 1.8 0 0 1 1.8 1.8V36" className="stroke-pink-600" strokeWidth="1.75" strokeLinecap="round" />
+      <path d="M14.5 25h4v3.2h-4V25ZM29.5 25h4v3.2h-4V25Z" className="stroke-rose-700" strokeWidth="1.45" strokeLinejoin="round" />
+      <path d="M33 15l1.8 3.2 3.5 1-3.5 1L33 23.5l-1.8-3.2-3.5-1 3.5-1L33 15Z" className="stroke-pink-600" strokeWidth="1.2" strokeLinejoin="round" />
     </svg>
   );
 }

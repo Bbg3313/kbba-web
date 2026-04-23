@@ -223,7 +223,7 @@ export default function WhoWeArePage() {
           <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-rose-950 sm:text-3xl">
             What we deliver
           </h2>
-          <ol className="mt-10 grid min-w-0 gap-6 sm:grid-cols-2">
+          <ol className="mt-10 grid min-w-0 gap-6 md:grid-cols-2">
             {whatWeDo.map((w) => (
               <li
                 key={w.n}
@@ -302,18 +302,18 @@ export default function WhoWeArePage() {
       <section className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/40 to-white py-12 sm:py-16">
         <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-pretty text-2xl font-semibold text-rose-950 sm:text-3xl">Gallery</h2>
-          <div className="mt-8 grid min-w-0 grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+          <div className="mt-8 grid min-w-0 grid-cols-4 gap-2 sm:grid-cols-4 sm:gap-2.5 md:grid-cols-4 md:gap-3 lg:grid-cols-5">
             {hospitalPartners.slice(0, 12).map((h) => (
               <div
                 key={`who-gallery-${h.id}`}
-                className="relative h-28 overflow-hidden rounded-xl border border-rose-100/80 bg-white sm:h-32"
+                className="relative aspect-square min-h-0 w-full overflow-hidden rounded-lg border border-rose-100/80 bg-white sm:rounded-xl"
               >
                 <Image
                   src={h.imageSrc}
                   alt="KBBA gallery"
                   fill
                   className="object-contain p-2"
-                  sizes="(max-width: 768px) 45vw, 25vw"
+                  sizes="(max-width: 640px) 22vw, (max-width: 1024px) 22vw, 18vw"
                 />
               </div>
             ))}

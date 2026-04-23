@@ -22,7 +22,7 @@ export default function StartNowPage() {
 
       <section className="border-b border-rose-100/60 bg-white/90 py-12">
         <RegisterStepsCards
-          gridClassName="mx-auto grid min-w-0 w-full max-w-6xl grid-cols-1 items-stretch gap-3 px-4 sm:grid-cols-3 sm:gap-4 sm:px-6 lg:gap-5 lg:px-8"
+          gridClassName="mx-auto grid min-w-0 w-full max-w-6xl grid-cols-1 items-stretch gap-3 px-4 md:grid-cols-3 md:gap-4 sm:px-6 lg:gap-5 lg:px-8"
           cardClassName="flex h-full min-h-0 min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-gradient-to-b from-rose-50/50 to-white px-4 pb-6 pt-6 text-center shadow-sm sm:px-5 sm:pb-7 sm:pt-7"
         />
       </section>

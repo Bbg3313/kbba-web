@@ -44,7 +44,7 @@ export default function BlogPage() {
         subtitle="Partnerships, case studies, and perspectives on the Thailand–Korea beauty corridor."
       />
       <div className="mx-auto min-w-0 max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        <ul className="grid min-w-0 gap-6 sm:grid-cols-2">
+        <ul className="grid min-w-0 gap-6 md:grid-cols-2">
           {posts.map((post) => (
             <li key={post.title}>
               <article className="flex h-full min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25 transition hover:border-pink-200 hover:shadow-lg">
