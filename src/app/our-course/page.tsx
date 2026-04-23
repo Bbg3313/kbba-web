@@ -179,18 +179,6 @@ export default function OurCoursePage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-b from-rose-50/35 to-white py-10 sm:py-14">
-        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
-            KBBA is a beauty-business training centre officially working with South Korea&apos;s lifelong
-            learning institutes and international licensing bodies to deliver legally aligned Korean
-            plastic surgery agency programmes. After graduation, our team helps you launch without
-            extra capital overhead. Surgeon-level technique training is delivered with BIO Plastic Surgery
-            Hospital.
-          </p>
-        </div>
-      </section>
-
       <section className="border-b border-rose-100/60 bg-gradient-to-b from-rose-50/40 to-white py-12 sm:py-16">
         <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
