@@ -11,26 +11,64 @@ export const metadata: Metadata = {
     "KBBA — training and business support for Korea-connected beauty businesses. Partners: S.K.I, BBG, institutes and hospitals.",
 };
 
-const whatWeDeliverCards = [
+const koreaPartnersPreview = officialPartners.hospitalsKorea.slice(0, 18);
+
+const pillars = [
   {
-    step: "01",
-    body: "Comprehensive education in plastic surgery business operations and market strategies.",
+    title: "Korean plastic surgery agency business",
+    desc: "Structure and support to launch and scale a professional agency.",
+    imageSrc:
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&h=520&q=82",
+    imageAlt:
+      "Two professionals shaking hands in a bright office, representing trusted partnerships for Korea-facing agency business",
   },
   {
-    step: "02",
-    body: "Post-training support for setup, compliance, and practical business launch.",
+    title: "Beauty & aesthetics business",
+    desc: "Connect services and networks between Thailand and Korea.",
+    imageSrc:
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&h=520&q=82",
+    imageAlt:
+      "Beauty products and cosmetics flat lay, representing aesthetics and beauty industry business",
   },
   {
-    step: "03",
-    body: "Expansion into broader beauty business opportunities in the Korean market.",
-  },
-  {
-    step: "04",
-    body: "Surgeon-focused technique programmes led by experienced Korean specialists.",
+    title: "Surgeon skills training",
+    desc: "Technique programmes with top hospitals in South Korea.",
+    imageSrc:
+      "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=800&h=520&q=82",
+    imageAlt:
+      "Sterile surgical environment and clinical focus, representing hands-on surgeon skills training",
   },
 ] as const;
 
-const koreaPartnersPreview = officialPartners.hospitalsKorea.slice(0, 18);
+const motivationCards = [
+  {
+    step: "01",
+    title: "Tired of the same routine",
+    points: [
+      "Your main job feels repetitive and no longer helps you grow.",
+      "You want to use your ideas and creativity in a more meaningful way.",
+      "You want to keep learning, meeting new people, and building a more flexible career path.",
+    ],
+  },
+  {
+    step: "02",
+    title: "Ready to build something of your own",
+    points: [
+      "You want work that feels personal and valuable.",
+      "You want to become a business owner, not only a worker inside someone else’s system.",
+      "You want to guide others and grow your own presence online and offline.",
+    ],
+  },
+  {
+    step: "03",
+    title: "Aiming for financial freedom",
+    points: [
+      "You want to increase your income and create stronger long-term stability.",
+      "You want more freedom to care for yourself and your family.",
+      "You want a business path that can support travel, lifestyle goals, and personal independence.",
+    ],
+  },
+] as const;
 
 const instructors = [
   {
@@ -146,39 +184,43 @@ export default function WhoWeArePage() {
         className="border-y border-rose-100/60 bg-gradient-to-b from-rose-50/55 via-white to-white py-12 sm:py-16"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">What we do</p>
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">
+            Korea Beauty Business Academy
+          </p>
           <h2
             id="what-we-deliver-heading"
             className="font-display mt-2 text-center text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl"
           >
-            What We Deliver
+            Korea Beauty Business Academy
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-center text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
-            Four focused outcomes designed for teams building Korea-connected beauty and surgery businesses.
+            Three practical directions inside the KBBA ecosystem for teams building Korea-connected beauty and
+            surgery businesses.
           </p>
 
-          <ol className="mt-10 grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {whatWeDeliverCards.map((item) => (
-              <li
-                key={item.step}
-                className="group flex min-h-[230px] flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-5 shadow-md shadow-rose-100/25 transition hover:-translate-y-0.5 hover:border-pink-200/80 hover:shadow-lg hover:shadow-rose-100/35"
+          <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
+            {pillars.map((p, i) => (
+              <div
+                key={p.title}
+                className="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
               >
-                <div className="flex items-center gap-3">
-                  <span className="font-display text-4xl italic leading-none text-rose-900/90">{item.step}</span>
-                  <span className="h-px flex-1 bg-gradient-to-r from-rose-200/80 to-transparent" aria-hidden />
+                <div className="relative mb-5 aspect-[16/10] w-full overflow-hidden rounded-xl border border-rose-100/80 bg-rose-50/50 sm:h-32 sm:aspect-auto">
+                  <Image
+                    src={p.imageSrc}
+                    alt={p.imageAlt}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
-                <p className="mt-5 text-pretty text-sm font-semibold leading-relaxed text-rose-900/85 sm:text-base">
-                  {item.body}
-                </p>
-                <div
-                  className="mt-auto pt-4 text-xs font-medium uppercase tracking-[0.22em] text-pink-600/85"
-                  aria-hidden
-                >
-                  KBBA
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-lg font-bold text-white">
+                  {i + 1}
                 </div>
-              </li>
+                <h3 className="mt-4 font-display text-pretty text-lg font-semibold text-rose-950">{p.title}</h3>
+                <p className="mt-2 text-pretty text-sm text-rose-900/75">{p.desc}</p>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
@@ -251,6 +293,43 @@ export default function WhoWeArePage() {
             </div>
           );
         })}
+      </section>
+
+      <section className="border-t border-rose-100/60 bg-gradient-to-b from-rose-50/40 via-white to-white py-12 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">Why people start</p>
+            <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
+              Does this sound like you?
+            </h2>
+            <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
+              Many people come to KBBA not only for training, but because they are ready for a more independent,
+              more meaningful, and more flexible future.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {motivationCards.map((card) => (
+              <article
+                key={card.step}
+                className="flex min-w-0 flex-col rounded-[1.75rem] border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="font-display text-5xl font-semibold leading-none text-pink-600">{card.step}</span>
+                  <span className="h-px flex-1 bg-gradient-to-r from-pink-200 to-transparent" aria-hidden />
+                </div>
+                <h3 className="font-display mt-5 text-pretty text-xl font-semibold text-rose-950">{card.title}</h3>
+                <ul className="mt-5 space-y-3 pl-5 text-sm leading-relaxed text-rose-900/82 marker:text-pink-500">
+                  {card.points.map((point) => (
+                    <li key={point} className="text-pretty">
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section

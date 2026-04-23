@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { SiteShell } from "@/components/SiteShell";
 import { SubpageHero } from "@/components/SubpageHero";
@@ -10,30 +9,22 @@ export const metadata: Metadata = {
     "KBBA — compliant Korean plastic surgery agency training, Korea study tours, and surgeon skills programmes.",
 };
 
-const pillars = [
+const whatWeDeliverCards = [
   {
-    title: "Korean plastic surgery agency business",
-    desc: "Structure and support to launch and scale a professional agency.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&h=520&q=82",
-    imageAlt:
-      "Two professionals shaking hands in a bright office, representing trusted partnerships for Korea-facing agency business",
+    step: "01",
+    body: "Comprehensive education in plastic surgery business operations and market strategies.",
   },
   {
-    title: "Beauty & aesthetics business",
-    desc: "Connect services and networks between Thailand and Korea.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&h=520&q=82",
-    imageAlt:
-      "Beauty products and cosmetics flat lay, representing aesthetics and beauty industry business",
+    step: "02",
+    body: "Post-training support for setup, compliance, and practical business launch.",
   },
   {
-    title: "Surgeon skills training",
-    desc: "Technique programmes with top hospitals in South Korea.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=800&h=520&q=82",
-    imageAlt:
-      "Sterile surgical environment and clinical focus, representing hands-on surgeon skills training",
+    step: "03",
+    body: "Expansion into broader beauty business opportunities in the Korean market.",
+  },
+  {
+    step: "04",
+    body: "Surgeon-focused technique programmes led by experienced Korean specialists.",
   },
 ] as const;
 
@@ -181,32 +172,36 @@ export default function OurCoursePage() {
 
       <section className="border-b border-rose-100/60 bg-gradient-to-b from-rose-50/40 to-white py-12 sm:py-16">
         <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
-            Korea Beauty Business Academy
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">What we do</p>
+          <h2 className="font-display mt-2 text-center text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
+            What We Deliver
           </h2>
-          <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
-            {pillars.map((p, i) => (
-              <div
-                key={p.title}
-                className="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
+          <p className="mx-auto mt-4 max-w-3xl text-center text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
+            Four focused outcomes designed for teams building Korea-connected beauty and surgery businesses.
+          </p>
+
+          <ol className="mt-10 grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {whatWeDeliverCards.map((item) => (
+              <li
+                key={item.step}
+                className="group flex min-h-[230px] flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-5 shadow-md shadow-rose-100/25 transition hover:-translate-y-0.5 hover:border-pink-200/80 hover:shadow-lg hover:shadow-rose-100/35"
               >
-                <div className="relative mb-5 aspect-[16/10] w-full overflow-hidden rounded-xl border border-rose-100/80 bg-rose-50/50 sm:h-32 sm:aspect-auto">
-                  <Image
-                    src={p.imageSrc}
-                    alt={p.imageAlt}
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
+                <div className="flex items-center gap-3">
+                  <span className="font-display text-4xl italic leading-none text-rose-900/90">{item.step}</span>
+                  <span className="h-px flex-1 bg-gradient-to-r from-rose-200/80 to-transparent" aria-hidden />
                 </div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-lg font-bold text-white">
-                  {i + 1}
+                <p className="mt-5 text-pretty text-sm font-semibold leading-relaxed text-rose-900/85 sm:text-base">
+                  {item.body}
+                </p>
+                <div
+                  className="mt-auto pt-4 text-xs font-medium uppercase tracking-[0.22em] text-pink-600/85"
+                  aria-hidden
+                >
+                  KBBA
                 </div>
-                <h3 className="mt-4 font-display text-pretty text-lg font-semibold text-rose-950">{p.title}</h3>
-                <p className="mt-2 text-pretty text-sm text-rose-900/75">{p.desc}</p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
