@@ -146,20 +146,20 @@ export default function ReviewPage() {
             {participantReviews.map((review) => (
               <article
                 key={review.name}
-                className="flex min-w-0 items-start gap-4 overflow-hidden rounded-[1.75rem] border border-rose-100/90 bg-gradient-to-br from-rose-50/70 via-white to-white p-4 shadow-[0_24px_70px_-36px_rgba(190,24,93,0.28)] sm:gap-6 sm:p-6 lg:gap-8 lg:p-8"
+                className="flex min-w-0 flex-col items-start gap-4 overflow-hidden rounded-[1.75rem] border border-rose-100/90 bg-gradient-to-br from-rose-50/70 via-white to-white p-4 shadow-[0_24px_70px_-36px_rgba(190,24,93,0.28)] sm:flex-row sm:gap-6 sm:p-6 lg:gap-8 lg:p-8"
               >
-                <div className="relative h-44 w-36 shrink-0 overflow-hidden rounded-2xl border border-rose-100/90 bg-[#ececf4] shadow-sm sm:h-56 sm:w-44 lg:h-64 lg:w-52">
+                <div className="relative aspect-[4/5] w-full max-w-[16rem] shrink-0 self-center overflow-hidden rounded-2xl border border-rose-100/90 bg-[#ececf4] shadow-sm sm:h-56 sm:w-44 sm:max-w-none sm:self-auto lg:h-64 lg:w-52">
                   <Image
                     src={review.imageSrc}
                     alt={review.imageAlt}
                     width={694}
                     height={1000}
                     className="h-full w-full object-cover object-center"
-                    sizes="(max-width: 640px) 144px, (max-width: 1024px) 176px, 208px"
+                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 176px, 208px"
                   />
                 </div>
 
-                <figure className="min-w-0">
+                <figure className="min-w-0 w-full">
                   <div className="flex items-center gap-3">
                     <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-rose-500 to-pink-600 text-xl text-white shadow-sm">
                       "
@@ -168,7 +168,7 @@ export default function ReviewPage() {
                       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pink-600">
                         Participant Review
                       </p>
-                      <figcaption className="mt-1 font-display text-pretty text-2xl font-semibold text-rose-950">
+                      <figcaption className="mt-1 font-display text-pretty text-xl font-semibold text-rose-950 sm:text-2xl">
                         {review.name}
                       </figcaption>
                     </div>

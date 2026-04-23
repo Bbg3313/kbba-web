@@ -35,12 +35,10 @@ export function HeroSection({
               Beauty Business Academy
             </p>
 
-            <h1 className="font-display mt-5 text-pretty text-[clamp(1.55rem,5.2vw,2.8rem)] font-semibold leading-[1.15] tracking-tight text-rose-950 sm:text-4xl lg:text-[2.8rem]">
-              {HERO_TITLE_LINES[0]}
-              <br />
-              {HERO_TITLE_LINES[1]}
-              <br />
-              {HERO_TITLE_LINES[2]}
+            <h1 className="font-display mt-5 text-balance text-[clamp(1.55rem,5.2vw,2.8rem)] font-semibold leading-[1.15] tracking-tight text-rose-950 sm:text-4xl lg:text-[2.8rem]">
+              <span className="sm:block">{HERO_TITLE_LINES[0]} </span>
+              <span className="sm:block">{HERO_TITLE_LINES[1]} </span>
+              <span className="sm:block">{HERO_TITLE_LINES[2]}</span>
             </h1>
 
             <p className="mt-5 max-w-xl text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base">

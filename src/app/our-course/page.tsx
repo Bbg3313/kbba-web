@@ -171,7 +171,7 @@ export default function OurCoursePage() {
             </div>
             <Link
               href="/#consult-register"
-              className="inline-flex w-fit items-center rounded-full border-2 border-rose-200 bg-white px-5 py-2.5 text-sm font-semibold text-rose-800 transition hover:border-rose-300"
+              className="inline-flex w-full items-center justify-center rounded-full border-2 border-rose-200 bg-white px-5 py-2.5 text-sm font-semibold text-rose-800 transition hover:border-rose-300 sm:w-fit"
             >
               Register online →
             </Link>
@@ -190,7 +190,7 @@ export default function OurCoursePage() {
                 key={p.title}
                 className="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
               >
-                <div className="relative mb-5 h-28 w-full overflow-hidden rounded-xl border border-rose-100/80 bg-rose-50/50 sm:h-32">
+                <div className="relative mb-5 aspect-[16/10] w-full overflow-hidden rounded-xl border border-rose-100/80 bg-rose-50/50 sm:h-32 sm:aspect-auto">
                   <Image
                     src={p.imageSrc}
                     alt={p.imageAlt}

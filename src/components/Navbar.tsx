@@ -26,7 +26,7 @@ export function Navbar() {
             width={340}
             height={150}
             priority
-            className="h-11 w-auto max-w-[220px] object-contain object-left sm:h-16 sm:max-w-[280px] lg:h-20 lg:max-w-[360px]"
+            className="h-10 w-auto max-w-[180px] object-contain object-left sm:h-16 sm:max-w-[280px] lg:h-20 lg:max-w-[360px]"
           />
         </Link>
 
