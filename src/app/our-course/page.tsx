@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { SiteShell } from "@/components/SiteShell";
 import { SubpageHero } from "@/components/SubpageHero";
@@ -8,6 +9,76 @@ export const metadata: Metadata = {
   description:
     "KBBA — compliant Korean plastic surgery agency training, Korea study tours, and surgeon skills programmes.",
 };
+
+const pillars = [
+  {
+    title: "Korean plastic surgery agency business",
+    desc: "Structure and support to launch and scale a professional agency.",
+    imageSrc:
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&h=520&q=82",
+    imageAlt:
+      "Two professionals shaking hands in a bright office, representing trusted partnerships for Korea-facing agency business",
+  },
+  {
+    title: "Beauty & aesthetics business",
+    desc: "Connect services and networks between Thailand and Korea.",
+    imageSrc:
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&h=520&q=82",
+    imageAlt:
+      "Beauty products and cosmetics flat lay, representing aesthetics and beauty industry business",
+  },
+  {
+    title: "Surgeon skills training",
+    desc: "Technique programmes with top hospitals in South Korea.",
+    imageSrc:
+      "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=800&h=520&q=82",
+    imageAlt:
+      "Sterile surgical environment and clinical focus, representing hands-on surgeon skills training",
+  },
+] as const;
+
+const businessSupportItems = [
+  {
+    emoji: "🪪",
+    title: "Compliant licensing",
+    desc: "Legal permits and licensing pathways that match how Korea-facing agencies actually operate.",
+  },
+  {
+    emoji: "🧭",
+    title: "Business advisory",
+    desc: "Strategic guidance on launching, scaling, and coordinating beauty and surgery-related ventures.",
+  },
+  {
+    emoji: "✨",
+    title: "Data & promotions",
+    desc: "Campaign ideas, performance signals, and promotional support so your pipeline stays visible.",
+  },
+  {
+    emoji: "🛟",
+    title: "Operations support",
+    desc: "A specialist team behind you for day-to-day questions, handoffs, and practical problem-solving.",
+  },
+  {
+    emoji: "🏥",
+    title: "Partner hospitals",
+    desc: "Access and continuity across Korean partner clinics so introductions feel credible and consistent.",
+  },
+  {
+    emoji: "📋",
+    title: "Documentation",
+    desc: "Contracts, forms, and paperwork organised so compliance and client care do not stall.",
+  },
+  {
+    emoji: "🚐",
+    title: "Transfers & mobility",
+    desc: "Coordinated pick-ups, drops, and movement logistics for clients while they are in Korea.",
+  },
+  {
+    emoji: "💬",
+    title: "Interpreter care",
+    desc: "Interpreter coverage and client-care touchpoints so language never blocks trust or safety.",
+  },
+] as const;
 
 const endorsedBy = [
   "International License Institute",
@@ -120,6 +191,37 @@ export default function OurCoursePage() {
         </div>
       </section>
 
+      <section className="border-b border-rose-100/60 bg-gradient-to-b from-rose-50/40 to-white py-12 sm:py-16">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
+            Korea Beauty Business Academy
+          </h2>
+          <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
+            {pillars.map((p, i) => (
+              <div
+                key={p.title}
+                className="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
+              >
+                <div className="relative mb-5 h-28 w-full overflow-hidden rounded-xl border border-rose-100/80 bg-rose-50/50 sm:h-32">
+                  <Image
+                    src={p.imageSrc}
+                    alt={p.imageAlt}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-lg font-bold text-white">
+                  {i + 1}
+                </div>
+                <h3 className="mt-4 font-display text-pretty text-lg font-semibold text-rose-950">{p.title}</h3>
+                <p className="mt-2 text-pretty text-sm text-rose-900/75">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="border-y border-rose-100/60 bg-white py-12 sm:py-16">
         <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-pretty text-xl font-semibold text-rose-950 sm:text-2xl">
@@ -172,6 +274,43 @@ export default function OurCoursePage() {
             endorsed={endorsedSurgeon}
             certificates={certificateSurgeon}
           />
+        </div>
+      </section>
+
+      <section
+        id="business-support"
+        aria-labelledby="business-support-heading"
+        className="border-t border-rose-100/60 bg-gradient-to-b from-rose-50/45 via-white to-white"
+      >
+        <div className="mx-auto min-w-0 max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+          <h2
+            id="business-support-heading"
+            className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl"
+          >
+            Business support
+          </h2>
+          <p className="mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
+            KBBA is not only a training institute—we stay with you after graduation so you can open for business
+            with less upfront capital. Specialists help across licensing, advisory, campaigns, hospital ties,
+            paperwork, transfers in Korea, and interpreter-led client care.
+          </p>
+          <ul className="mt-10 grid min-w-0 list-none gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+            {businessSupportItems.map((item) => (
+              <li
+                key={item.title}
+                className="flex min-h-0 min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-5 shadow-md shadow-rose-100/20 transition hover:border-pink-200/70 hover:shadow-lg hover:shadow-rose-100/30"
+              >
+                <span
+                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-rose-100 to-pink-100 text-2xl shadow-inner shadow-white/80"
+                  aria-hidden
+                >
+                  {item.emoji}
+                </span>
+                <h3 className="mt-4 font-display text-pretty text-base font-semibold text-rose-950">{item.title}</h3>
+                <p className="mt-2 text-pretty text-xs leading-relaxed text-rose-900/72 sm:text-sm">{item.desc}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </SiteShell>
