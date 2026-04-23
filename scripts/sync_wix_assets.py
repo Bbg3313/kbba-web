@@ -143,6 +143,9 @@ def main() -> None:
         f"export const WIX_HERO_IMAGE = {json.dumps(hero or '')};",
         f"export const WIX_HEADER_LOGO = {json.dumps(logo or '')};",
         "",
+        "/** Main homepage hero (local file under public/images/hero/) */",
+        'export const HOME_HERO_IMAGE = "/images/hero/kbba-hero-banner.png";',
+        "",
     ]
     (ROOT / "src" / "data" / "site-assets.ts").write_text("\n".join(sa), encoding="utf-8")
 

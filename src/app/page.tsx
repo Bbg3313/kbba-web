@@ -6,6 +6,7 @@ import { OfficialPartnerBanner } from "@/components/OfficialPartnerBanner";
 import { SiteShell } from "@/components/SiteShell";
 import { TestimonialVideos } from "@/components/TestimonialVideos";
 import { WixTopStrip } from "@/components/WixTopStrip";
+import { HomeAcademyIntroBlock } from "@/components/HomeAcademyIntroBlock";
 import { HomeConsultRegisterSection } from "@/components/HomeConsultRegisterSection";
 import { HomeRegisterProcessSection } from "@/components/HomeRegisterProcessSection";
 
@@ -95,7 +96,9 @@ export default function Home() {
             </p>
           </header>
 
-          <div className="grid min-w-0 items-start gap-8 md:grid-cols-[1.25fr_0.75fr] md:gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+          <HomeAcademyIntroBlock />
+
+          <div className="mt-10 grid min-w-0 items-start gap-8 md:grid-cols-[1.25fr_0.75fr] md:gap-6 lg:mt-14 lg:grid-cols-[1.3fr_0.7fr]">
             <div className="relative mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-2xl bg-white sm:aspect-[16/11] sm:max-w-none md:mx-0 md:aspect-[980/558]">
               <Image
                 src={HOME_CONSULTING_VISUAL}
@@ -171,6 +174,15 @@ export default function Home() {
         </div>
       </section>
 
+      <div
+        className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/55 via-[#fff8fb] to-rose-50/55 pb-12 sm:pb-16"
+        role="region"
+        aria-label="Registration and consultation"
+      >
+        <HomeRegisterProcessSection />
+        <HomeConsultRegisterSection />
+      </div>
+
       <section
         id="faq"
         className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/40 via-white to-white py-14 sm:py-20"
@@ -200,15 +212,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <div
-        className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/55 via-[#fff8fb] to-rose-50/55 pb-12 sm:pb-16"
-        role="region"
-        aria-label="Registration and consultation"
-      >
-        <HomeRegisterProcessSection />
-        <HomeConsultRegisterSection />
-      </div>
     </SiteShell>
   );
 }

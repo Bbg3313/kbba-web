@@ -3,6 +3,16 @@ import { hospitalPartners } from "@/data/hospitals";
 
 const partnerLogoAlt = "KBBA partner hospital logo";
 
+/** Same outer frame in Featured strip + Full grid (logos align visually). */
+const partnerLogoFrameClass =
+  "flex aspect-square w-36 shrink-0 flex-col rounded-xl border border-zinc-200/70 bg-zinc-200/40 p-2 shadow-sm sm:aspect-[5/4] sm:w-40 sm:p-2.5";
+
+const partnerLogoMatClass =
+  "flex min-h-0 flex-1 items-center justify-center rounded-lg bg-white shadow-[inset_0_1px_0_rgba(255,255,255,1),inset_0_0_0_1px_rgba(0,0,0,0.04)]";
+
+const partnerLogoImgClass =
+  "max-h-[78%] max-w-[88%] object-contain transition duration-200 group-hover:scale-[1.03]";
+
 export function HospitalGrid() {
   const marqueeItems = [
     ...hospitalPartners,
@@ -49,16 +59,18 @@ export function HospitalGrid() {
                   {marqueeItems.map((h, idx) => (
                     <div
                       key={`${h.id}-marquee-${idx}`}
-                      className="flex h-[4.75rem] w-[6.75rem] shrink-0 items-center justify-center rounded-2xl border border-rose-100/80 bg-gradient-to-b from-white to-rose-50/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_8px_24px_-12px_rgba(190,24,93,0.12)] ring-1 ring-white/80 transition duration-300 hover:border-rose-200/90 hover:shadow-[0_12px_28px_-14px_rgba(190,24,93,0.18)] sm:h-[5.25rem] sm:w-[7.75rem]"
+                      className={`group ${partnerLogoFrameClass} transition duration-200 hover:border-rose-200/70 hover:bg-zinc-200/55 hover:shadow-md`}
                     >
-                      <Image
-                        src={h.imageSrc}
-                        alt={partnerLogoAlt}
-                        width={200}
-                        height={120}
-                        className="max-h-[78%] max-w-[88%] object-contain opacity-[0.92] transition duration-300 hover:opacity-100"
-                        sizes="128px"
-                      />
+                      <div className={partnerLogoMatClass}>
+                        <Image
+                          src={h.imageSrc}
+                          alt={partnerLogoAlt}
+                          width={200}
+                          height={120}
+                          className={partnerLogoImgClass}
+                          sizes="160px"
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -72,19 +84,19 @@ export function HospitalGrid() {
             Full partner grid
           </p>
           <div className="rounded-2xl border border-zinc-200/90 bg-zinc-100/80 p-3 shadow-sm sm:p-4 md:p-5">
-            <div className="grid min-w-0 grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-3.5 lg:grid-cols-5 lg:gap-3.5 xl:grid-cols-6">
+            <div className="grid min-w-0 grid-cols-2 justify-items-center gap-2.5 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-3.5 lg:grid-cols-5 lg:gap-3.5 xl:grid-cols-6">
               {hospitalPartners.map((h) => (
                 <article
                   key={h.id}
-                  className="group flex aspect-square min-h-0 flex-col rounded-xl border border-zinc-200/70 bg-zinc-200/40 p-2 shadow-sm transition duration-200 hover:border-rose-200/70 hover:bg-zinc-200/55 hover:shadow-md sm:aspect-[5/4] sm:p-2.5"
+                  className={`group ${partnerLogoFrameClass} transition duration-200 hover:border-rose-200/70 hover:bg-zinc-200/55 hover:shadow-md`}
                 >
-                  <div className="flex min-h-0 flex-1 items-center justify-center rounded-lg bg-white shadow-[inset_0_1px_0_rgba(255,255,255,1),inset_0_0_0_1px_rgba(0,0,0,0.04)]">
+                  <div className={partnerLogoMatClass}>
                     <Image
                       src={h.imageSrc}
                       alt={partnerLogoAlt}
                       width={200}
                       height={120}
-                      className="max-h-[78%] max-w-[88%] object-contain transition duration-200 group-hover:scale-[1.03]"
+                      className={partnerLogoImgClass}
                       sizes="(max-width: 640px) 45vw, 160px"
                     />
                   </div>

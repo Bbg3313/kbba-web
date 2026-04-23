@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { WIX_HERO_IMAGE } from "@/data/site-assets";
+import { HOME_HERO_IMAGE, WIX_HERO_IMAGE } from "@/data/site-assets";
 import { SITE_LINE_URL } from "@/data/site-links";
 
 type HeroSectionProps = {
@@ -15,8 +15,8 @@ const HERO_TITLE_LINES = [
 ] as const;
 
 export function HeroSection({
-  heroImageSrc = WIX_HERO_IMAGE || "/images/hero/hero.svg",
-  heroImageAlt = "KBBA — Korean plastic surgery agency programme",
+  heroImageSrc = HOME_HERO_IMAGE || WIX_HERO_IMAGE || "/images/hero/hero.svg",
+  heroImageAlt = "KBBA presenter at K-Beauty Business Academy desk with clinic screens",
 }: HeroSectionProps) {
   return (
     <section
@@ -66,9 +66,9 @@ export function HeroSection({
             </div>
           </div>
 
-          <div className="relative aspect-[5/4] min-h-[220px] w-full min-w-0 overflow-hidden rounded-[1.5rem] sm:aspect-[16/11] sm:min-h-[260px] lg:ml-4 lg:aspect-auto lg:h-full lg:min-h-[320px]">
+          <div className="relative mx-auto flex w-full min-w-0 max-w-[min(100%,26rem)] items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-rose-100/50 via-pink-50/40 to-rose-50/60 aspect-square min-h-[220px] sm:max-w-md lg:mx-0 lg:ml-4 lg:max-w-none lg:aspect-auto lg:h-full lg:min-h-[320px]">
             <HeroImage src={heroImageSrc} alt={heroImageAlt} />
-            <div className="absolute inset-0 bg-gradient-to-t from-rose-200/15 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-rose-200/20 via-transparent to-transparent" />
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@ function HeroImage({ src, alt }: { src: string; alt: string }) {
       alt={alt}
       fill
       sizes="(max-width: 1024px) 100vw, 55vw"
-      className="object-cover object-[38%_20%] sm:object-[45%_18%] lg:object-[58%_18%]"
+      className="object-contain object-center"
       priority
     />
   );
