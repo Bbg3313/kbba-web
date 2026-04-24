@@ -15,7 +15,7 @@ export const en = {
         { label: "OUR COURSE", href: "/our-course" },
         { label: "REVIEW", href: "/review" },
         { label: "BLOG", href: "/blog" },
-        { label: "START NOW", href: "/start-now" },
+        { label: "START NOW", href: "/#consult-register" },
       ],
       mobileQuickItems: [
         { label: "HOME", emoji: "🏠", href: "/" },
@@ -23,7 +23,7 @@ export const en = {
         { label: "OUR COURSE", emoji: "🎓", href: "/our-course" },
         { label: "REVIEW", emoji: "💬", href: "/review" },
         { label: "BLOG", emoji: "📰", href: "/blog" },
-        { label: "START NOW", emoji: "🚀", href: "/start-now" },
+        { label: "START NOW", emoji: "🚀", href: "/#consult-register" },
       ],
     },
     footer: {

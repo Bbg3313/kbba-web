@@ -17,7 +17,7 @@ export const th: Dictionary = {
         { label: "หลักสูตร", href: "/our-course" },
         { label: "รีวิว", href: "/review" },
         { label: "บล็อก", href: "/blog" },
-        { label: "เริ่มต้น", href: "/start-now" },
+        { label: "เริ่มต้น", href: "/#consult-register" },
       ],
       mobileQuickItems: [
         { label: "หน้าหลัก", emoji: "🏠", href: "/" },
@@ -25,7 +25,7 @@ export const th: Dictionary = {
         { label: "หลักสูตร", emoji: "🎓", href: "/our-course" },
         { label: "รีวิว", emoji: "💬", href: "/review" },
         { label: "บล็อก", emoji: "📰", href: "/blog" },
-        { label: "เริ่มต้น", emoji: "🚀", href: "/start-now" },
+        { label: "เริ่มต้น", emoji: "🚀", href: "/#consult-register" },
       ],
     },
     footer: {

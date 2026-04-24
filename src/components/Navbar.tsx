@@ -34,6 +34,9 @@ export function Navbar({ locale, copy }: NavbarProps) {
     const barePathname = stripLocaleFromPathname(pathname);
 
     if (barePathname === "/") {
+      if (hash === "#consult-register") {
+        return "/#consult-register";
+      }
       return "/";
     }
 
