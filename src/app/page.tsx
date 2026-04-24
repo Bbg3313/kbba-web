@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { buildPageMetadata } from "@/i18n/metadata";
+import { getRequestDictionary } from "@/i18n/server";
+import { localizeHref } from "@/i18n/routing";
 import { HeroSection } from "@/components/HeroSection";
 import { HospitalGrid } from "@/components/HospitalGrid";
 import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
@@ -10,117 +14,42 @@ import { HomeAcademyIntroBlock } from "@/components/HomeAcademyIntroBlock";
 import { HomeConsultRegisterSection } from "@/components/HomeConsultRegisterSection";
 import { HomeRegisterProcessSection } from "@/components/HomeRegisterProcessSection";
 
-const courses = [
-  {
-    name: "Compliant Korean plastic surgery agency programme",
-    note: "For people starting an agency, working as a consultant, or in hospital / clinic plastic surgery roles.",
-    price: "THB 59,000",
-    imageSrc: "/images/reviews/gallery/doctor-lobby.png",
-    imageAlt: "Business consultation and partner planning session",
-  },
-  {
-    name: "Agency programme with a study tour in Korea",
-    note: "For those who want an agency or consulting career plus hands-on observation experience at Korean hospitals.",
-    price: "THB 99,000",
-    imageSrc: "/images/reviews/gallery/note-group.png",
-    imageAlt: "Study tour and partner hospital visit in Korea",
-  },
-  {
-    name: "Skills training with Korean plastic surgeons",
-    note: "For surgeons who want to sharpen techniques and learn approaches used by leading Korean specialists.",
-    price: "THB 159,000",
-    imageSrc: "/images/reviews/gallery/bio-surgeons.png",
-    imageAlt: "Training with Korean plastic surgery specialists",
-  },
-] as const;
-
-const motivationCards = [
-  {
-    emoji: "🔄",
-    title: "Tired of the same routine",
-    points: [
-      "Your main job feels repetitive and no longer helps you grow.",
-      "You want to use your ideas and creativity in a more meaningful way.",
-      "You want to keep learning, meeting new people, and building a more flexible career path.",
-    ],
-  },
-  {
-    emoji: "💼",
-    title: "Ready to build something of your own",
-    points: [
-      "You want work that feels personal and valuable.",
-      "You want to become a business owner, not only a worker inside someone else’s system.",
-      "You want to guide others and grow your own presence online and offline.",
-    ],
-  },
-  {
-    emoji: "💸",
-    title: "Aiming for financial freedom",
-    points: [
-      "You want to increase your income and create stronger long-term stability.",
-      "You want more freedom to care for yourself and your family.",
-      "You want a business path that can support travel, lifestyle goals, and personal independence.",
-    ],
-  },
-] as const;
-
-const faqs = [
-  {
-    q: "What does KBBA offer clinics outside Korea?",
-    a: "KBBA is a training hub and Thailand–Korea beauty business network: foundational courses, hospital partner introductions, and ongoing business support after graduation.",
-  },
-  {
-    q: "How is KBBA different from a typical agency?",
-    a: "Programmes are aligned with accredited institutes and Korean partners, with documentation support, interpreters, and client-care playbooks so you can launch without extra capital overhead.",
-  },
-  {
-    q: "What benefits do graduates receive?",
-    a: "Practical know-how, access to partner hospitals in the network, and continued support across operations, promotions, transfers, and interpreter teams.",
-  },
-  {
-    q: "How long until we see results?",
-    a: "It depends on your business plan and execution. Most teams spend the first phase on foundations and systems, then scale revenue and service capacity.",
-  },
-  {
-    q: "Why is Korean plastic surgery agency work in demand?",
-    a: "Market trends show sustained demand for Korean surgery services — a strong opportunity for operators who want to build a professional agency.",
-  },
-  {
-    q: "Why invest in agency training?",
-    a: "Agency work is specialised: service quality, coordination, and compliance all matter. Training reduces costly mistakes and improves long-term success.",
-  },
-  {
-    q: "Why partner with KBBA specifically?",
-    a: "KBBA combines accredited curricula, hospital partner access, and post-training systems so beginners can operate with structure and grow faster.",
-  },
-  {
-    q: "How does KBBA work with Mabel Clinic after surgery?",
-    a: "Partner clinics in Thailand help with follow-up, guidance, and continuity of care so clients feel supported when they return home.",
-  },
-  {
-    q: "How does KBBA work with Hi' Seoul Clinic?",
-    a: "KBBA coordinates with Thai partner clinics to cover aftercare when travellers return from Korea — smoother handoffs and greater confidence.",
-  },
-] as const;
-
 const HOME_CONSULTING_VISUAL = "/images/sections/home-consulting-presenter-v2.png";
 const HOME_CONSULTING_CERT_IMAGE =
   "https://static.wixstatic.com/media/e22438_8c13c8af9e8e40e58a1f61b99735956f~mv2.png";
+const courseImages = [
+  "/images/reviews/gallery/doctor-lobby.png",
+  "/images/reviews/gallery/note-group.png",
+  "/images/reviews/gallery/bio-surgeons.png",
+] as const;
 
-export default function Home() {
+export async function generateMetadata(): Promise<Metadata> {
+  const { locale, dictionary } = await getRequestDictionary();
+  return buildPageMetadata({
+    locale,
+    title: dictionary.home.meta.title,
+    description: dictionary.home.meta.description,
+    pathname: "/",
+  });
+}
+
+export default async function Home() {
+  const { locale, dictionary } = await getRequestDictionary();
+  const motivationCards = dictionary.home.motivations.cards;
+  const faqs = dictionary.home.faq.items;
+
   return (
     <SiteShell>
-      <HeroSection />
+      <HeroSection locale={locale} copy={dictionary.home.hero} />
       <section className="border-b border-rose-100/60 bg-gradient-to-b from-rose-50/40 via-white to-white py-8 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <MainSectionEyebrow label="Why People Start" align="center" />
+            <MainSectionEyebrow label={dictionary.home.motivations.eyebrow} align="center" />
             <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
-              Does this sound like you?
+              {dictionary.home.motivations.title}
             </h2>
             <p className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/75 sm:mt-4 sm:text-base">
-              Many people come to KBBA not only for training, but because they are ready for a more independent,
-              more meaningful, and more flexible future.
+              {dictionary.home.motivations.description}
             </p>
           </div>
 
@@ -151,10 +80,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <OfficialPartnerBanner />
-      <HospitalGrid />
+      <OfficialPartnerBanner copy={dictionary.home.officialPartners} />
+      <HospitalGrid copy={dictionary.home.hospitalGrid} />
 
-      <TestimonialVideos />
+      <TestimonialVideos copy={dictionary.home.testimonials} />
 
       <section className="relative overflow-x-clip border-b border-rose-100/70 bg-white py-8 sm:py-14">
         <div className="pointer-events-none absolute inset-0">
@@ -163,23 +92,23 @@ export default function Home() {
         </div>
         <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <header className="max-w-3xl min-w-0 pb-8 sm:pb-16">
-            <MainSectionEyebrow label="Certification Path" />
+            <MainSectionEyebrow label={dictionary.home.academyIntro.eyebrow} />
             <h2 className="font-display text-pretty text-xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
-              KOREA BEAUTY BUSINESS ACADEMY
+              {dictionary.home.academyIntro.title}
             </h2>
             <p className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base">
-              Korea-focused beauty business training institute
+              {dictionary.home.academyIntro.subtitle}
             </p>
           </header>
 
-          <HomeAcademyIntroBlock />
+          <HomeAcademyIntroBlock copy={dictionary.home.academyIntro} />
 
           <div className="mt-10 grid min-w-0 items-start gap-y-8 rounded-2xl border border-rose-100/50 bg-white/40 px-3 py-6 shadow-sm shadow-rose-100/20 sm:gap-y-12 sm:px-6 sm:py-10 md:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] md:items-stretch md:gap-x-8 md:gap-y-0 md:px-7 md:py-11 lg:mt-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1fr)] lg:gap-x-10 lg:px-8 lg:py-12">
             <div className="relative isolate hidden w-full max-w-none justify-self-stretch overflow-visible md:block">
               <div className="relative aspect-[16/11] min-h-[220px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 via-white to-pink-50/80 p-1 shadow-md shadow-rose-100/50 ring-1 ring-rose-100/80 sm:aspect-[16/11] sm:min-h-[300px] sm:p-5 md:aspect-[980/558] md:min-h-[380px] md:p-6 lg:min-h-[440px] lg:p-7 xl:min-h-[500px]">
                 <Image
                   src={HOME_CONSULTING_VISUAL}
-                  alt="KBBA presenter visual"
+                  alt={dictionary.home.academyIntro.consultVisualAlt}
                   fill
                   className="object-contain object-center origin-bottom scale-[1.15] sm:object-[3%_100%] sm:scale-[1.08] md:object-[0%_100%] md:scale-[1.1] lg:scale-[1.12]"
                   sizes="(max-width: 768px) 100vw, 52vw"
@@ -189,14 +118,13 @@ export default function Home() {
             </div>
             <div className="flex min-h-0 min-w-0 flex-col justify-start gap-5 text-left sm:gap-8 md:h-full md:max-w-none md:justify-center md:py-1 lg:py-2">
               <p className="order-1 text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base sm:leading-[1.7] md:order-none">
-                Become a certified beauty consultant with strong earning potential — and earn your Korean
-                hospital coordinator credentials with us.
+                {dictionary.home.academyIntro.consultText}
               </p>
               <div className="order-2 relative w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)] md:order-none">
                 <div className="relative mx-auto aspect-[16/10] w-full max-w-none min-h-[11rem] sm:max-w-2xl sm:min-h-[11rem] md:min-h-[13rem] lg:min-h-[15rem]">
                   <Image
                     src={HOME_CONSULTING_CERT_IMAGE}
-                    alt="Hospital coordinator certificates"
+                    alt={dictionary.home.academyIntro.consultCertificateAlt}
                     fill
                     className="object-contain object-center"
                     sizes="(max-width: 768px) 100vw, 46vw"
@@ -209,7 +137,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="order-3 inline-flex min-h-11 w-fit max-w-full items-center justify-center self-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-300/40 transition hover:brightness-110 sm:px-7 md:order-none md:self-center"
               >
-                Ask on LINE — fit for you?
+                {dictionary.home.academyIntro.consultCta}
               </a>
             </div>
           </div>
@@ -221,22 +149,22 @@ export default function Home() {
         className="border-t border-rose-100/60 bg-gradient-to-b from-rose-50/40 via-white to-white py-14 sm:py-20"
       >
         <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <MainSectionEyebrow label="Programme Overview" />
+          <MainSectionEyebrow label={dictionary.home.courses.eyebrow} />
           <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
-            Our Course
+            {dictionary.home.courses.title}
           </h2>
           <p className="mt-3 max-w-2xl text-pretty text-sm text-rose-900/70 sm:text-base">
-            Programme summaries aligned with KBBA&apos;s official Our Course offering.
+            {dictionary.home.courses.description}
           </p>
           <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
-            {courses.map((c) => (
+            {dictionary.home.courses.items.map((c, index) => (
               <article
                 key={c.name}
                 className="flex min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
               >
                 <div className="relative mb-5 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-rose-50/40">
                   <Image
-                    src={c.imageSrc}
+                    src={courseImages[index] ?? courseImages[0]}
                     alt={c.imageAlt}
                     fill
                     className="object-cover object-center"
@@ -249,8 +177,11 @@ export default function Home() {
                 <p className="mt-4 flex-1 text-pretty text-sm leading-relaxed text-rose-900/70">{c.note}</p>
                 <p className="mt-4 text-xl font-semibold text-rose-950">{c.price}</p>
                 <p className="mt-5">
-                  <Link href="/our-course" className="text-sm font-semibold text-pink-700 hover:underline">
-                    Course details
+                  <Link
+                    href={localizeHref(locale, "/our-course")}
+                    className="text-sm font-semibold text-pink-700 hover:underline"
+                  >
+                    {dictionary.home.courses.courseDetails}
                   </Link>
                 </p>
               </article>
@@ -262,10 +193,14 @@ export default function Home() {
       <div
         className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/55 via-[#fff8fb] to-rose-50/55 pb-0"
         role="region"
-        aria-label="Registration and consultation"
+        aria-label={dictionary.home.faq.regionAriaLabel}
       >
-        <HomeRegisterProcessSection />
-        <HomeConsultRegisterSection />
+        <HomeRegisterProcessSection copy={dictionary.shared.registerSteps} />
+        <HomeConsultRegisterSection
+          locale={locale}
+          copy={dictionary.shared.consultForm}
+          socialLabels={dictionary.shell.socialLabels}
+        />
       </div>
 
       <section
@@ -273,9 +208,9 @@ export default function Home() {
         className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/55 via-rose-50/35 to-white pb-0 pt-12 sm:pt-16"
       >
         <div className="mx-auto min-w-0 max-w-3xl px-4 sm:px-6 lg:px-8">
-          <MainSectionEyebrow label="Common Questions" align="center" className="mx-auto" />
+          <MainSectionEyebrow label={dictionary.home.faq.eyebrow} align="center" className="mx-auto" />
           <h2 className="text-center text-balance font-display text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
-            FAQ
+            {dictionary.home.faq.title}
           </h2>
           <div className="mt-10 min-w-0 space-y-4">
             {faqs.map((f, i) => (

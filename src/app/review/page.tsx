@@ -1,83 +1,27 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { buildPageMetadata } from "@/i18n/metadata";
+import { getRequestDictionary } from "@/i18n/server";
 import { SiteShell } from "@/components/SiteShell";
 import { SubpageHero } from "@/components/SubpageHero";
 
-export const metadata: Metadata = {
-  title: "REVIEW",
-  description: "KBBA reviews and services — after-sales support and clinic partnerships.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { locale, dictionary } = await getRequestDictionary();
+  return buildPageMetadata({
+    locale,
+    title: dictionary.review.meta.title,
+    description: dictionary.review.meta.description,
+    pathname: "/review",
+  });
+}
 
-const services = [
-  {
-    title: "SET UP Agency Business",
-    body: "Foundational training and advisory so you can operate a compliant agency right after KBBA — without extra capital.",
-  },
-  {
-    title: "Promotion & Service",
-    body: "KBBA works with 60+ partner hospitals: monthly marketing support and interpreter teams while clients are in Korea.",
-  },
-  {
-    title: "After Service",
-    body: "KBBA partners with 2+ clinic brands (expanding) for after-sales care — suture removal, splints, or swelling treatments.",
-  },
-] as const;
-
-const participantReviews = [
-  {
-    name: "Arm Arinee",
-    role: "Owner",
-    business: "Look at me by Arinee",
-    imageSrc: "/images/reviews/arm-arinee.png",
-    imageAlt: "Arm Arinee from Look at me by Arinee",
-    body:
-      "A long-standing interest in beauty and cosmetic surgery led me to start a Korean surgery agency side business. I wanted to guide people around me toward trusted hospitals, skilled doctors, and better results.",
-  },
-  {
-    name: "Margaret Langer",
-    role: "Owner",
-    business: "Mar Pa Suay",
-    imageSrc: "/images/reviews/margaret-langer.png",
-    imageAlt: "Margaret Langer from Mar Pa Suay",
-    body:
-      "My work as a model and business owner connected me with many people and frequent beauty reviews in Thailand and Korea. KBBA taught me the legal, structured way to run a Korean surgery agency and made client care much smoother.",
-  },
-  {
-    name: "Miew Kiranapat",
-    role: "Owner",
-    business: "Queen Management",
-    imageSrc: "/images/reviews/miew-kiranapat.png",
-    imageAlt: "Miew Kiranapat from Queen Management",
-    body:
-      "Many people around me wanted trusted advice about self-care and surgery in Korea, and my long relationship with May at S.K.I gave me confidence to step in. With the KBBA system in place, the work is smoother and I can recommend it to anyone who wants to become a serious Korean surgery consultant.",
-  },
-  {
-    name: "Kim Phakin",
-    role: "Owner",
-    business: "Kim S.K.I",
-    imageSrc: "/images/reviews/kim-phakin.png",
-    imageAlt: "Kim Phakin from Kim S.K.I",
-    body:
-      "Because I travel to Korea often and care about self-management, people regularly asked me about beauty care and surgery there. Support from S.K.I and the KBBA system now lets me send clients confidently while still managing my other businesses in Thailand.",
-  },
-  {
-    name: "Pop Supaporn",
-    role: "Owner",
-    business: "Pop S.K.I",
-    imageSrc: "/images/reviews/pop-supaporn.png",
-    imageAlt: "Pop Supaporn from Pop S.K.I",
-    body:
-      "After my first surgery in Korea with May at S.K.I, people kept noticing the change and asking for advice, which led me into consulting. Working with S.K.I and the KBBA system has made client planning and care both enjoyable and professional.",
-  },
-  {
-    name: "Pim Thatsanan",
-    role: "Owner",
-    business: "Beauty Atelier",
-    imageSrc: "/images/reviews/pim-thatsanan.png",
-    imageAlt: "Pim Thatsanan from Beauty Atelier",
-    body:
-      "I believe beauty should be shaped to each individual in the way that suits them best. Working with leading Korean hospitals and top surgeons lets me help clients pursue that ideal with more confidence.",
-  },
+const participantReviewImages = [
+  "/images/reviews/arm-arinee.png",
+  "/images/reviews/margaret-langer.png",
+  "/images/reviews/miew-kiranapat.png",
+  "/images/reviews/kim-phakin.png",
+  "/images/reviews/pop-supaporn.png",
+  "/images/reviews/pim-thatsanan.png",
 ] as const;
 
 const reviewGalleryItems = [
@@ -131,13 +75,19 @@ const reviewGalleryItems = [
   },
 ] as const;
 
-export default function ReviewPage() {
+export default async function ReviewPage() {
+  const { dictionary } = await getRequestDictionary();
+  const participantReviews = dictionary.review.participantReviews.map((review, index) => ({
+    ...review,
+    imageSrc: participantReviewImages[index] ?? participantReviewImages[0],
+  }));
+
   return (
     <SiteShell>
       <SubpageHero
-        eyebrow="REVIEW"
-        title="Reviews & services"
-        subtitle="Voices from participants and clinic partners — how KBBA supports you after training."
+        eyebrow={dictionary.review.hero.eyebrow}
+        title={dictionary.review.hero.title}
+        subtitle={dictionary.review.hero.subtitle}
       />
 
       <section className="border-b border-rose-100/60 bg-white/90 py-12 sm:py-16">
@@ -166,7 +116,7 @@ export default function ReviewPage() {
                     </span>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pink-600">
-                        Participant Review
+                        {dictionary.review.participantReviewLabel}
                       </p>
                       <figcaption className="mt-1 font-display text-pretty text-xl font-semibold text-rose-950 sm:text-2xl">
                         {review.name}
@@ -190,17 +140,15 @@ export default function ReviewPage() {
 
       <section className="bg-gradient-to-b from-rose-50/40 to-white py-12 sm:py-16">
         <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-pink-600">Our Service</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-pink-600">{dictionary.review.services.eyebrow}</p>
           <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-rose-950 sm:text-3xl">
-            KBBA supports you end to end
+            {dictionary.review.services.title}
           </h2>
           <p className="mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base">
-            From fundamentals to ongoing operations without extra capital, plus interpreters so you can sell,
-            market, and serve smoothly before, during, and after the trip — with Thai partner clinics when clients
-            return home.
+            {dictionary.review.services.description}
           </p>
           <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
-            {services.map((s) => (
+            {dictionary.review.services.items.map((s) => (
               <article
                 key={s.title}
                 className="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-sm"
@@ -219,43 +167,38 @@ export default function ReviewPage() {
             <div className="relative h-72 w-full overflow-hidden border-b border-rose-100/80 bg-rose-50/40 sm:h-80">
               <Image
                 src="/images/reviews/hi-seoul-clinic.png"
-                alt="Hi' Seoul Clinic storefront with partners standing outside"
+                alt={dictionary.review.clinicPartners[0].imageAlt}
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
             <div className="p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pink-600">Clinic Partner</p>
-              <h2 className="font-display mt-2 text-pretty text-xl font-semibold text-rose-950">Hi&apos; Seoul Clinic</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pink-600">{dictionary.review.clinicPartnerLabel}</p>
+              <h2 className="font-display mt-2 text-pretty text-xl font-semibold text-rose-950">{dictionary.review.clinicPartners[0].name}</h2>
               <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/80">
-                After caring for clients returning from Korea, we saw outcomes and smiles and chose to partner with
-                May at S.K.I. Sending VIP clients to Korea becomes much easier when they know aftercare at home can
-                support swelling, scars, and confidence.
+                {dictionary.review.clinicPartners[0].body}
               </p>
-              <p className="mt-4 text-sm font-medium text-pink-700">Visit the clinic</p>
+              <p className="mt-4 text-sm font-medium text-pink-700">{dictionary.review.visitClinic}</p>
             </div>
           </article>
           <article className="min-w-0 overflow-hidden rounded-2xl border border-rose-100/90 bg-white/95 shadow-md">
             <div className="relative h-72 w-full overflow-hidden border-b border-rose-100/80 bg-rose-50/40 sm:h-80">
               <Image
                 src="/images/reviews/mabel-clinic.png"
-                alt="Mabel Clinic reception area"
+                alt={dictionary.review.clinicPartners[1].imageAlt}
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
             <div className="p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pink-600">Clinic Partner</p>
-              <h2 className="font-display mt-2 text-pretty text-xl font-semibold text-rose-950">Mabel Clinic</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pink-600">{dictionary.review.clinicPartnerLabel}</p>
+              <h2 className="font-display mt-2 text-pretty text-xl font-semibold text-rose-950">{dictionary.review.clinicPartners[1].name}</h2>
               <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/80">
-                Dr. Nut has served VIP dermatology clients for over 10 years and follows Korean techniques. Clients
-                often return with concerns like bruising, redness, and scars, which led us to speak with May at
-                S.K.I. and form a formal partnership. KBBA helps produce better-informed, higher-quality agencies and
-                consultants so clients can feel safer throughout the process.
+                {dictionary.review.clinicPartners[1].body}
               </p>
-              <p className="mt-4 text-sm font-medium text-pink-700">Visit the clinic</p>
+              <p className="mt-4 text-sm font-medium text-pink-700">{dictionary.review.visitClinic}</p>
             </div>
           </article>
         </div>
@@ -263,17 +206,16 @@ export default function ReviewPage() {
 
       <section className="border-t border-rose-100/60 bg-gradient-to-b from-rose-50/35 to-white py-12 sm:py-16">
         <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-pink-600">Review Gallery</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-pink-600">{dictionary.review.gallery.eyebrow}</p>
           <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-rose-950 sm:text-3xl">
-            Moments from training and partner visits
+            {dictionary.review.gallery.title}
           </h2>
           <p className="mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/78 sm:text-base">
-            A visual snapshot of certification, clinic visits, partner meetings, and real working moments across the
-            KBBA network.
+            {dictionary.review.gallery.description}
           </p>
 
           <div className="mt-10 grid min-w-0 grid-cols-2 gap-3 sm:gap-4 md:grid-cols-12">
-            {reviewGalleryItems.map((item) => (
+            {reviewGalleryItems.map((item, index) => (
               <figure
                 key={item.src}
                 className={`min-w-0 overflow-hidden rounded-2xl border border-rose-100/90 bg-white/95 shadow-md shadow-rose-100/25 ${item.className}`}
@@ -281,7 +223,7 @@ export default function ReviewPage() {
                 <div className={`relative w-full overflow-hidden bg-rose-50/40 ${item.aspectClassName}`}>
                   <Image
                     src={item.src}
-                    alt={item.alt}
+                    alt={dictionary.review.gallery.items[index]?.alt ?? item.alt}
                     fill
                     className="object-cover object-center transition duration-300 hover:scale-[1.02]"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

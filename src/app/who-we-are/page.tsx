@@ -1,131 +1,97 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { buildPageMetadata } from "@/i18n/metadata";
+import { getRequestDictionary } from "@/i18n/server";
 import { SiteShell } from "@/components/SiteShell";
 import { SubpageHero } from "@/components/SubpageHero";
 import { hospitalPartners } from "@/data/hospitals";
 import officialPartners from "@/data/official-partners.json";
 
-export const metadata: Metadata = {
-  title: "WHO WE ARE",
-  description:
-    "KBBA — training and business support for Korea-connected beauty businesses. Partners: S.K.I, BBG, institutes and hospitals.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { locale, dictionary } = await getRequestDictionary();
+  return buildPageMetadata({
+    locale,
+    title: dictionary.whoWeAre.meta.title,
+    description: dictionary.whoWeAre.meta.description,
+    pathname: "/who-we-are",
+  });
+}
 
 const koreaPartnersPreview = officialPartners.hospitalsKorea.slice(0, 18);
 const partnershipMarqueeItems = [...hospitalPartners, ...hospitalPartners, ...hospitalPartners];
 
-const pillars = [
+const pillarMedia = [
   {
-    title: "Korean plastic surgery agency business",
-    desc: "Structure and support to launch and scale a professional agency.",
     imageSrc:
       "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&h=520&q=82",
-    imageAlt:
-      "Two professionals shaking hands in a bright office, representing trusted partnerships for Korea-facing agency business",
   },
   {
-    title: "Beauty & aesthetics business",
-    desc: "Connect services and networks between Thailand and Korea.",
     imageSrc:
       "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&h=520&q=82",
-    imageAlt:
-      "Beauty products and cosmetics flat lay, representing aesthetics and beauty industry business",
   },
   {
-    title: "Surgeon skills training",
-    desc: "Technique programmes with top hospitals in South Korea.",
     imageSrc:
       "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=800&h=520&q=82",
-    imageAlt:
-      "Sterile surgical environment and clinical focus, representing hands-on surgeon skills training",
   },
 ] as const;
 
-const instructors = [
+const instructorMedia = [
   {
-    name: "May Kanyanat Sutpa",
-    nameKo: "메이 카냐누트 수트파",
-    role: "Founder & CEO, Surgery Korea Info (S.K.I)",
-    body: "Executive with Surgery Korea Info (S.K.I), a Korea-focused plastic surgery information and agency business. She brings 10+ years of professional experience across the Korean plastic surgery market—bridging client expectations, hospital protocols, and compliant agency operations.",
-    course: "Practical Korean plastic surgery consulting programme",
-    tag: "@SKI.May",
     imageSrc: "/images/faculty/may-kanyanat-sutpa.png",
-    imageAlt: "May Kanyanat Sutpa — Surgery Korea Info",
     portraitClassName: "object-cover object-[50%_28%]",
   },
   {
-    name: "Prof. Lee Eun-young",
-    nameKo: "이은영 교수",
-    role: "Hospital coordinator specialist",
-    body: "Professor specialising in hospital operations and coordinator practice, aligned with the International License Institute and Korea’s lifelong learning pathways—grounding KBBA’s coordinator track in documentation, etiquette, and real ward realities.",
-    course: "Hospital coordinator programme",
-    tag: "Lee Eun-young",
     imageSrc: "/images/faculty/lee-eun-young.png",
-    imageAlt: "Professor Lee Eun-young",
     portraitClassName: "object-contain object-center",
   },
   {
-    name: "Sun Sathapon Wisakasat",
-    nameKo: "선 사타폰 위사카사트",
-    role: "Founder & CEO, online digital marketing",
-    body: "Online marketing specialist for beauty and clinic brands: finding the right audiences, building content that carries a consultative tone, and engineering follow-up so campaigns actually close—without vanity metrics that waste ad spend.",
-    course: "Digital marketing programme",
-    tag: "Son Digital Marketing",
     imageSrc: "/images/faculty/sun-sathapon-wisakasat.png",
-    imageAlt: "Sun Sathapon Wisakasat",
     portraitClassName: "object-contain object-[52%_45%]",
   },
   {
-    name: "Dr. Cho In-chang",
-    nameKo: "조인창 외과의",
-    role: "President, BIO Plastic Surgery",
-    body: "Plastic surgeon with 20+ years in practice. BIO Plastic Surgery has delivered structured surgical education for more than a decade—including delicate aesthetic work recognised at the highest public level, alongside technique programmes for practising surgeons.",
-    course: "Surgical technique training for doctors",
-    tag: "Cho In-chang",
     imageSrc: "/images/faculty/cho-in-chang.png",
-    imageAlt: "Dr. Cho In-chang — BIO Plastic Surgery",
     portraitClassName: "object-cover object-[50%_42%]",
   },
 ] as const;
 
-export default function WhoWeArePage() {
+export default async function WhoWeArePage() {
+  const { dictionary } = await getRequestDictionary();
+  const pillars = dictionary.whoWeAre.academy.pillars.map((pillar, index) => ({
+    ...pillar,
+    imageSrc: pillarMedia[index]?.imageSrc ?? pillarMedia[0].imageSrc,
+  }));
+  const instructors = dictionary.whoWeAre.faculty.people.map((person, index) => ({
+    ...person,
+    imageSrc: instructorMedia[index]?.imageSrc ?? instructorMedia[0].imageSrc,
+    portraitClassName: instructorMedia[index]?.portraitClassName ?? instructorMedia[0].portraitClassName,
+  }));
+
   return (
     <SiteShell>
       <SubpageHero
-        eyebrow="KBBA — KOREA BEAUTY BUSINESS ACADEMY"
-        title="WHO WE ARE"
-        subtitle="Training and business support for Thailand–Korea beauty and surgery ventures—with S.K.I, BBG in Korea, and a network of institutes and hospitals."
+        eyebrow={dictionary.whoWeAre.hero.eyebrow}
+        title={dictionary.whoWeAre.hero.title}
+        subtitle={dictionary.whoWeAre.hero.subtitle}
       />
 
       <div className="border-b border-rose-100/60 bg-white/90">
         <div className="mx-auto grid min-w-0 max-w-6xl gap-3 px-4 py-7 sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-8 lg:px-8">
-          <div className="rounded-xl border border-rose-100/90 bg-rose-50/40 px-4 py-3">
-            <p className="text-xs font-semibold uppercase tracking-wide text-pink-700">Focus</p>
-            <p className="mt-1 text-pretty text-sm text-rose-900/85">Thailand–Korea beauty business and compliant agency operations.</p>
-          </div>
-          <div className="rounded-xl border border-rose-100/90 bg-rose-50/40 px-4 py-3">
-            <p className="text-xs font-semibold uppercase tracking-wide text-pink-700">Partners</p>
-            <p className="mt-1 text-pretty text-sm text-rose-900/85">
-              Surgery Korea Info (S.K.I), Blue Bridge Global (BBG), institutes and hospitals.
-            </p>
-          </div>
-          <div className="rounded-xl border border-rose-100/90 bg-rose-50/40 px-4 py-3">
-            <p className="text-xs font-semibold uppercase tracking-wide text-pink-700">What you get</p>
-            <p className="mt-1 text-pretty text-sm text-rose-900/85">
-              Programmes from foundations to advanced tracks, plus launch and scale-up support.
-            </p>
-          </div>
+          {dictionary.whoWeAre.summaryCards.map((card) => (
+            <div key={card.title} className="rounded-xl border border-rose-100/90 bg-rose-50/40 px-4 py-3">
+              <p className="text-xs font-semibold uppercase tracking-wide text-pink-700">{card.title}</p>
+              <p className="mt-1 text-pretty text-sm text-rose-900/85">{card.body}</p>
+            </div>
+          ))}
         </div>
       </div>
 
       <section className="border-y border-rose-100/60 bg-white/90 py-12 sm:py-16">
         <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
-            Partnerships
+            {dictionary.whoWeAre.partnerships.title}
           </h2>
           <p className="mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
-            KBBA works officially with hospitals and clinics in the network plus Korean accreditation bodies so
-            curricula and business support meet international expectations.
+            {dictionary.whoWeAre.partnerships.description}
           </p>
           <div className="relative mt-8 overflow-hidden rounded-2xl border border-rose-100/90 bg-white py-5 shadow-sm sm:py-6">
             <div
@@ -144,7 +110,7 @@ export default function WhoWeArePage() {
                 >
                   <Image
                     src={h.imageSrc}
-                    alt="Partner logo"
+                    alt={dictionary.whoWeAre.partnerships.marqueeLogoAlt}
                     width={220}
                     height={110}
                     className="max-h-full w-auto object-contain"
@@ -164,17 +130,16 @@ export default function WhoWeArePage() {
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">
-            Korea Beauty Business Academy
+            {dictionary.whoWeAre.academy.eyebrow}
           </p>
           <h2
             id="what-we-deliver-heading"
             className="font-display mt-2 text-center text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl"
           >
-            Korea Beauty Business Academy
+            {dictionary.whoWeAre.academy.title}
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-center text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
-            Three practical directions inside the KBBA ecosystem for teams building Korea-connected beauty and
-            surgery businesses.
+            {dictionary.whoWeAre.academy.description}
           </p>
 
           <div className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
@@ -209,16 +174,15 @@ export default function WhoWeArePage() {
         className="border-t border-rose-100/60"
       >
         <div className="mx-auto max-w-6xl px-4 pb-4 pt-14 text-center sm:px-6 sm:pt-16 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">Expert speakers</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">{dictionary.whoWeAre.faculty.eyebrow}</p>
           <h2
             id="expert-faculty-heading"
             className="font-display mt-2 text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl lg:text-[2rem]"
           >
-            Meet our faculty
+            {dictionary.whoWeAre.faculty.title}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
-            Practitioners and educators who anchor KBBA programmes—from Korea-facing agency craft and coordinator
-            pathways to digital growth and advanced surgical technique.
+            {dictionary.whoWeAre.faculty.description}
           </p>
         </div>
 
@@ -279,12 +243,12 @@ export default function WhoWeArePage() {
         className="border-t border-rose-100/70 bg-gradient-to-b from-white to-rose-50/30 py-12 sm:py-20"
       >
         <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">Official partners</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-600">{dictionary.whoWeAre.officialPartners.eyebrow}</p>
           <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-rose-950 sm:text-3xl">
-            Official partners
+            {dictionary.whoWeAre.officialPartners.title}
           </h2>
           <p className="mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
-            A curated snapshot of our trusted network across institutes, clinics, and partner companies.
+            {dictionary.whoWeAre.officialPartners.description}
           </p>
 
           <div className="mt-10 grid min-w-0 gap-5 lg:grid-cols-12">
@@ -294,7 +258,7 @@ export default function WhoWeArePage() {
                   <span className="mr-2" aria-hidden>
                     🏛️
                   </span>
-                  Institutes
+                  {dictionary.whoWeAre.officialPartners.institutesHeading}
                 </h3>
                 <span className="rounded-full bg-rose-100 px-2.5 py-1 text-xs font-semibold text-rose-800">
                   {officialPartners.institutes.length}
@@ -318,7 +282,7 @@ export default function WhoWeArePage() {
                   <span className="mr-2" aria-hidden>
                     🇰🇷
                   </span>
-                  Hospitals & Clinics in Korea
+                  {dictionary.whoWeAre.officialPartners.hospitalsKoreaHeading}
                 </h3>
                 <span className="rounded-full bg-pink-100 px-2.5 py-1 text-xs font-semibold text-pink-800">
                   {officialPartners.hospitalsKorea.length}
@@ -336,8 +300,8 @@ export default function WhoWeArePage() {
               </ul>
               {officialPartners.hospitalsKorea.length > koreaPartnersPreview.length ? (
                 <p className="mt-4 text-xs font-medium uppercase tracking-[0.18em] text-pink-700/90">
-                  + {officialPartners.hospitalsKorea.length - koreaPartnersPreview.length} more Korea partners in our
-                  network
+                  + {officialPartners.hospitalsKorea.length - koreaPartnersPreview.length}{" "}
+                  {dictionary.whoWeAre.officialPartners.morePartnersLabel}
                 </p>
               ) : null}
             </div>
@@ -348,7 +312,7 @@ export default function WhoWeArePage() {
                   <span className="mr-2" aria-hidden>
                     🏥
                   </span>
-                  Hospitals & Clinics in Thailand
+                  {dictionary.whoWeAre.officialPartners.hospitalsThailandHeading}
                 </h3>
                 <span className="rounded-full bg-rose-100 px-2.5 py-1 text-xs font-semibold text-rose-800">
                   {officialPartners.hospitalsThailand.length}
@@ -369,7 +333,7 @@ export default function WhoWeArePage() {
                   <span className="mr-2" aria-hidden>
                     🤝
                   </span>
-                  Companies
+                  {dictionary.whoWeAre.officialPartners.companiesHeading}
                 </h3>
                 <span className="rounded-full bg-rose-100 px-2.5 py-1 text-xs font-semibold text-rose-800">
                   {officialPartners.companies.length}

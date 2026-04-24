@@ -1,35 +1,11 @@
 import Image from "next/image";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-const stats = [
-  {
-    value: "30,000++",
-    label: "Thai travellers choosing Korean plastic surgery each year (industry scale)",
-    imageSrc:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=640&h=480&q=82",
-    imageAlt: "View from an airplane window, symbolising travel to Korea for medical care",
-  },
-  {
-    value: "3,000++",
-    label: "Estimated market demand for professional surgery agency services",
-    imageSrc:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=640&h=480&q=82",
-    imageAlt:
-      "Doctor consulting with a patient in a clinic, representing demand for professional plastic surgery agency and coordination services",
-  },
-  {
-    value: "60++",
-    label: "Network access to leading Korean plastic surgery hospitals",
-    imageSrc:
-      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=640&h=480&q=82",
-    imageAlt: "Bright modern hospital corridor, representing partner hospital network",
-  },
-  {
-    value: "99%",
-    label: "Strong track record supporting legal certification pathways for graduates",
-    imageSrc:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=640&h=480&q=82",
-    imageAlt: "Graduates celebrating with diplomas, symbolising certification success",
-  },
+const statImageSources = [
+  "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=640&h=480&q=82",
+  "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=640&h=480&q=82",
+  "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=640&h=480&q=82",
+  "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=640&h=480&q=82",
 ] as const;
 
 const badgeGradients: readonly { a: string; b: string; c: string }[] = [
@@ -74,15 +50,19 @@ function StatPhotoVisual({
   );
 }
 
-export function HomeAcademyIntroBlock() {
+type HomeAcademyIntroBlockProps = {
+  copy: Dictionary["home"]["academyIntro"];
+};
+
+export function HomeAcademyIntroBlock({ copy }: HomeAcademyIntroBlockProps) {
   return (
     <div className="mt-2 border-t border-rose-100/60 pt-8 sm:mt-0 sm:border-t-0 sm:pt-0">
       <div className="relative overflow-hidden rounded-2xl border border-rose-100/80 bg-gradient-to-br from-[#fffdfa] via-[#fffaf6] to-[#fff8fb] p-4 shadow-sm shadow-rose-100/20 sm:p-6 lg:p-7">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.95),transparent_42%),linear-gradient(to_right,rgba(120,53,15,0.05)_1px,transparent_1px)] bg-[length:100%_100%,32px_32px] opacity-60" />
           <div className="absolute left-6 right-6 top-5 flex items-center justify-between text-[0.56rem] font-semibold uppercase tracking-[0.26em] text-stone-400/90 sm:left-8 sm:right-8">
-            <span>Seoul Edition</span>
-            <span>Beauty Business Journal</span>
+            <span>{copy.editorialLeft}</span>
+            <span>{copy.editorialRight}</span>
           </div>
           <div className="absolute left-1/2 top-11 h-px w-[calc(100%-3rem)] -translate-x-1/2 bg-gradient-to-r from-transparent via-stone-300/70 to-transparent sm:w-[calc(100%-4rem)]" />
           <div className="absolute bottom-5 left-8 right-8 h-px bg-gradient-to-r from-transparent via-rose-200/80 to-transparent" />
@@ -99,25 +79,22 @@ export function HomeAcademyIntroBlock() {
           />
         </div>
         <p className="relative mx-auto mt-5 max-w-4xl text-pretty text-sm leading-relaxed text-rose-900/80 sm:mt-6 sm:text-base sm:leading-[1.7] lg:text-justify">
-          <span className="font-semibold text-pink-600">KBBA</span> is a training and support hub for launching
-          beauty businesses, built through partnerships between leading institutes in South Korea and Thailand.
-          We help you succeed in the international beauty industry by connecting your operations with{" "}
-          <span className="font-semibold text-pink-600">60+</span> leading plastic surgery hospitals in Korea.
-          You can start legally and move quickly—with hospital coordinator pathways aligned to expectations in
-          Korea. With more than <span className="font-semibold text-pink-600">10</span> years of expertise in
-          the Korean plastic surgery agency field, our intensive programmes are structured so you can operate
-          without heavy extra capital. A dedicated support team backs beauty ventures in both Thailand and
-          Korea.
+          <span className="font-semibold text-pink-600">{copy.introParts.brand}</span>
+          {copy.introParts.beforeHospitals}
+          <span className="font-semibold text-pink-600">{copy.introParts.hospitalCount}</span>
+          {copy.introParts.beforeExperience}
+          <span className="font-semibold text-pink-600">{copy.introParts.experienceYears}</span>
+          {copy.introParts.afterExperience}
         </p>
       </div>
 
       <ul className="mt-8 grid min-w-0 grid-cols-2 gap-3 sm:gap-4 lg:mt-10 lg:grid-cols-4 lg:gap-5">
-        {stats.map(({ value, label, imageSrc, imageAlt }, index) => (
+        {copy.stats.map(({ value, label, imageAlt }, index) => (
           <li
             key={value}
             className="flex min-w-0 flex-col items-center rounded-2xl border border-rose-100/90 bg-white/90 px-3 py-4 text-center shadow-sm shadow-rose-100/15 sm:px-5 sm:py-5"
           >
-            <StatPhotoVisual imageSrc={imageSrc} imageAlt={imageAlt} index={index} />
+            <StatPhotoVisual imageSrc={statImageSources[index] ?? statImageSources[0]} imageAlt={imageAlt} index={index} />
             <p className="mt-3 font-display text-xl font-semibold tracking-tight text-rose-950 sm:mt-4 sm:text-[1.65rem]">
               {value}
             </p>

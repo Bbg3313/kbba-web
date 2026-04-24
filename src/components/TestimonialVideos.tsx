@@ -2,67 +2,26 @@
 
 import Image from "next/image";
 import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 import { useEffect, useRef, useState } from "react";
 
-const TESTIMONIAL_EMBEDS = [
+const reviewImages = [
   {
-    id: "ajkBFCNCHmw",
-    title: "KBBA testimonial video 1",
-  },
-  {
-    id: "j6ZO8s0I81g",
-    title: "KBBA testimonial video 2",
-  },
-  {
-    id: "90crr8ymhKc",
-    title: "KBBA testimonial video 3",
-  },
-] as const;
-
-const HOME_REVIEW_CARDS = [
-  {
-    name: "Arm Arinee",
-    business: "Look at me by Arinee",
     imageSrc: "/images/reviews/arm-arinee.png",
-    imageAlt: "Arm Arinee from Look at me by Arinee",
-    quote:
-      "My interest in beauty and cosmetic surgery naturally grew into a side business helping people find trusted hospitals and skilled doctors in Korea.",
   },
   {
-    name: "Margaret Langer",
-    business: "Mar Pa Suay",
     imageSrc: "/images/reviews/margaret-langer.png",
-    imageAlt: "Margaret Langer from Mar Pa Suay",
-    quote:
-      "KBBA gave me a structured and legal path into the Korean surgery agency business, making client care smoother and more professional.",
   },
   {
-    name: "Miew Kiranapat",
-    business: "Queen Management",
     imageSrc: "/images/reviews/miew-kiranapat.png",
-    imageAlt: "Miew Kiranapat from Queen Management",
-    quote:
-      "With trusted guidance from S.K.I and the KBBA system, I could step confidently into Korean surgery consulting and work more smoothly.",
   },
   {
-    name: "Kim Phakin",
-    business: "Kim S.K.I",
     imageSrc: "/images/reviews/kim-phakin.png",
-    imageAlt: "Kim Phakin from Kim S.K.I",
-    quote:
-      "The KBBA system makes it easier to send clients with confidence while I continue managing my other businesses in Thailand.",
   },
   {
-    name: "Pop Supaporn",
-    business: "Pop S.K.I",
     imageSrc: "/images/reviews/pop-supaporn.png",
-    imageAlt: "Pop Supaporn from Pop S.K.I",
-    quote:
-      "Working with S.K.I and KBBA turned my personal experience into a professional consulting path with stronger client planning and care.",
   },
 ] as const;
-
-const MOBILE_REVIEW_LOOP = [...HOME_REVIEW_CARDS, ...HOME_REVIEW_CARDS];
 
 function embedSrc(videoId: string) {
   const params = new URLSearchParams({
@@ -74,7 +33,17 @@ function embedSrc(videoId: string) {
   return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
 }
 
-export function TestimonialVideos() {
+type TestimonialVideosProps = {
+  copy: Dictionary["home"]["testimonials"];
+};
+
+export function TestimonialVideos({ copy }: TestimonialVideosProps) {
+  const testimonialEmbeds = copy.videos;
+  const homeReviewCards = copy.reviews.map((review, index) => ({
+    ...review,
+    imageSrc: reviewImages[index]?.imageSrc ?? reviewImages[0].imageSrc,
+  }));
+  const mobileReviewLoop = [...homeReviewCards, ...homeReviewCards];
   const [activeReview, setActiveReview] = useState(0);
   const mobileReviewStripRef = useRef<HTMLDivElement | null>(null);
 
@@ -84,11 +53,11 @@ export function TestimonialVideos() {
     }
 
     const intervalId = window.setInterval(() => {
-      setActiveReview((current) => (current + 1) % HOME_REVIEW_CARDS.length);
+      setActiveReview((current) => (current + 1) % homeReviewCards.length);
     }, 3000);
 
     return () => window.clearInterval(intervalId);
-  }, []);
+  }, [homeReviewCards.length]);
 
   useEffect(() => {
     const strip = mobileReviewStripRef.current;
@@ -174,20 +143,20 @@ export function TestimonialVideos() {
 
       <div className="relative mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
         <header className="mx-auto mb-10 max-w-2xl min-w-0 text-center sm:mb-14">
-          <MainSectionEyebrow label="Voices & Stories" align="center" className="mx-auto" />
+          <MainSectionEyebrow label={copy.eyebrow} align="center" className="mx-auto" />
           <h2
             id="testimonials-heading"
             className="font-display mt-3 text-pretty text-3xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-pink-700 sm:text-4xl"
           >
-            Testimonial
+            {copy.title}
           </h2>
           <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base">
-            Hear from participants and partners of Korea Beauty Business Academy.
+            {copy.description}
           </p>
         </header>
 
         <div className="grid min-w-0 gap-7 sm:gap-8 lg:grid-cols-3">
-          {TESTIMONIAL_EMBEDS.map((video, index) => (
+          {testimonialEmbeds.map((video, index) => (
             <article key={video.id} className="group relative min-w-0">
               <div
                 className="absolute -inset-[1px] rounded-[1.35rem] bg-gradient-to-br from-rose-200/50 via-pink-200/35 to-rose-100/40 opacity-70 blur-[1px] transition duration-500 group-hover:opacity-100 group-hover:blur-0"
@@ -212,10 +181,10 @@ export function TestimonialVideos() {
                     </span>
                     <div className="min-w-0">
                       <p className="truncate text-xs font-semibold uppercase tracking-[0.2em] text-pink-700/90">
-                        Featured story
+                        {copy.featuredStory}
                       </p>
                       <p className="truncate text-sm font-medium text-rose-950">
-                        YouTube — KBBA
+                        {copy.youtubeLabel}
                       </p>
                     </div>
                   </div>
@@ -225,7 +194,7 @@ export function TestimonialVideos() {
                     rel="noopener noreferrer"
                     className="shrink-0 rounded-full border border-rose-200 bg-white px-2.5 py-1.5 text-[0.7rem] font-semibold text-rose-800 shadow-sm transition hover:border-pink-300 hover:bg-rose-50 sm:px-3 sm:text-xs"
                   >
-                    Open in YouTube
+                    {copy.openInYoutube}
                   </a>
                 </div>
               </div>
@@ -237,14 +206,14 @@ export function TestimonialVideos() {
           <div className="mb-5 flex items-end justify-between gap-4">
             <div className="min-w-0">
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-pink-600/90 sm:text-xs">
-                Review Cards
+                {copy.reviewCardsEyebrow}
               </p>
               <p className="mt-2 text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base">
-                Quick participant highlights from the KBBA network.
+                {copy.reviewCardsDescription}
               </p>
             </div>
             <div className="hidden items-center gap-2 sm:flex" aria-label="Review carousel controls">
-              {HOME_REVIEW_CARDS.map((review, index) => (
+              {homeReviewCards.map((review, index) => (
                 <button
                   key={review.name}
                   type="button"
@@ -252,7 +221,7 @@ export function TestimonialVideos() {
                   className={`h-2.5 rounded-full transition-all ${
                     index === activeReview ? "w-8 bg-pink-600" : "w-2.5 bg-rose-200 hover:bg-rose-300"
                   }`}
-                  aria-label={`Show review ${index + 1}`}
+                  aria-label={`${copy.showReviewLabel} ${index + 1}`}
                   aria-pressed={index === activeReview}
                 />
               ))}
@@ -264,7 +233,7 @@ export function TestimonialVideos() {
             className="overflow-x-auto overscroll-x-contain rounded-[1.5rem] border border-rose-100/90 bg-white/95 shadow-[0_24px_60px_-36px_rgba(190,24,93,0.24)] sm:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             <div className="flex w-max items-stretch gap-4 px-4 py-4 pr-8">
-              {MOBILE_REVIEW_LOOP.map((review, index) => (
+              {mobileReviewLoop.map((review, index) => (
                 <article
                   key={`${review.name}-${index}`}
                   className="flex min-h-[24rem] w-[17rem] shrink-0 snap-start flex-col rounded-[1.4rem] border border-rose-100/90 bg-gradient-to-b from-white via-white to-rose-50/35 p-4 shadow-sm shadow-rose-100/25"
@@ -280,13 +249,13 @@ export function TestimonialVideos() {
                   </div>
                   <div className="mt-4 min-w-0 flex-1">
                     <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-pink-600/90">
-                      Participant Review
+                      {copy.participantReview}
                     </p>
                     <h3 className="font-display mt-2 text-pretty text-xl font-semibold text-rose-950">
                       {review.name}
                     </h3>
                     <p className="mt-2 text-sm font-medium text-rose-800/85">
-                      Owner, <span className="font-semibold text-pink-700">{review.business}</span>
+                      {copy.ownerLabel}, <span className="font-semibold text-pink-700">{review.business}</span>
                     </p>
                     <blockquote className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/80">
                       {review.quote}
@@ -302,7 +271,7 @@ export function TestimonialVideos() {
               className="flex transition-transform duration-700 ease-out"
               style={{ transform: `translateX(-${activeReview * 100}%)` }}
             >
-              {HOME_REVIEW_CARDS.map((review) => (
+              {homeReviewCards.map((review) => (
                 <article
                   key={review.name}
                   className="flex min-w-full flex-col gap-5 p-4 sm:p-6 md:flex-row md:items-center md:gap-6 lg:p-7"
@@ -319,13 +288,13 @@ export function TestimonialVideos() {
 
                   <div className="min-w-0 flex-1">
                     <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-pink-600/90 sm:text-xs">
-                      Participant Review
+                      {copy.participantReview}
                     </p>
                     <h3 className="font-display mt-2 text-pretty text-2xl font-semibold text-rose-950">
                       {review.name}
                     </h3>
                     <p className="mt-2 text-sm font-medium text-rose-800/85 sm:text-base">
-                      Owner, <span className="font-semibold text-pink-700">{review.business}</span>
+                      {copy.ownerLabel}, <span className="font-semibold text-pink-700">{review.business}</span>
                     </p>
                     <blockquote className="mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base sm:leading-[1.85]">
                       {review.quote}
@@ -337,7 +306,7 @@ export function TestimonialVideos() {
           </div>
 
           <div className="mt-4 hidden items-center justify-center gap-2 sm:flex" aria-label="Review carousel controls">
-            {HOME_REVIEW_CARDS.map((review, index) => (
+            {homeReviewCards.map((review, index) => (
               <button
                 key={review.name}
                 type="button"
@@ -345,7 +314,7 @@ export function TestimonialVideos() {
                 className={`h-2.5 rounded-full transition-all ${
                   index === activeReview ? "w-8 bg-pink-600" : "w-2.5 bg-rose-200 hover:bg-rose-300"
                 }`}
-                aria-label={`Show review ${index + 1}`}
+                aria-label={`${copy.showReviewLabel} ${index + 1}`}
                 aria-pressed={index === activeReview}
               />
             ))}

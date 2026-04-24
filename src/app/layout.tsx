@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { getRequestDictionary } from "@/i18n/server";
 import { Inter, Kanit } from "next/font/google";
 import { LineFloatingButton } from "@/components/LineFloatingButton";
 import "./globals.css";
@@ -29,23 +30,19 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default:
-      "KBBA | Korea Beauty Business Academy — Google Ads training & Korean hospital network",
+    default: "KBBA | Korea Beauty Business Academy",
     template: "%s | KBBA",
   },
   description:
-    "Korea Beauty Business Academy (KBBA) — training and partner network for Korean plastic surgery agencies, hospital coordinators, and beauty businesses. Practical courses, compliance guidance, and ongoing support.",
+    "Korea Beauty Business Academy (KBBA) — training and partner network for Korean plastic surgery agencies, hospital coordinators, and beauty businesses.",
   keywords: [
     "KBBA",
     "Korea Beauty Business Academy",
     "Korean plastic surgery",
     "beauty clinic",
-    "Google Ads",
-    "online marketing",
     "Korean hospital partners",
     "medical tourism Korea",
     "Korean hospital representative",
-    "clinic marketing",
     "LINE consultation",
   ],
   openGraph: {
@@ -72,19 +69,24 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { locale, dictionary } = await getRequestDictionary();
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${inter.variable} ${kanit.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full font-sans text-rose-950 antialiased">
         {children}
-        <LineFloatingButton />
+        <LineFloatingButton
+          ariaLabel={dictionary.shell.lineFloatingButton.ariaLabel}
+          label={dictionary.shell.lineFloatingButton.label}
+        />
       </body>
     </html>
   );

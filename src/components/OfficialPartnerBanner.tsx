@@ -1,48 +1,43 @@
 import Image from "next/image";
 import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
 import { wixTopStripImages } from "@/data/wix-strip";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-const featuredPartners = [
+const featuredPartnerImages = [
   {
-    short: "BBG",
-    name: "Blue Bridge Global",
-    role: "Korea business bridge",
     imageSrc: wixTopStripImages[0]?.imageSrc,
     logoClassName: "scale-[0.68]",
   },
   {
-    short: "S.K.I",
-    name: "Surgery Korea Info",
-    role: "Thailand market partner",
     imageSrc: wixTopStripImages[1]?.imageSrc,
     logoClassName: "",
   },
   {
-    short: "ILI",
-    name: "International License Institute",
-    role: "Certification partner",
     imageSrc: wixTopStripImages[2]?.imageSrc,
     logoClassName: "",
   },
   {
-    short: "LEI",
-    name: "Long Life Education Institute",
-    role: "Lifelong learning partner",
     imageSrc: wixTopStripImages[3]?.imageSrc,
     logoClassName: "",
   },
   {
-    short: "KRIVET",
-    name: "KRIVET",
-    role: "Curriculum reference",
     imageSrc: wixTopStripImages[4]?.imageSrc,
     logoClassName: "",
   },
 ] as const;
 
-const featuredPartnerLoop = [...featuredPartners, ...featuredPartners];
+type OfficialPartnerBannerProps = {
+  copy: Dictionary["home"]["officialPartners"];
+};
 
-export function OfficialPartnerBanner() {
+export function OfficialPartnerBanner({ copy }: OfficialPartnerBannerProps) {
+  const featuredPartners = copy.partners.map((partner, index) => ({
+    ...partner,
+    imageSrc: featuredPartnerImages[index]?.imageSrc,
+    logoClassName: featuredPartnerImages[index]?.logoClassName ?? "",
+  }));
+  const featuredPartnerLoop = [...featuredPartners, ...featuredPartners];
+
   return (
     <section
       id="official"
@@ -57,16 +52,15 @@ export function OfficialPartnerBanner() {
 
       <div className="relative mx-auto min-w-0 max-w-6xl px-4 pb-8 pt-8 sm:px-6 sm:pb-14 sm:pt-10 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <MainSectionEyebrow label="Official Partner" align="center" className="mx-auto" />
+          <MainSectionEyebrow label={copy.eyebrow} align="center" className="mx-auto" />
           <h2
             id="official-partner-heading"
             className="font-display mt-3 text-balance text-xl font-semibold leading-snug text-transparent bg-clip-text bg-gradient-to-r from-rose-900 via-fuchsia-800 to-rose-800 sm:text-3xl"
           >
-            KBBA is backed by core education and business partners across Korea and Thailand
+            {copy.title}
           </h2>
           <p className="mx-auto mt-4 max-w-3xl min-w-0 text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
-            This is the core network behind KBBA: the companies that support operations and the institutes that
-            strengthen certification, curriculum quality, and long-term credibility.
+            {copy.description}
           </p>
         </div>
 

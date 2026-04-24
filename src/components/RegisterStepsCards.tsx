@@ -1,4 +1,5 @@
 import { FileCheck2, MessageCircleMore, Rocket } from "lucide-react";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
 function StepIconVisual({
   Icon,
@@ -12,47 +13,35 @@ function StepIconVisual({
   );
 }
 
-const steps = [
-  {
-    n: "01",
-    title: "Register",
-    desc: "Fill the form or contact our team.",
-    Icon: MessageCircleMore,
-  },
-  {
-    n: "02",
-    title: "Contract & training",
-    desc: "Complete the agreed onboarding steps.",
-    Icon: FileCheck2,
-  },
-  {
-    n: "03",
-    title: "Launch your agency",
-    desc: "Ongoing support after you graduate.",
-    Icon: Rocket,
-  },
-] as const;
-
 type RegisterStepsCardsProps = {
   gridClassName: string;
   cardClassName: string;
+  copy: Dictionary["shared"]["registerSteps"]["steps"];
 };
 
-export function RegisterStepsCards({ gridClassName, cardClassName }: RegisterStepsCardsProps) {
+const stepIcons = [MessageCircleMore, FileCheck2, Rocket] as const;
+
+export function RegisterStepsCards({ gridClassName, cardClassName, copy }: RegisterStepsCardsProps) {
   return (
     <div className={gridClassName}>
-      {steps.map(({ n, title, desc, Icon }) => (
-        <div key={n} className={cardClassName}>
-          <StepIconVisual Icon={Icon} />
-          <p className="font-display mt-2 text-2xl font-semibold text-pink-600 sm:mt-4 sm:text-[2rem]">{n}</p>
-          <h3 className="font-display mt-1 min-h-[1.8rem] text-pretty text-[0.82rem] font-semibold leading-snug text-rose-950 sm:min-h-[2.75rem] sm:text-lg">
-            {title}
-          </h3>
-          <p className="mt-1.5 min-h-[3.1rem] text-pretty text-[0.68rem] leading-relaxed text-rose-900/75 sm:mt-2 sm:min-h-0 sm:text-sm">
-            {desc}
-          </p>
-        </div>
-      ))}
+      {copy.map(({ n, title, desc }, index) => {
+        const Icon = stepIcons[index] ?? Rocket;
+
+        return (
+          <div key={n} className={cardClassName}>
+            <StepIconVisual Icon={Icon} />
+            <p className="font-display mt-2 text-2xl font-semibold text-pink-600 sm:mt-4 sm:text-[2rem]">
+              {n}
+            </p>
+            <h3 className="font-display mt-1 min-h-[1.8rem] text-pretty text-[0.82rem] font-semibold leading-snug text-rose-950 sm:min-h-[2.75rem] sm:text-lg">
+              {title}
+            </h3>
+            <p className="mt-1.5 min-h-[3.1rem] text-pretty text-[0.68rem] leading-relaxed text-rose-900/75 sm:mt-2 sm:min-h-0 sm:text-sm">
+              {desc}
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 }

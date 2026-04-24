@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { hospitalPartners } from "@/data/hospitals";
 import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
-
-const partnerLogoAlt = "KBBA partner hospital logo";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
 /** Featured marquee — sized for readable logos; still compact on very small screens. */
 const marqueeFrameClass =
@@ -18,7 +17,11 @@ const partnerLogoMatClass =
 const partnerLogoImgClass =
   "max-h-[88%] max-w-[94%] object-contain transition duration-200 group-hover:scale-[1.03]";
 
-export function HospitalGrid() {
+type HospitalGridProps = {
+  copy: Dictionary["home"]["hospitalGrid"];
+};
+
+export function HospitalGrid({ copy }: HospitalGridProps) {
   const marqueeItems = [
     ...hospitalPartners,
     ...hospitalPartners,
@@ -32,19 +35,18 @@ export function HospitalGrid() {
     >
       <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl min-w-0">
-          <MainSectionEyebrow label="Partner Network" />
+          <MainSectionEyebrow label={copy.eyebrow} />
           <h2 className="mt-2 text-pretty text-2xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-950 via-rose-900 to-pink-800 sm:text-3xl">
-            60+ partner hospitals
+            {copy.title}
           </h2>
           <p className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/65 sm:text-base">
-            Hospitals and clinics that collaborate with KBBA — scroll the strip or browse the full
-            partner grid below.
+            {copy.description}
           </p>
         </div>
 
         <div className="relative mt-8 sm:mt-10">
           <p className="mb-2 text-center text-[0.7rem] font-medium uppercase tracking-[0.22em] text-rose-400/90 sm:mb-3 sm:text-left sm:text-xs">
-            Featured strip
+            {copy.featuredStrip}
           </p>
           <div className="relative overflow-hidden rounded-[1.35rem] border border-rose-200/35 bg-gradient-to-br from-white via-rose-50/30 to-pink-50/20 p-[1px] shadow-[0_24px_80px_-40px_rgba(190,24,93,0.2),inset_0_1px_0_rgba(255,255,255,0.9)] sm:rounded-[1.65rem]">
             <div className="relative overflow-hidden rounded-[1.3rem] bg-white/70 backdrop-blur-md sm:rounded-[1.6rem]">
@@ -66,7 +68,7 @@ export function HospitalGrid() {
                       <div className={partnerLogoMatClass}>
                         <Image
                           src={h.imageSrc}
-                          alt={partnerLogoAlt}
+                          alt={copy.partnerLogoAlt}
                           width={260}
                           height={140}
                           className={partnerLogoImgClass}
@@ -83,7 +85,7 @@ export function HospitalGrid() {
 
         <div className="relative mt-10 sm:mt-12">
           <p className="mb-3 text-center text-[0.7rem] font-medium uppercase tracking-[0.22em] text-rose-400/90 sm:mb-4 sm:text-left sm:text-xs">
-            Full partner grid
+            {copy.fullGrid}
           </p>
           <div className="rounded-xl border border-zinc-200/90 bg-zinc-100/80 p-2 shadow-sm sm:rounded-2xl sm:p-3 md:p-5">
             <div className="grid min-w-0 grid-cols-4 gap-1.5 sm:grid-cols-5 sm:gap-2 md:grid-cols-5 md:gap-2.5 lg:grid-cols-6 lg:gap-3 xl:grid-cols-7 xl:gap-3">
@@ -95,7 +97,7 @@ export function HospitalGrid() {
                   <div className={partnerLogoMatClass}>
                     <Image
                       src={h.imageSrc}
-                      alt={partnerLogoAlt}
+                      alt={copy.partnerLogoAlt}
                       width={260}
                       height={140}
                       className={partnerLogoImgClass}

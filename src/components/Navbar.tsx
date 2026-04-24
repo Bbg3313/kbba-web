@@ -3,25 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { Dictionary } from "@/i18n/dictionaries/en";
+import { localizeHref, stripLocaleFromPathname, switchLocalePath, type Locale } from "@/i18n/routing";
 import { useEffect, useMemo, useState } from "react";
 
-const navItems = [
-  { label: "HOME", href: "/" },
-  { label: "WHO WE ARE", href: "/who-we-are" },
-  { label: "OUR COURSE", href: "/our-course" },
-  { label: "REVIEW", href: "/review" },
-  { label: "START NOW", href: "/#consult-register" },
-] as const;
+type NavbarProps = {
+  locale: Locale;
+  copy: Dictionary["shell"]["navbar"];
+};
 
-const mobileQuickNavItems = [
-  { label: "HOME", emoji: "🏠", href: "/" },
-  { label: "WHO WE ARE", emoji: "👥", href: "/who-we-are" },
-  { label: "OUR COURSE", emoji: "🎓", href: "/our-course" },
-  { label: "REVIEW", emoji: "💬", href: "/review" },
-  { label: "START NOW", emoji: "🚀", href: "/#consult-register" },
-] as const;
-
-export function Navbar() {
+export function Navbar({ locale, copy }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const [hash, setHash] = useState("");
   const brandSrc = "/images/logos/kbba-header.svg";
@@ -36,36 +27,47 @@ export function Navbar() {
   }, []);
 
   const activeLabel = useMemo(() => {
-    if (pathname === "/start-now" || (pathname === "/" && hash === "#consult-register")) {
-      return "START NOW";
+    const barePathname = stripLocaleFromPathname(pathname);
+
+    if (barePathname === "/start-now" || (barePathname === "/" && hash === "#consult-register")) {
+      return copy.items[4]?.label ?? null;
     }
 
-    if (pathname === "/who-we-are") {
-      return "WHO WE ARE";
+    if (barePathname === "/who-we-are") {
+      return copy.items[1]?.label ?? null;
     }
 
-    if (pathname === "/our-course") {
-      return "OUR COURSE";
+    if (barePathname === "/our-course") {
+      return copy.items[2]?.label ?? null;
     }
 
-    if (pathname === "/review") {
-      return "REVIEW";
+    if (barePathname === "/review") {
+      return copy.items[3]?.label ?? null;
     }
 
-    if (pathname === "/") {
-      return "HOME";
+    if (barePathname === "/") {
+      return copy.items[0]?.label ?? null;
     }
 
     return null;
-  }, [hash, pathname]);
+  }, [copy.items, hash, pathname]);
+
+  const englishHref = useMemo(
+    () => switchLocalePath(pathname, "en", hash),
+    [hash, pathname],
+  );
+  const thaiHref = useMemo(
+    () => switchLocalePath(pathname, "th", hash),
+    [hash, pathname],
+  );
 
   return (
     <header className="sticky top-0 z-50 border-b border-rose-100/90 bg-white/80 shadow-sm shadow-rose-100/20 backdrop-blur-lg">
       <div className="mx-auto flex max-w-6xl min-w-0 items-center gap-2 px-3 py-2.5 sm:gap-4 sm:px-6 sm:py-3 lg:px-8">
-        <Link href="/" className="flex min-w-0 shrink-0 items-center gap-2">
+        <Link href={localizeHref(locale, "/")} className="flex min-w-0 shrink-0 items-center gap-2">
           <Image
             src={brandSrc}
-            alt="Korea Beauty Business Academy"
+            alt={copy.brandAlt}
             width={340}
             height={150}
             priority
@@ -75,12 +77,12 @@ export function Navbar() {
 
         <nav
           className="flex min-w-0 flex-1 items-center justify-center gap-1 overflow-x-auto px-1 lg:hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          aria-label="Mobile quick navigation"
+          aria-label={copy.mobileQuickNavigationAria}
         >
-          {mobileQuickNavItems.map((item) => (
+          {copy.mobileQuickItems.map((item) => (
             <Link
               key={item.label}
-              href={item.href}
+              href={localizeHref(locale, item.href)}
               className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-base leading-none transition ${
                 activeLabel === item.label
                   ? "bg-rose-100 text-pink-700 shadow-sm shadow-rose-100/60"
@@ -95,11 +97,11 @@ export function Navbar() {
           ))}
         </nav>
 
-        <nav className="hidden min-w-0 flex-1 items-center justify-end gap-0.5 lg:flex" aria-label="Main">
-          {navItems.map((item) => (
+        <nav className="hidden min-w-0 flex-1 items-center justify-end gap-0.5 lg:flex" aria-label={copy.mainNavigationAria}>
+          {copy.items.map((item) => (
             <Link
               key={item.label}
-              href={item.href}
+              href={localizeHref(locale, item.href)}
               className={`rounded-lg px-2.5 py-2 text-sm font-medium transition ${
                 activeLabel === item.label
                   ? "bg-rose-100 text-pink-700"
@@ -109,11 +111,32 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
+          <div
+            className="ml-2 inline-flex items-center gap-1 rounded-full border border-rose-200/80 bg-white/90 p-1"
+            aria-label={copy.languageSwitcherLabel}
+          >
+            <Link
+              href={englishHref}
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                locale === "en" ? "bg-rose-100 text-pink-700" : "text-rose-900/80 hover:bg-rose-50"
+              }`}
+            >
+              {copy.englishLabel}
+            </Link>
+            <Link
+              href={thaiHref}
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                locale === "th" ? "bg-rose-100 text-pink-700" : "text-rose-900/80 hover:bg-rose-50"
+              }`}
+            >
+              {copy.thaiLabel}
+            </Link>
+          </div>
           <Link
-            href="/#contact"
+            href={localizeHref(locale, "/#contact")}
             className="ml-2 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-rose-300/40 transition hover:from-rose-500 hover:to-pink-500"
           >
-            Contact
+            {copy.contact}
           </Link>
         </nav>
 
@@ -124,7 +147,7 @@ export function Navbar() {
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
         >
-          <span className="sr-only">Open menu</span>
+          <span className="sr-only">{copy.openMenuLabel}</span>
           <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden>
             {open ? (
               <path
@@ -147,10 +170,30 @@ export function Navbar() {
           className="max-h-[min(70vh,calc(100dvh-4.5rem))] min-w-0 overflow-y-auto overscroll-contain border-t border-rose-100 bg-rose-50/40 px-4 py-4 lg:hidden"
         >
           <div className="flex min-w-0 flex-col gap-1">
-            {navItems.map((item) => (
+            <div className="mb-2 inline-flex items-center gap-1 rounded-full border border-rose-200/80 bg-white/90 p-1">
+              <Link
+                href={englishHref}
+                className={`rounded-full px-3 py-2 text-xs font-semibold transition ${
+                  locale === "en" ? "bg-rose-100 text-pink-700" : "text-rose-900/80 hover:bg-rose-50"
+                }`}
+                onClick={() => setOpen(false)}
+              >
+                {copy.englishLabel}
+              </Link>
+              <Link
+                href={thaiHref}
+                className={`rounded-full px-3 py-2 text-xs font-semibold transition ${
+                  locale === "th" ? "bg-rose-100 text-pink-700" : "text-rose-900/80 hover:bg-rose-50"
+                }`}
+                onClick={() => setOpen(false)}
+              >
+                {copy.thaiLabel}
+              </Link>
+            </div>
+            {copy.items.map((item) => (
               <Link
                 key={item.label}
-                href={item.href}
+                href={localizeHref(locale, item.href)}
                 className={`rounded-lg px-3 py-3 text-pretty text-sm font-medium transition ${
                   activeLabel === item.label
                     ? "bg-rose-100 text-pink-700"
@@ -162,11 +205,11 @@ export function Navbar() {
               </Link>
             ))}
             <Link
-              href="/#contact"
+              href={localizeHref(locale, "/#contact")}
               className="mt-2 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-md shadow-rose-300/30"
               onClick={() => setOpen(false)}
             >
-              Contact
+              {copy.contact}
             </Link>
           </div>
         </div>
