@@ -3,9 +3,8 @@ export type WixStripImage = { imageSrc: string; alt: string };
 /** Five partner logos in the strip below the hero (Wix order). */
 export const wixTopStripImages: WixStripImage[] = [
   {
-    imageSrc:
-      "https://static.wixstatic.com/media/e22438_34a498e6bfda42a4a34311bac087ae75~mv2.png",
-    alt: "",
+    imageSrc: "/images/logos/blue-bridge-global.png",
+    alt: "Blue Bridge Global logo",
   },
   {
     imageSrc:
@@ -23,8 +22,7 @@ export const wixTopStripImages: WixStripImage[] = [
     alt: "",
   },
   {
-    imageSrc:
-      "https://static.wixstatic.com/media/e22438_9bd81b6817eb45d59a22ee8b7aa86eda~mv2.png",
-    alt: "",
+    imageSrc: "/images/logos/krivet.png",
+    alt: "KRIVET logo",
   },
 ];

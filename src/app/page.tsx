@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { BadgeDollarSign, BriefcaseBusiness, RefreshCcw } from "lucide-react";
 import { HeroSection } from "@/components/HeroSection";
 import { HospitalGrid } from "@/components/HospitalGrid";
 import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
@@ -31,7 +30,7 @@ const courses = [
 
 const motivationCards = [
   {
-    icon: RefreshCcw,
+    emoji: "🔄",
     title: "Tired of the same routine",
     points: [
       "Your main job feels repetitive and no longer helps you grow.",
@@ -40,7 +39,7 @@ const motivationCards = [
     ],
   },
   {
-    icon: BriefcaseBusiness,
+    emoji: "💼",
     title: "Ready to build something of your own",
     points: [
       "You want work that feels personal and valuable.",
@@ -49,7 +48,7 @@ const motivationCards = [
     ],
   },
   {
-    icon: BadgeDollarSign,
+    emoji: "💸",
     title: "Aiming for financial freedom",
     points: [
       "You want to increase your income and create stronger long-term stability.",
@@ -126,8 +125,8 @@ export default function Home() {
                 className="flex min-w-0 h-full flex-col rounded-[1.4rem] border border-rose-100/90 bg-white/95 p-4 shadow-md shadow-rose-100/25 sm:rounded-[1.75rem] sm:p-6"
               >
                 <div className="flex justify-center">
-                  <div className="flex h-13 w-13 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-100 via-pink-50 to-fuchsia-100 text-pink-700 shadow-sm shadow-rose-100/50 sm:h-16 sm:w-16">
-                    <card.icon className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={1.9} aria-hidden />
+                  <div className="flex h-13 w-13 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-100 via-pink-50 to-fuchsia-100 text-[1.45rem] shadow-sm shadow-rose-100/50 sm:h-16 sm:w-16 sm:text-[1.7rem]">
+                    <span aria-hidden>{card.emoji}</span>
                   </div>
                 </div>
                 <h3 className="font-display mt-3 min-h-[2.4rem] text-center text-pretty text-lg font-semibold leading-snug text-rose-950 sm:mt-5 sm:min-h-[3.5rem] sm:text-xl">
@@ -170,7 +169,7 @@ export default function Home() {
           <HomeAcademyIntroBlock />
 
           <div className="mt-10 grid min-w-0 items-start gap-y-8 rounded-2xl border border-rose-100/50 bg-white/40 px-3 py-6 shadow-sm shadow-rose-100/20 sm:gap-y-12 sm:px-6 sm:py-10 md:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] md:items-stretch md:gap-x-8 md:gap-y-0 md:px-7 md:py-11 lg:mt-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1fr)] lg:gap-x-10 lg:px-8 lg:py-12">
-            <div className="relative isolate w-full max-w-none justify-self-stretch overflow-visible">
+            <div className="relative isolate hidden w-full max-w-none justify-self-stretch overflow-visible md:block">
               <div className="relative aspect-[16/11] min-h-[220px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 via-white to-pink-50/80 p-1 shadow-md shadow-rose-100/50 ring-1 ring-rose-100/80 sm:aspect-[16/11] sm:min-h-[300px] sm:p-5 md:aspect-[980/558] md:min-h-[380px] md:p-6 lg:min-h-[440px] lg:p-7 xl:min-h-[500px]">
                 <Image
                   src={HOME_CONSULTING_VISUAL}
@@ -183,12 +182,8 @@ export default function Home() {
               </div>
             </div>
             <div className="flex min-h-0 min-w-0 flex-col justify-start gap-5 text-left sm:gap-8 md:h-full md:max-w-none md:justify-center md:py-1 lg:py-2">
-              <p className="text-pretty text-base font-medium leading-relaxed text-zinc-900 sm:text-lg lg:text-xl">
-                Become a certified beauty consultant with strong earning potential — and earn your Korean
-                hospital coordinator credentials with us.
-              </p>
-              <div className="relative w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)]">
-                <div className="relative mx-auto aspect-[4/3] w-full max-w-[15rem] min-h-[10.5rem] sm:max-w-2xl sm:min-h-[11rem] md:min-h-[13rem] lg:min-h-[15rem]">
+              <div className="order-1 relative w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)] md:order-2">
+                <div className="relative mx-auto aspect-[4/3] w-full max-w-[18rem] min-h-[12rem] sm:max-w-2xl sm:min-h-[11rem] md:min-h-[13rem] lg:min-h-[15rem]">
                   <Image
                     src={HOME_CONSULTING_CERT_IMAGE}
                     alt="Hospital coordinator certificates"
@@ -198,11 +193,15 @@ export default function Home() {
                   />
                 </div>
               </div>
+              <p className="order-2 text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base sm:leading-[1.7] md:order-1">
+                Become a certified beauty consultant with strong earning potential — and earn your Korean
+                hospital coordinator credentials with us.
+              </p>
               <a
                 href="https://line.me/R/ti/p/@756xidmw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 w-fit max-w-full items-center justify-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-300/40 transition hover:brightness-110 sm:px-7 md:self-center"
+                className="inline-flex min-h-11 w-fit max-w-full items-center justify-center self-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-300/40 transition hover:brightness-110 sm:px-7"
               >
                 Ask on LINE — fit for you?
               </a>
@@ -256,7 +255,7 @@ export default function Home() {
 
       <section
         id="faq"
-        className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/55 via-rose-50/35 to-white pb-14 pt-6 sm:pb-20 sm:pt-8"
+        className="border-t border-rose-100/70 bg-gradient-to-b from-rose-50/55 via-rose-50/35 to-white pb-0 pt-12 sm:pt-16"
       >
         <div className="mx-auto min-w-0 max-w-3xl px-4 sm:px-6 lg:px-8">
           <MainSectionEyebrow label="Common Questions" align="center" className="mx-auto" />
