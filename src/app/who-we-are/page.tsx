@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 const koreaPartnersPreview = officialPartners.hospitalsKorea.slice(0, 18);
+const partnershipMarqueeItems = [...hospitalPartners, ...hospitalPartners, ...hospitalPartners];
 
 const pillars = [
   {
@@ -126,12 +127,20 @@ export default function WhoWeArePage() {
             KBBA works officially with hospitals and clinics in the network plus Korean accreditation bodies so
             curricula and business support meet international expectations.
           </p>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-rose-100/90 bg-white py-5 shadow-sm sm:py-6">
-            <div className="flex w-max animate-marquee items-center gap-8 px-4 pr-10 sm:gap-10 sm:px-6 sm:pr-12">
-              {[...hospitalPartners, ...hospitalPartners].map((h, i) => (
+          <div className="relative mt-8 overflow-hidden rounded-2xl border border-rose-100/90 bg-white py-5 shadow-sm sm:py-6">
+            <div
+              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-white via-white/95 to-transparent sm:w-12"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-white via-white/95 to-transparent sm:w-12"
+              aria-hidden
+            />
+            <div className="flex w-max animate-marquee items-center gap-5 px-4 pr-10 [--marquee-duration:18s] sm:gap-10 sm:px-6 sm:pr-12 sm:[--marquee-duration:30s]">
+              {partnershipMarqueeItems.map((h, i) => (
                 <div
                   key={`${h.id}-who-${i}`}
-                  className="flex h-20 w-36 shrink-0 items-center justify-center sm:h-24 sm:w-44"
+                  className="flex h-[4.5rem] w-32 shrink-0 items-center justify-center sm:h-24 sm:w-44"
                 >
                   <Image
                     src={h.imageSrc}
@@ -139,7 +148,7 @@ export default function WhoWeArePage() {
                     width={220}
                     height={110}
                     className="max-h-full w-auto object-contain"
-                    sizes="(max-width: 640px) 144px, 176px"
+                    sizes="(max-width: 640px) 128px, 176px"
                   />
                 </div>
               ))}

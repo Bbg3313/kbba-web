@@ -269,20 +269,22 @@ export default function OurCoursePage() {
             with less upfront capital. Specialists help across licensing, advisory, campaigns, hospital ties,
             paperwork, transfers in Korea, and interpreter-led client care.
           </p>
-          <ul className="mt-10 grid min-w-0 list-none gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+          <ul className="mt-10 grid min-w-0 list-none grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-5">
             {businessSupportItems.map((item) => (
               <li
                 key={item.title}
-                className="flex min-h-0 min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-5 shadow-md shadow-rose-100/20 transition hover:border-pink-200/70 hover:shadow-lg hover:shadow-rose-100/30"
+                className="flex min-h-0 min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-4 shadow-md shadow-rose-100/20 transition hover:border-pink-200/70 hover:shadow-lg hover:shadow-rose-100/30 sm:p-5"
               >
                 <span
-                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-rose-100 to-pink-100 text-2xl shadow-inner shadow-white/80"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-rose-100 to-pink-100 text-xl shadow-inner shadow-white/80 sm:h-12 sm:w-12 sm:text-2xl"
                   aria-hidden
                 >
                   {item.emoji}
                 </span>
-                <h3 className="mt-4 font-display text-pretty text-base font-semibold text-rose-950">{item.title}</h3>
-                <p className="mt-2 text-pretty text-xs leading-relaxed text-rose-900/72 sm:text-sm">{item.desc}</p>
+                <h3 className="mt-3 font-display text-pretty text-[0.95rem] font-semibold leading-snug text-rose-950 sm:mt-4 sm:text-base">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-pretty text-[0.72rem] leading-relaxed text-rose-900/72 sm:text-sm">{item.desc}</p>
               </li>
             ))}
           </ul>

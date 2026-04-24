@@ -4,7 +4,7 @@ const stroke = 1.65;
 
 function IconCircle({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-rose-200/90 bg-rose-100 shadow-sm shadow-rose-100/30 sm:h-16 sm:w-16">
+    <div className="mx-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-rose-200/90 bg-rose-100 shadow-sm shadow-rose-100/30 sm:h-16 sm:w-16">
       {children}
     </div>
   );
@@ -15,8 +15,8 @@ function StepRegisterIcons() {
   return (
     <IconCircle>
       <span className="flex items-center justify-center gap-0.5" aria-hidden>
-        <ClipboardList className="h-[1.15rem] w-[1.15rem] text-rose-950 sm:h-6 sm:w-6" strokeWidth={stroke} />
-        <Mail className="h-[1.05rem] w-[1.05rem] text-pink-700 sm:h-[1.35rem] sm:w-[1.35rem]" strokeWidth={stroke} />
+        <ClipboardList className="h-[0.95rem] w-[0.95rem] text-rose-950 sm:h-6 sm:w-6" strokeWidth={stroke} />
+        <Mail className="h-[0.9rem] w-[0.9rem] text-pink-700 sm:h-[1.35rem] sm:w-[1.35rem]" strokeWidth={stroke} />
       </span>
     </IconCircle>
   );
@@ -27,8 +27,8 @@ function StepContractIcons() {
   return (
     <IconCircle>
       <span className="flex items-center justify-center gap-0.5" aria-hidden>
-        <FilePen className="h-[1.15rem] w-[1.15rem] text-rose-950 sm:h-6 sm:w-6" strokeWidth={stroke} />
-        <BookOpen className="h-[1.05rem] w-[1.05rem] text-pink-700 sm:h-[1.35rem] sm:w-[1.35rem]" strokeWidth={stroke} />
+        <FilePen className="h-[0.95rem] w-[0.95rem] text-rose-950 sm:h-6 sm:w-6" strokeWidth={stroke} />
+        <BookOpen className="h-[0.9rem] w-[0.9rem] text-pink-700 sm:h-[1.35rem] sm:w-[1.35rem]" strokeWidth={stroke} />
       </span>
     </IconCircle>
   );
@@ -38,7 +38,7 @@ function StepContractIcons() {
 function StepLaunchIcon() {
   return (
     <IconCircle>
-      <Store className="h-7 w-7 text-rose-950 sm:h-8 sm:w-8" strokeWidth={stroke} aria-hidden />
+      <Store className="h-5 w-5 text-rose-950 sm:h-8 sm:w-8" strokeWidth={stroke} aria-hidden />
     </IconCircle>
   );
 }
@@ -75,9 +75,13 @@ export function RegisterStepsCards({ gridClassName, cardClassName }: RegisterSte
       {steps.map(({ n, title, desc, Visual }) => (
         <div key={n} className={cardClassName}>
           <Visual />
-          <p className="font-display mt-3 text-3xl font-semibold text-pink-600 sm:mt-4 sm:text-[2rem]">{n}</p>
-          <h3 className="font-display mt-1 text-pretty text-base font-semibold text-rose-950 sm:text-lg">{title}</h3>
-          <p className="mt-2 text-pretty text-sm leading-relaxed text-rose-900/75">{desc}</p>
+          <p className="font-display mt-2 text-2xl font-semibold text-pink-600 sm:mt-4 sm:text-[2rem]">{n}</p>
+          <h3 className="font-display mt-1 text-pretty text-[0.82rem] font-semibold leading-snug text-rose-950 sm:text-lg">
+            {title}
+          </h3>
+          <p className="mt-1.5 text-pretty text-[0.68rem] leading-relaxed text-rose-900/75 sm:mt-2 sm:text-sm">
+            {desc}
+          </p>
         </div>
       ))}
     </div>

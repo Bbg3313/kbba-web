@@ -67,32 +67,32 @@ export function OfficialPartnerBanner() {
 
         <div className="mt-6 rounded-[1.7rem] border border-white/70 bg-white/75 p-2 shadow-[0_30px_80px_-40px_rgba(190,24,93,0.28)] backdrop-blur-sm sm:mt-10 sm:rounded-[2rem] sm:p-4">
           <div className="overflow-hidden rounded-[1.35rem] sm:rounded-[1.6rem]">
-            <div className="flex w-max animate-marquee items-stretch gap-2 px-1 pr-3 [--marquee-duration:20s] sm:gap-4 sm:pr-5 sm:[--marquee-duration:32s]">
+            <div className="flex w-max animate-marquee items-stretch gap-3 px-1 pr-4 [--marquee-duration:20s] sm:gap-4 sm:pr-5 sm:[--marquee-duration:30s]">
               {featuredPartnerLoop.map((partner, index) => (
                 <article
                   key={`${partner.short}-${index}`}
-                  className="group flex min-h-[11.75rem] w-[10.5rem] shrink-0 flex-col rounded-[1.15rem] border border-rose-100/90 bg-gradient-to-b from-white via-white to-rose-50/35 p-3.5 shadow-sm shadow-rose-100/30 transition duration-300 hover:-translate-y-0.5 hover:border-pink-200/80 hover:shadow-md sm:min-h-[16.25rem] sm:w-[15.5rem] sm:rounded-[1.5rem] sm:p-5"
+                  className="group flex min-h-[13.25rem] w-[12.5rem] shrink-0 flex-col rounded-[1.15rem] border border-rose-100/90 bg-gradient-to-b from-white via-white to-rose-50/35 p-4 shadow-sm shadow-rose-100/30 transition duration-300 hover:-translate-y-0.5 hover:border-pink-200/80 hover:shadow-md sm:min-h-[16.75rem] sm:w-[15.75rem] sm:rounded-[1.5rem] sm:p-5"
                 >
                   <div className="flex items-start">
-                    <div className="flex h-12 min-w-0 w-full items-center rounded-xl border border-rose-100/80 bg-white px-2.5 shadow-sm sm:h-24 sm:rounded-2xl sm:px-4">
-                      <div className="relative h-7 w-full sm:h-14">
+                    <div className="flex h-20 min-w-0 w-full items-center rounded-xl border border-rose-100/80 bg-white px-3 shadow-sm sm:h-28 sm:rounded-2xl sm:px-4">
+                      <div className="relative h-12 w-full sm:h-16">
                         <Image
                           src={partner.imageSrc}
                           alt={partner.name}
                           fill
                           className="object-contain object-center"
-                          sizes="(max-width: 640px) 140px, 248px"
+                          sizes="(max-width: 640px) 190px, (max-width: 1024px) 252px, 252px"
                         />
                       </div>
                     </div>
                   </div>
-                  <p className="mt-3 text-[0.56rem] font-semibold uppercase tracking-[0.22em] text-pink-600/90 sm:mt-5 sm:text-[0.65rem] sm:tracking-[0.26em]">
+                  <p className="mt-3 text-[0.58rem] font-semibold uppercase tracking-[0.22em] text-pink-600/90 sm:mt-5 sm:text-[0.65rem] sm:tracking-[0.26em]">
                     {partner.short}
                   </p>
-                  <h3 className="mt-1.5 min-h-[2.4rem] text-pretty text-xs font-semibold leading-snug text-rose-950 sm:mt-2 sm:min-h-[3.25rem] sm:text-[0.95rem]">
+                  <h3 className="mt-1.5 min-h-[2.65rem] text-pretty text-sm font-semibold leading-snug text-rose-950 sm:mt-2 sm:min-h-[3.25rem] sm:text-[0.95rem]">
                     {partner.name}
                   </h3>
-                  <p className="mt-2 hidden text-pretty text-[0.68rem] font-medium uppercase tracking-[0.13em] text-rose-700/80 sm:mt-3 sm:block sm:text-xs sm:tracking-[0.16em]">
+                  <p className="mt-2 text-pretty text-[0.68rem] font-medium uppercase tracking-[0.13em] text-rose-700/80 sm:mt-3 sm:text-xs sm:tracking-[0.16em]">
                     {partner.role}
                   </p>
                 </article>

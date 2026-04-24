@@ -105,36 +105,36 @@ export default function Home() {
   return (
     <SiteShell>
       <HeroSection />
-      <section className="border-b border-rose-100/60 bg-gradient-to-b from-rose-50/40 via-white to-white py-12 sm:py-16">
+      <section className="border-b border-rose-100/60 bg-gradient-to-b from-rose-50/40 via-white to-white py-8 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <MainSectionEyebrow label="Why People Start" align="center" />
             <h2 className="font-display mt-2 text-pretty text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-900 to-fuchsia-900 sm:text-3xl">
               Does this sound like you?
             </h2>
-            <p className="mt-4 text-pretty text-sm leading-relaxed text-rose-900/75 sm:text-base">
+            <p className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/75 sm:mt-4 sm:text-base">
               Many people come to KBBA not only for training, but because they are ready for a more independent,
               more meaningful, and more flexible future.
             </p>
           </div>
 
-          <div className="mt-10 grid items-stretch gap-5 lg:grid-cols-3">
+          <div className="mt-7 grid items-stretch gap-3 sm:mt-10 sm:gap-5 lg:grid-cols-3">
             {motivationCards.map((card) => (
               <article
                 key={card.step}
-                className="flex min-w-0 h-full flex-col rounded-[1.75rem] border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
+                className="flex min-w-0 h-full flex-col rounded-[1.4rem] border border-rose-100/90 bg-white/95 p-4 shadow-md shadow-rose-100/25 sm:rounded-[1.75rem] sm:p-6"
               >
-                <div className="flex items-center gap-4">
-                  <span className="font-display text-5xl font-semibold leading-none text-pink-600">{card.step}</span>
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <span className="font-display text-4xl font-semibold leading-none text-pink-600 sm:text-5xl">{card.step}</span>
                   <span className="h-px flex-1 bg-gradient-to-r from-pink-200 to-transparent" aria-hidden />
                 </div>
-                <h3 className="font-display mt-5 min-h-[3.5rem] text-pretty text-xl font-semibold leading-snug text-rose-950">
+                <h3 className="font-display mt-3 min-h-[2.4rem] text-pretty text-lg font-semibold leading-snug text-rose-950 sm:mt-5 sm:min-h-[3.5rem] sm:text-xl">
                   {card.title}
                 </h3>
-                <ul className="mt-5 space-y-3 text-sm leading-relaxed text-rose-900/82">
+                <ul className="mt-3 space-y-2 text-[0.82rem] leading-relaxed text-rose-900/82 sm:mt-5 sm:space-y-3 sm:text-sm">
                   {card.points.map((point) => (
-                    <li key={point} className="flex items-start gap-3 text-pretty">
-                      <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-pink-500" aria-hidden />
+                    <li key={point} className="flex items-start gap-2.5 text-pretty sm:gap-3">
+                      <span className="mt-[0.42rem] h-1.5 w-1.5 shrink-0 rounded-full bg-pink-500" aria-hidden />
                       <span>{point}</span>
                     </li>
                   ))}
@@ -167,20 +167,20 @@ export default function Home() {
 
           <HomeAcademyIntroBlock />
 
-          <div className="mt-10 grid min-w-0 items-start gap-y-10 rounded-2xl border border-rose-100/50 bg-white/40 px-4 py-8 shadow-sm shadow-rose-100/20 sm:gap-y-12 sm:px-6 sm:py-10 md:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] md:items-stretch md:gap-x-8 md:gap-y-0 md:px-7 md:py-11 lg:mt-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1fr)] lg:gap-x-10 lg:px-8 lg:py-12">
+          <div className="mt-10 grid min-w-0 items-start gap-y-8 rounded-2xl border border-rose-100/50 bg-white/40 px-3 py-6 shadow-sm shadow-rose-100/20 sm:gap-y-12 sm:px-6 sm:py-10 md:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] md:items-stretch md:gap-x-8 md:gap-y-0 md:px-7 md:py-11 lg:mt-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1fr)] lg:gap-x-10 lg:px-8 lg:py-12">
             <div className="relative isolate w-full max-w-none justify-self-stretch overflow-visible">
-              <div className="relative aspect-[4/5] min-h-[240px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 via-white to-pink-50/80 p-3 shadow-md shadow-rose-100/50 ring-1 ring-rose-100/80 sm:aspect-[16/11] sm:min-h-[300px] sm:p-5 md:aspect-[980/558] md:min-h-[380px] md:p-6 lg:min-h-[440px] lg:p-7 xl:min-h-[500px]">
+              <div className="relative aspect-[16/11] min-h-[220px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 via-white to-pink-50/80 p-1 shadow-md shadow-rose-100/50 ring-1 ring-rose-100/80 sm:aspect-[16/11] sm:min-h-[300px] sm:p-5 md:aspect-[980/558] md:min-h-[380px] md:p-6 lg:min-h-[440px] lg:p-7 xl:min-h-[500px]">
                 <Image
                   src={HOME_CONSULTING_VISUAL}
                   alt="KBBA presenter visual"
                   fill
-                  className="object-contain object-[6%_100%] origin-bottom scale-[1.06] sm:object-[3%_100%] sm:scale-[1.08] md:object-[0%_100%] md:scale-[1.1] lg:scale-[1.12]"
+                  className="object-contain object-center origin-bottom scale-[1.15] sm:object-[3%_100%] sm:scale-[1.08] md:object-[0%_100%] md:scale-[1.1] lg:scale-[1.12]"
                   sizes="(max-width: 768px) 100vw, 52vw"
                   priority
                 />
               </div>
             </div>
-            <div className="flex min-h-0 min-w-0 flex-col justify-start gap-7 text-left sm:gap-8 md:h-full md:max-w-none md:justify-center md:py-1 lg:py-2">
+            <div className="flex min-h-0 min-w-0 flex-col justify-start gap-5 text-left sm:gap-8 md:h-full md:max-w-none md:justify-center md:py-1 lg:py-2">
               <p className="text-pretty text-base font-medium leading-relaxed text-zinc-900 sm:text-lg lg:text-xl">
                 Become a certified beauty consultant with strong earning potential — and earn your Korean
                 hospital coordinator credentials with us.

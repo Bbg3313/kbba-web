@@ -62,6 +62,8 @@ const HOME_REVIEW_CARDS = [
   },
 ] as const;
 
+const MOBILE_REVIEW_LOOP = [...HOME_REVIEW_CARDS, ...HOME_REVIEW_CARDS];
+
 function embedSrc(videoId: string) {
   const params = new URLSearchParams({
     rel: "0",
@@ -186,7 +188,42 @@ export function TestimonialVideos() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[1.5rem] border border-rose-100/90 bg-white/95 shadow-[0_24px_60px_-36px_rgba(190,24,93,0.24)]">
+          <div className="overflow-hidden rounded-[1.5rem] border border-rose-100/90 bg-white/95 shadow-[0_24px_60px_-36px_rgba(190,24,93,0.24)] sm:hidden">
+            <div className="flex w-max animate-marquee items-stretch gap-4 px-4 py-4 pr-8 [--marquee-duration:22s]">
+              {MOBILE_REVIEW_LOOP.map((review, index) => (
+                <article
+                  key={`${review.name}-${index}`}
+                  className="flex min-h-[24rem] w-[17rem] shrink-0 flex-col rounded-[1.4rem] border border-rose-100/90 bg-gradient-to-b from-white via-white to-rose-50/35 p-4 shadow-sm shadow-rose-100/25"
+                >
+                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-rose-100/90 bg-[#f3eff6] shadow-sm">
+                    <Image
+                      src={review.imageSrc}
+                      alt={review.imageAlt}
+                      fill
+                      className="object-contain object-center p-2"
+                      sizes="272px"
+                    />
+                  </div>
+                  <div className="mt-4 min-w-0 flex-1">
+                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-pink-600/90">
+                      Participant Review
+                    </p>
+                    <h3 className="font-display mt-2 text-pretty text-xl font-semibold text-rose-950">
+                      {review.name}
+                    </h3>
+                    <p className="mt-2 text-sm font-medium text-rose-800/85">
+                      Owner, <span className="font-semibold text-pink-700">{review.business}</span>
+                    </p>
+                    <blockquote className="mt-3 text-pretty text-sm leading-relaxed text-rose-900/80">
+                      {review.quote}
+                    </blockquote>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="hidden overflow-hidden rounded-[1.5rem] border border-rose-100/90 bg-white/95 shadow-[0_24px_60px_-36px_rgba(190,24,93,0.24)] sm:block">
             <div
               className="flex transition-transform duration-700 ease-out"
               style={{ transform: `translateX(-${activeReview * 100}%)` }}
@@ -196,13 +233,13 @@ export function TestimonialVideos() {
                   key={review.name}
                   className="flex min-w-full flex-col gap-5 p-4 sm:p-6 md:flex-row md:items-center md:gap-6 lg:p-7"
                 >
-                  <div className="relative h-44 w-full overflow-hidden rounded-2xl border border-rose-100/90 bg-[#ececf4] shadow-sm sm:h-52 md:w-44 md:shrink-0 lg:h-56 lg:w-48">
+                  <div className="relative aspect-[4/5] w-full max-w-[16rem] self-center overflow-hidden rounded-2xl border border-rose-100/90 bg-[#f3eff6] shadow-sm md:w-44 md:max-w-none md:shrink-0 lg:w-48">
                     <Image
                       src={review.imageSrc}
                       alt={review.imageAlt}
                       fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 768px) 100vw, 192px"
+                      className="object-contain object-center p-2"
+                      sizes="(max-width: 768px) 256px, 192px"
                     />
                   </div>
 
@@ -225,7 +262,7 @@ export function TestimonialVideos() {
             </div>
           </div>
 
-          <div className="mt-4 flex items-center justify-center gap-2 sm:hidden" aria-label="Review carousel controls">
+          <div className="mt-4 hidden items-center justify-center gap-2 sm:flex" aria-label="Review carousel controls">
             {HOME_REVIEW_CARDS.map((review, index) => (
               <button
                 key={review.name}

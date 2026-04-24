@@ -13,6 +13,14 @@ const navItems = [
   { label: "START NOW", href: "/#consult-register" },
 ] as const;
 
+const mobileQuickNavItems = [
+  { label: "HOME", shortLabel: "Home", emoji: "🏠", href: "/" },
+  { label: "WHO WE ARE", shortLabel: "Who", emoji: "👥", href: "/who-we-are" },
+  { label: "OUR COURSE", shortLabel: "Course", emoji: "🎓", href: "/our-course" },
+  { label: "REVIEW", shortLabel: "Review", emoji: "💬", href: "/review" },
+  { label: "START NOW", shortLabel: "Start", emoji: "🚀", href: "/#consult-register" },
+] as const;
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [hash, setHash] = useState("");
@@ -109,6 +117,30 @@ export function Navbar() {
             )}
           </svg>
         </button>
+      </div>
+
+      <div className="border-t border-rose-100/80 bg-white/85 px-2 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur lg:hidden">
+        <nav className="mx-auto grid max-w-6xl min-w-0 grid-cols-5 gap-1" aria-label="Mobile quick navigation">
+          {mobileQuickNavItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={`flex min-w-0 flex-col items-center justify-center rounded-2xl px-1 py-2 text-center transition ${
+                activeLabel === item.label
+                  ? "bg-rose-100 text-pink-700 shadow-sm shadow-rose-100/60"
+                  : "text-rose-900/85 hover:bg-rose-50"
+              }`}
+              onClick={() => setOpen(false)}
+            >
+              <span className="text-sm leading-none" aria-hidden>
+                {item.emoji}
+              </span>
+              <span className="mt-1 truncate text-[0.62rem] font-semibold uppercase tracking-[0.12em]">
+                {item.shortLabel}
+              </span>
+            </Link>
+          ))}
+        </nav>
       </div>
 
       {open && (
