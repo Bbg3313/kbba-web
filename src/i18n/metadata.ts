@@ -35,12 +35,12 @@ export function buildPageMetadata({
       locale: locale === "th" ? "th_TH" : "en_US",
       alternateLocale: locale === "th" ? ["en_US"] : ["th_TH"],
       url: canonical,
-      images: ["/opengraph-image"],
+      images: ["/images/logos/kbba-header.svg"],
     },
     twitter: {
       title,
       description,
-      images: ["/twitter-image"],
+      images: ["/images/logos/kbba-header.svg"],
     },
   };
 }

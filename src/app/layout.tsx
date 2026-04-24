@@ -19,7 +19,8 @@ const kanit = Kanit({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://jsmh8292.wixsite.com/korea-beauty-busines";
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -30,9 +31,9 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/images/logos/kbba-header.svg",
+    shortcut: "/images/logos/kbba-header.svg",
+    apple: "/images/logos/kbba-header.svg",
   },
   title: {
     default: "KBBA | Korea Beauty Business Academy",
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Korea Beauty Business Academy",
-    images: ["/opengraph-image"],
+    images: ["/images/logos/kbba-header.svg"],
     title:
       "KBBA — Korea Beauty Business Academy | Korean hospital partners & marketing courses",
     description:
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/twitter-image"],
+    images: ["/images/logos/kbba-header.svg"],
     title: "KBBA | Korea Beauty Business Academy",
     description:
       "Korean hospital partner network & professional courses for beauty and agency businesses.",
