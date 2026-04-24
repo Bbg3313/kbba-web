@@ -190,27 +190,27 @@ export const th: Dictionary = {
         {
           short: "BBG",
           name: "Blue Bridge Global",
-          role: "สะพานเชื่อมธุรกิจเกาหลี",
+          role: "พาร์ตเนอร์ทางธุรกิจในเกาหลี",
         },
         {
           short: "S.K.I",
           name: "Surgery Korea Info",
-          role: "พันธมิตรตลาดไทย",
+          role: "พาร์ตเนอร์ทางธุรกิจในไทย",
         },
         {
           short: "ILI",
           name: "International License Institute",
-          role: "พันธมิตรด้านการรับรอง",
+          role: "การรับรองวิชาชีพ",
         },
         {
           short: "LEI",
           name: "Long Life Education Institute",
-          role: "พันธมิตรด้านการศึกษาตลอดชีวิต",
+          role: "ศูนย์กลางหลักสูตรการศึกษา",
         },
         {
           short: "KRIVET",
-          name: "KRIVET",
-          role: "แหล่งอ้างอิงหลักสูตร",
+          name: "Korea Research Institute for Vocational Education and Training",
+          role: "มาตรฐานอ้างอิงของอุตสาหกรรม",
         },
       ],
     },

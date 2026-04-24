@@ -190,27 +190,27 @@ export const en = {
         {
           short: "BBG",
           name: "Blue Bridge Global",
-          role: "Korea business bridge",
+          role: "Korea business partner",
         },
         {
           short: "S.K.I",
           name: "Surgery Korea Info",
-          role: "Thailand market partner",
+          role: "Thailand business partner",
         },
         {
           short: "ILI",
           name: "International License Institute",
-          role: "Certification partner",
+          role: "Professional Certification",
         },
         {
           short: "LEI",
           name: "Long Life Education Institute",
-          role: "Lifelong learning partner",
+          role: "Educational Curriculum Hub",
         },
         {
           short: "KRIVET",
-          name: "KRIVET",
-          role: "Curriculum reference",
+          name: "Korea Research Institute for Vocational Education and Training",
+          role: "Standardized Industry Reference",
         },
       ],
     },
