@@ -29,6 +29,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   title: {
     default: "KBBA | Korea Beauty Business Academy",
     template: "%s | KBBA",
@@ -49,6 +54,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Korea Beauty Business Academy",
+    images: ["/opengraph-image"],
     title:
       "KBBA — Korea Beauty Business Academy | Korean hospital partners & marketing courses",
     description:
@@ -56,6 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/twitter-image"],
     title: "KBBA | Korea Beauty Business Academy",
     description:
       "Korean hospital partner network & professional courses for beauty and agency businesses.",
