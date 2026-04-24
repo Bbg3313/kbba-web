@@ -53,20 +53,17 @@ h3 {
 
 @keyframes marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 .animate-marquee {
   animation: marquee var(--marquee-duration, 42s) linear infinite;
+  animation-play-state: running;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
   will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
-  }
 }

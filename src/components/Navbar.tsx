@@ -14,11 +14,11 @@ const navItems = [
 ] as const;
 
 const mobileQuickNavItems = [
-  { label: "HOME", shortLabel: "Home", emoji: "🏠", href: "/" },
-  { label: "WHO WE ARE", shortLabel: "Who", emoji: "👥", href: "/who-we-are" },
-  { label: "OUR COURSE", shortLabel: "Course", emoji: "🎓", href: "/our-course" },
-  { label: "REVIEW", shortLabel: "Review", emoji: "💬", href: "/review" },
-  { label: "START NOW", shortLabel: "Start", emoji: "🚀", href: "/#consult-register" },
+  { label: "HOME", emoji: "🏠", href: "/" },
+  { label: "WHO WE ARE", emoji: "👥", href: "/who-we-are" },
+  { label: "OUR COURSE", emoji: "🎓", href: "/our-course" },
+  { label: "REVIEW", emoji: "💬", href: "/review" },
+  { label: "START NOW", emoji: "🚀", href: "/#consult-register" },
 ] as const;
 
 export function Navbar() {
@@ -61,8 +61,8 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-rose-100/90 bg-white/80 shadow-sm shadow-rose-100/20 backdrop-blur-lg">
-      <div className="mx-auto flex max-w-6xl min-w-0 items-center justify-between gap-2 px-3 py-2.5 sm:gap-4 sm:px-6 sm:py-3 lg:px-8">
-        <Link href="/" className="flex min-w-0 shrink items-center gap-2">
+      <div className="mx-auto flex max-w-6xl min-w-0 items-center gap-2 px-3 py-2.5 sm:gap-4 sm:px-6 sm:py-3 lg:px-8">
+        <Link href="/" className="flex min-w-0 shrink-0 items-center gap-2">
           <Image
             src={brandSrc}
             alt="Korea Beauty Business Academy"
@@ -72,6 +72,28 @@ export function Navbar() {
             className="h-10 w-auto max-w-[180px] object-contain object-left sm:h-16 sm:max-w-[280px] lg:h-20 lg:max-w-[360px]"
           />
         </Link>
+
+        <nav
+          className="flex min-w-0 flex-1 items-center justify-center gap-1 overflow-x-auto px-1 lg:hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          aria-label="Mobile quick navigation"
+        >
+          {mobileQuickNavItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-base leading-none transition ${
+                activeLabel === item.label
+                  ? "bg-rose-100 text-pink-700 shadow-sm shadow-rose-100/60"
+                  : "text-rose-900/85 hover:bg-rose-50"
+              }`}
+              onClick={() => setOpen(false)}
+              aria-label={item.label}
+              title={item.label}
+            >
+              <span aria-hidden>{item.emoji}</span>
+            </Link>
+          ))}
+        </nav>
 
         <nav className="hidden min-w-0 flex-1 items-center justify-end gap-0.5 lg:flex" aria-label="Main">
           {navItems.map((item) => (
@@ -117,30 +139,6 @@ export function Navbar() {
             )}
           </svg>
         </button>
-      </div>
-
-      <div className="border-t border-rose-100/80 bg-white/85 px-2 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur lg:hidden">
-        <nav className="mx-auto grid max-w-6xl min-w-0 grid-cols-5 gap-1" aria-label="Mobile quick navigation">
-          {mobileQuickNavItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className={`flex min-w-0 flex-col items-center justify-center rounded-2xl px-1 py-2 text-center transition ${
-                activeLabel === item.label
-                  ? "bg-rose-100 text-pink-700 shadow-sm shadow-rose-100/60"
-                  : "text-rose-900/85 hover:bg-rose-50"
-              }`}
-              onClick={() => setOpen(false)}
-            >
-              <span className="text-sm leading-none" aria-hidden>
-                {item.emoji}
-              </span>
-              <span className="mt-1 truncate text-[0.62rem] font-semibold uppercase tracking-[0.12em]">
-                {item.shortLabel}
-              </span>
-            </Link>
-          ))}
-        </nav>
       </div>
 
       {open && (

@@ -185,21 +185,21 @@ export default function OurCoursePage() {
             Four focused outcomes designed for teams building Korea-connected beauty and surgery businesses.
           </p>
 
-          <ol className="mt-10 grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-10 grid list-none grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
             {whatWeDeliverCards.map((item) => (
               <li
                 key={item.step}
-                className="group flex min-h-[230px] flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-5 shadow-md shadow-rose-100/25 transition hover:-translate-y-0.5 hover:border-pink-200/80 hover:shadow-lg hover:shadow-rose-100/35"
+                className="group flex min-h-[190px] flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-4 shadow-md shadow-rose-100/25 transition hover:-translate-y-0.5 hover:border-pink-200/80 hover:shadow-lg hover:shadow-rose-100/35 sm:min-h-[230px] sm:p-5"
               >
                 <div className="flex items-center gap-3">
-                  <span className="font-display text-4xl italic leading-none text-rose-900/90">{item.step}</span>
+                  <span className="font-display text-3xl italic leading-none text-rose-900/90 sm:text-4xl">{item.step}</span>
                   <span className="h-px flex-1 bg-gradient-to-r from-rose-200/80 to-transparent" aria-hidden />
                 </div>
-                <p className="mt-5 text-pretty text-sm font-semibold leading-relaxed text-rose-900/85 sm:text-base">
+                <p className="mt-3 text-pretty text-[0.82rem] font-semibold leading-relaxed text-rose-900/85 sm:mt-5 sm:text-base">
                   {item.body}
                 </p>
                 <div
-                  className="mt-auto pt-4 text-xs font-medium uppercase tracking-[0.22em] text-pink-600/85"
+                  className="mt-auto pt-3 text-[0.65rem] font-medium uppercase tracking-[0.18em] text-pink-600/85 sm:pt-4 sm:text-xs sm:tracking-[0.22em]"
                   aria-hidden
                 >
                   KBBA

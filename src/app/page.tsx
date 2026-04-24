@@ -186,12 +186,12 @@ export default function Home() {
                 hospital coordinator credentials with us.
               </p>
               <div className="relative w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)]">
-                <div className="relative mx-auto aspect-[16/10] w-full max-w-2xl min-h-[9rem] sm:min-h-[11rem] md:min-h-[13rem] lg:min-h-[15rem]">
+                <div className="relative mx-auto aspect-[4/3] w-full max-w-[15rem] min-h-[10.5rem] sm:max-w-2xl sm:min-h-[11rem] md:min-h-[13rem] lg:min-h-[15rem]">
                   <Image
                     src={HOME_CONSULTING_CERT_IMAGE}
                     alt="Hospital coordinator certificates"
                     fill
-                    className="object-contain object-center p-2 sm:p-3"
+                    className="object-contain object-center p-2.5 sm:p-3"
                     sizes="(max-width: 768px) 100vw, 46vw"
                   />
                 </div>
