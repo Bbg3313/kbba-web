@@ -13,7 +13,7 @@ const inter = Inter({
 
 const kanit = Kanit({
   variable: "--font-kanit",
-  subsets: ["latin"],
+  subsets: ["latin", "thai"],
   weight: ["500", "600", "700"],
   display: "swap",
 });
@@ -79,7 +79,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${kanit.variable} h-full scroll-smooth antialiased`}
+      className={`${inter.variable} ${kanit.variable} locale-${locale} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full font-sans text-rose-950 antialiased">
         {children}

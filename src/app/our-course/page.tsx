@@ -66,7 +66,7 @@ function CourseBlock({
       <p className="mt-6">
         <Link
           href={localizeHref(locale, "/#consult-register")}
-          className="inline-flex rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-rose-300/40 transition hover:from-rose-500 hover:to-pink-500"
+          className="inline-flex rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-5 py-2.5 text-center text-sm font-semibold text-white shadow-md shadow-rose-300/40 transition hover:from-rose-500 hover:to-pink-500"
         >
           {cta}
         </Link>
@@ -98,7 +98,7 @@ export default async function OurCoursePage() {
             </div>
             <Link
               href={localizeHref(locale, "/#consult-register")}
-              className="inline-flex w-full items-center justify-center rounded-full border-2 border-rose-200 bg-white px-5 py-2.5 text-sm font-semibold text-rose-800 transition hover:border-rose-300 sm:w-fit"
+              className="inline-flex w-full items-center justify-center rounded-full border-2 border-rose-200 bg-white px-5 py-2.5 text-center text-sm font-semibold text-rose-800 transition hover:border-rose-300 sm:w-fit"
             >
               {dictionary.ourCourse.intro.cta}
             </Link>

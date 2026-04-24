@@ -50,13 +50,13 @@ export function HeroSection({
                 href={SITE_LINE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center justify-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-300/40 transition hover:brightness-110 sm:px-7"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-rose-300/40 transition hover:brightness-110 sm:px-7"
               >
                 {copy.primaryCta}
               </a>
               <Link
                 href={localizeHref(locale, "/our-course")}
-                className="inline-flex min-h-11 items-center justify-center rounded-full border border-rose-200 bg-white px-6 py-3 text-sm font-semibold text-rose-800 transition hover:border-rose-300 hover:bg-rose-50/40 sm:px-7"
+                className="inline-flex min-h-11 items-center justify-center rounded-full border border-rose-200 bg-white px-6 py-3 text-center text-sm font-semibold text-rose-800 transition hover:border-rose-300 hover:bg-rose-50/40 sm:px-7"
               >
                 {copy.secondaryCta}
               </Link>

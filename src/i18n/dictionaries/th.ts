@@ -16,14 +16,16 @@ export const th: Dictionary = {
         { label: "เกี่ยวกับเรา", href: "/who-we-are" },
         { label: "หลักสูตร", href: "/our-course" },
         { label: "รีวิว", href: "/review" },
-        { label: "เริ่มต้น", href: "/#consult-register" },
+        { label: "บล็อก", href: "/blog" },
+        { label: "เริ่มต้น", href: "/start-now" },
       ],
       mobileQuickItems: [
         { label: "หน้าหลัก", emoji: "🏠", href: "/" },
         { label: "เกี่ยวกับเรา", emoji: "👥", href: "/who-we-are" },
         { label: "หลักสูตร", emoji: "🎓", href: "/our-course" },
         { label: "รีวิว", emoji: "💬", href: "/review" },
-        { label: "เริ่มต้น", emoji: "🚀", href: "/#consult-register" },
+        { label: "บล็อก", emoji: "📰", href: "/blog" },
+        { label: "เริ่มต้น", emoji: "🚀", href: "/start-now" },
       ],
     },
     footer: {

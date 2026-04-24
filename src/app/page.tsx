@@ -135,7 +135,7 @@ export default async function Home() {
                 href="https://line.me/R/ti/p/@756xidmw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="order-3 inline-flex min-h-11 w-fit max-w-full items-center justify-center self-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-300/40 transition hover:brightness-110 sm:px-7 md:order-none md:self-center"
+                className="order-3 inline-flex min-h-11 w-fit max-w-full items-center justify-center self-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-rose-300/40 transition hover:brightness-110 sm:px-7 md:order-none md:self-center"
               >
                 {dictionary.home.academyIntro.consultCta}
               </a>

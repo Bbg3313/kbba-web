@@ -14,14 +14,16 @@ export const en = {
         { label: "WHO WE ARE", href: "/who-we-are" },
         { label: "OUR COURSE", href: "/our-course" },
         { label: "REVIEW", href: "/review" },
-        { label: "START NOW", href: "/#consult-register" },
+        { label: "BLOG", href: "/blog" },
+        { label: "START NOW", href: "/start-now" },
       ],
       mobileQuickItems: [
         { label: "HOME", emoji: "🏠", href: "/" },
         { label: "WHO WE ARE", emoji: "👥", href: "/who-we-are" },
         { label: "OUR COURSE", emoji: "🎓", href: "/our-course" },
         { label: "REVIEW", emoji: "💬", href: "/review" },
-        { label: "START NOW", emoji: "🚀", href: "/#consult-register" },
+        { label: "BLOG", emoji: "📰", href: "/blog" },
+        { label: "START NOW", emoji: "🚀", href: "/start-now" },
       ],
     },
     footer: {

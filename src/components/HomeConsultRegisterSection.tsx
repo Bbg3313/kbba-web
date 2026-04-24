@@ -280,7 +280,7 @@ export function HomeConsultRegisterSection({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex min-h-10 items-center justify-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-8 text-xs font-semibold text-white shadow-lg shadow-rose-300/35 transition hover:from-rose-500 hover:to-pink-500 disabled:opacity-60 sm:min-h-11 sm:px-9 sm:text-sm"
+                    className="inline-flex min-h-10 items-center justify-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-8 text-center text-xs font-semibold text-white shadow-lg shadow-rose-300/35 transition hover:from-rose-500 hover:to-pink-500 disabled:opacity-60 sm:min-h-11 sm:px-9 sm:text-sm"
                   >
                     {isSubmitting ? copy.submitBusy : copy.submitIdle}
                   </button>

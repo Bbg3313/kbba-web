@@ -26,30 +26,23 @@ export function Navbar({ locale, copy }: NavbarProps) {
     return () => window.removeEventListener("hashchange", syncHash);
   }, []);
 
-  const activeLabel = useMemo(() => {
+  useEffect(() => {
+    setOpen(false);
+  }, [hash, pathname]);
+
+  const activeHref = useMemo(() => {
     const barePathname = stripLocaleFromPathname(pathname);
 
-    if (barePathname === "/start-now" || (barePathname === "/" && hash === "#consult-register")) {
-      return copy.items[4]?.label ?? null;
-    }
-
-    if (barePathname === "/who-we-are") {
-      return copy.items[1]?.label ?? null;
-    }
-
-    if (barePathname === "/our-course") {
-      return copy.items[2]?.label ?? null;
-    }
-
-    if (barePathname === "/review") {
-      return copy.items[3]?.label ?? null;
-    }
-
     if (barePathname === "/") {
-      return copy.items[0]?.label ?? null;
+      return "/";
     }
 
-    return null;
+    const matchedItem = copy.items.find((item) => {
+      const itemPath = item.href.split("#")[0] || "/";
+      return itemPath === barePathname;
+    });
+
+    return matchedItem?.href ?? null;
   }, [copy.items, hash, pathname]);
 
   const englishHref = useMemo(
@@ -84,7 +77,7 @@ export function Navbar({ locale, copy }: NavbarProps) {
               key={item.label}
               href={localizeHref(locale, item.href)}
               className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-base leading-none transition ${
-                activeLabel === item.label
+                activeHref === item.href
                   ? "bg-rose-100 text-pink-700 shadow-sm shadow-rose-100/60"
                   : "text-rose-900/85 hover:bg-rose-50"
               }`}
@@ -103,7 +96,7 @@ export function Navbar({ locale, copy }: NavbarProps) {
               key={item.label}
               href={localizeHref(locale, item.href)}
               className={`rounded-lg px-2.5 py-2 text-sm font-medium transition ${
-                activeLabel === item.label
+                activeHref === item.href
                   ? "bg-rose-100 text-pink-700"
                   : "text-rose-900/90 hover:bg-rose-50"
               }`}
@@ -132,12 +125,12 @@ export function Navbar({ locale, copy }: NavbarProps) {
               {copy.thaiLabel}
             </Link>
           </div>
-          <Link
-            href={localizeHref(locale, "/#contact")}
+          <a
+            href="#contact"
             className="ml-2 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-rose-300/40 transition hover:from-rose-500 hover:to-pink-500"
           >
             {copy.contact}
-          </Link>
+          </a>
         </nav>
 
         <button
@@ -195,7 +188,7 @@ export function Navbar({ locale, copy }: NavbarProps) {
                 key={item.label}
                 href={localizeHref(locale, item.href)}
                 className={`rounded-lg px-3 py-3 text-pretty text-sm font-medium transition ${
-                  activeLabel === item.label
+                  activeHref === item.href
                     ? "bg-rose-100 text-pink-700"
                     : "text-rose-900 hover:bg-rose-50"
                 }`}
@@ -204,13 +197,13 @@ export function Navbar({ locale, copy }: NavbarProps) {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href={localizeHref(locale, "/#contact")}
+            <a
+              href="#contact"
               className="mt-2 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-md shadow-rose-300/30"
               onClick={() => setOpen(false)}
             >
               {copy.contact}
-            </Link>
+            </a>
           </div>
         </div>
       )}
