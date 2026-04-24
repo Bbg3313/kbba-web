@@ -175,7 +175,7 @@ export default function Home() {
           <HomeAcademyIntroBlock />
 
           <div className="mt-10 grid min-w-0 items-start gap-y-8 rounded-2xl border border-rose-100/50 bg-white/40 px-3 py-6 shadow-sm shadow-rose-100/20 sm:gap-y-12 sm:px-6 sm:py-10 md:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] md:items-stretch md:gap-x-8 md:gap-y-0 md:px-7 md:py-11 lg:mt-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1fr)] lg:gap-x-10 lg:px-8 lg:py-12">
-            <div className="relative isolate w-full max-w-none justify-self-stretch overflow-visible">
+            <div className="relative isolate hidden w-full max-w-none justify-self-stretch overflow-visible md:block">
               <div className="relative aspect-[16/11] min-h-[220px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 via-white to-pink-50/80 p-1 shadow-md shadow-rose-100/50 ring-1 ring-rose-100/80 sm:aspect-[16/11] sm:min-h-[300px] sm:p-5 md:aspect-[980/558] md:min-h-[380px] md:p-6 lg:min-h-[440px] lg:p-7 xl:min-h-[500px]">
                 <Image
                   src={HOME_CONSULTING_VISUAL}

@@ -8,7 +8,7 @@ const featuredPartners = [
     name: "Blue Bridge Global",
     role: "Korea business bridge",
     imageSrc: wixTopStripImages[0]?.imageSrc,
-    logoClassName: "scale-[0.8]",
+    logoClassName: "scale-[0.68]",
   },
   {
     short: "S.K.I",

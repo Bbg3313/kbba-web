@@ -77,21 +77,19 @@ function StatPhotoVisual({
 export function HomeAcademyIntroBlock() {
   return (
     <div className="mt-2 border-t border-rose-100/60 pt-8 sm:mt-0 sm:border-t-0 sm:pt-0">
-      <div className="relative overflow-hidden rounded-2xl border border-rose-100/80 bg-gradient-to-br from-[#fffdf8] via-[#fffaf5] to-[#fff7fb] p-5 shadow-sm shadow-rose-100/20 sm:p-7 lg:p-8">
+      <div className="relative overflow-hidden rounded-2xl border border-rose-100/80 bg-gradient-to-br from-[#fffdfa] via-[#fffaf6] to-[#fff8fb] p-4 shadow-sm shadow-rose-100/20 sm:p-6 lg:p-7">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 opacity-[0.28] [background-image:linear-gradient(to_right,rgba(120,53,15,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(120,53,15,0.06)_1px,transparent_1px)] [background-size:24px_24px]" />
-          <div className="absolute -left-10 top-5 rotate-[-8deg] rounded-sm border border-stone-300/70 bg-white/70 px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-stone-500 shadow-sm">
-            Seoul Edition
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.95),transparent_42%),linear-gradient(to_right,rgba(120,53,15,0.05)_1px,transparent_1px)] bg-[length:100%_100%,32px_32px] opacity-60" />
+          <div className="absolute left-6 right-6 top-5 flex items-center justify-between text-[0.56rem] font-semibold uppercase tracking-[0.26em] text-stone-400/90 sm:left-8 sm:right-8">
+            <span>Seoul Edition</span>
+            <span>Beauty Business Journal</span>
           </div>
-          <div className="absolute right-6 top-8 hidden rounded-sm border border-stone-300/70 bg-white/70 px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.24em] text-stone-500 shadow-sm sm:block">
-            Beauty Business Journal
-          </div>
-          <div className="absolute -right-16 bottom-6 h-28 w-28 rounded-full border border-rose-200/60 bg-rose-100/30 blur-2xl" />
-          <div className="absolute left-10 top-20 h-px w-28 rotate-[12deg] bg-stone-300/70" />
-          <div className="absolute right-16 bottom-16 h-px w-24 rotate-[-10deg] bg-stone-300/70" />
+          <div className="absolute left-1/2 top-11 h-px w-[calc(100%-3rem)] -translate-x-1/2 bg-gradient-to-r from-transparent via-stone-300/70 to-transparent sm:w-[calc(100%-4rem)]" />
+          <div className="absolute bottom-5 left-8 right-8 h-px bg-gradient-to-r from-transparent via-rose-200/80 to-transparent" />
+          <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-rose-100/25 blur-3xl" />
         </div>
 
-        <div className="relative flex flex-col items-center gap-5 lg:flex-row lg:items-center lg:gap-10">
+        <div className="relative flex flex-col items-center gap-4 pt-8 sm:gap-5 sm:pt-9">
           <Image
             src="/images/logos/kbba-header.svg"
             alt="KBBA — Korea Beauty Business Academy wordmark"
@@ -100,7 +98,7 @@ export function HomeAcademyIntroBlock() {
             className="h-auto w-full max-w-[240px] object-contain sm:max-w-[280px] lg:max-w-[300px]"
           />
         </div>
-        <p className="relative mx-auto mt-6 max-w-4xl text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base sm:leading-[1.7] lg:mt-8 lg:text-justify">
+        <p className="relative mx-auto mt-5 max-w-4xl text-pretty text-sm leading-relaxed text-rose-900/80 sm:mt-6 sm:text-base sm:leading-[1.7] lg:text-justify">
           <span className="font-semibold text-pink-600">KBBA</span> is a training and support hub for launching
           beauty businesses, built through partnerships between leading institutes in South Korea and Thailand.
           We help you succeed in the international beauty industry by connecting your operations with{" "}
