@@ -71,22 +71,22 @@ export function OfficialPartnerBanner() {
               {featuredPartnerLoop.map((partner, index) => (
                 <article
                   key={`${partner.short}-${index}`}
-                  className="group flex min-h-[13.25rem] w-[12.5rem] shrink-0 flex-col rounded-[1.15rem] border border-rose-100/90 bg-gradient-to-b from-white via-white to-rose-50/35 p-4 shadow-sm shadow-rose-100/30 transition duration-300 hover:-translate-y-0.5 hover:border-pink-200/80 hover:shadow-md sm:min-h-[16.75rem] sm:w-[15.75rem] sm:rounded-[1.5rem] sm:p-5"
+                  className="group flex min-h-[12.5rem] w-[12.5rem] shrink-0 flex-col rounded-[1.15rem] border border-rose-100/90 bg-gradient-to-b from-white via-white to-rose-50/35 p-4 shadow-sm shadow-rose-100/30 transition duration-300 hover:-translate-y-0.5 hover:border-pink-200/80 hover:shadow-md sm:min-h-[15.5rem] sm:w-[15.75rem] sm:rounded-[1.5rem] sm:p-5"
                 >
                   <div className="flex items-start">
-                    <div className="flex h-20 min-w-0 w-full items-center rounded-xl border border-rose-100/80 bg-white px-3 shadow-sm sm:h-28 sm:rounded-2xl sm:px-4">
-                      <div className="relative h-12 w-full sm:h-16">
+                    <div className="flex h-16 min-w-0 w-full items-center justify-center sm:h-20">
+                      <div className="relative h-14 w-full sm:h-16">
                         <Image
                           src={partner.imageSrc}
                           alt={partner.name}
                           fill
                           className="object-contain object-center"
-                          sizes="(max-width: 640px) 190px, (max-width: 1024px) 252px, 252px"
+                          sizes="(max-width: 640px) 150px, (max-width: 1024px) 208px, 208px"
                         />
                       </div>
                     </div>
                   </div>
-                  <p className="mt-3 text-[0.58rem] font-semibold uppercase tracking-[0.22em] text-pink-600/90 sm:mt-5 sm:text-[0.65rem] sm:tracking-[0.26em]">
+                  <p className="mt-2.5 text-[0.58rem] font-semibold uppercase tracking-[0.22em] text-pink-600/90 sm:mt-4 sm:text-[0.65rem] sm:tracking-[0.26em]">
                     {partner.short}
                   </p>
                   <h3 className="mt-1.5 min-h-[2.65rem] text-pretty text-sm font-semibold leading-snug text-rose-950 sm:mt-2 sm:min-h-[3.25rem] sm:text-[0.95rem]">

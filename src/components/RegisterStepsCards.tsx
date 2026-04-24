@@ -76,10 +76,10 @@ export function RegisterStepsCards({ gridClassName, cardClassName }: RegisterSte
         <div key={n} className={cardClassName}>
           <Visual />
           <p className="font-display mt-2 text-2xl font-semibold text-pink-600 sm:mt-4 sm:text-[2rem]">{n}</p>
-          <h3 className="font-display mt-1 text-pretty text-[0.82rem] font-semibold leading-snug text-rose-950 sm:text-lg">
+          <h3 className="font-display mt-1 min-h-[1.8rem] text-pretty text-[0.82rem] font-semibold leading-snug text-rose-950 sm:min-h-[2.75rem] sm:text-lg">
             {title}
           </h3>
-          <p className="mt-1.5 text-pretty text-[0.68rem] leading-relaxed text-rose-900/75 sm:mt-2 sm:text-sm">
+          <p className="mt-1.5 min-h-[3.1rem] text-pretty text-[0.68rem] leading-relaxed text-rose-900/75 sm:mt-2 sm:min-h-0 sm:text-sm">
             {desc}
           </p>
         </div>

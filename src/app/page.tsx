@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { BadgeDollarSign, BriefcaseBusiness, RefreshCcw } from "lucide-react";
 import { HeroSection } from "@/components/HeroSection";
 import { HospitalGrid } from "@/components/HospitalGrid";
 import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
@@ -30,7 +31,7 @@ const courses = [
 
 const motivationCards = [
   {
-    step: "01",
+    icon: RefreshCcw,
     title: "Tired of the same routine",
     points: [
       "Your main job feels repetitive and no longer helps you grow.",
@@ -39,7 +40,7 @@ const motivationCards = [
     ],
   },
   {
-    step: "02",
+    icon: BriefcaseBusiness,
     title: "Ready to build something of your own",
     points: [
       "You want work that feels personal and valuable.",
@@ -48,7 +49,7 @@ const motivationCards = [
     ],
   },
   {
-    step: "03",
+    icon: BadgeDollarSign,
     title: "Aiming for financial freedom",
     points: [
       "You want to increase your income and create stronger long-term stability.",
@@ -121,14 +122,15 @@ export default function Home() {
           <div className="mt-7 grid items-stretch gap-3 sm:mt-10 sm:gap-5 lg:grid-cols-3">
             {motivationCards.map((card) => (
               <article
-                key={card.step}
+                key={card.title}
                 className="flex min-w-0 h-full flex-col rounded-[1.4rem] border border-rose-100/90 bg-white/95 p-4 shadow-md shadow-rose-100/25 sm:rounded-[1.75rem] sm:p-6"
               >
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <span className="font-display text-4xl font-semibold leading-none text-pink-600 sm:text-5xl">{card.step}</span>
-                  <span className="h-px flex-1 bg-gradient-to-r from-pink-200 to-transparent" aria-hidden />
+                <div className="flex justify-center">
+                  <div className="flex h-13 w-13 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-100 via-pink-50 to-fuchsia-100 text-pink-700 shadow-sm shadow-rose-100/50 sm:h-16 sm:w-16">
+                    <card.icon className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={1.9} aria-hidden />
+                  </div>
                 </div>
-                <h3 className="font-display mt-3 min-h-[2.4rem] text-pretty text-lg font-semibold leading-snug text-rose-950 sm:mt-5 sm:min-h-[3.5rem] sm:text-xl">
+                <h3 className="font-display mt-3 min-h-[2.4rem] text-center text-pretty text-lg font-semibold leading-snug text-rose-950 sm:mt-5 sm:min-h-[3.5rem] sm:text-xl">
                   {card.title}
                 </h3>
                 <ul className="mt-3 space-y-2 text-[0.82rem] leading-relaxed text-rose-900/82 sm:mt-5 sm:space-y-3 sm:text-sm">

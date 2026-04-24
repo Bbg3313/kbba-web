@@ -19,7 +19,7 @@ export function HomeRegisterProcessSection() {
 
         <RegisterStepsCards
           gridClassName="mt-8 grid min-w-0 grid-cols-3 gap-2 sm:mt-10 sm:gap-4 md:gap-5"
-          cardClassName="min-w-0 rounded-2xl border border-rose-100/90 bg-white/95 px-2.5 pb-3.5 pt-4 text-center shadow-sm shadow-rose-100/30 sm:px-5 sm:pb-6 sm:pt-7"
+          cardClassName="flex h-full min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-white/95 px-2.5 pb-3.5 pt-4 text-center shadow-sm shadow-rose-100/30 sm:px-5 sm:pb-6 sm:pt-7"
         />
       </div>
     </div>
