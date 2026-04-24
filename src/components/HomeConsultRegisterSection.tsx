@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -39,9 +40,14 @@ export function HomeConsultRegisterSection({
   copy,
   socialLabels,
 }: HomeConsultRegisterSectionProps) {
+  const [submitMessage, setSubmitMessage] = useState<{
+    tone: "success" | "error";
+    text: string;
+  } | null>(null);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
@@ -57,9 +63,36 @@ export function HomeConsultRegisterSection({
   });
 
   const onSubmit = async (data: FormValues) => {
-    // TODO: send to Supabase when backend is ready
-    await new Promise((r) => setTimeout(r, 400));
-    console.info("[consult form]", data);
+    setSubmitMessage(null);
+
+    try {
+      const response = await fetch("/api/consultations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          locale,
+          ...data,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Submission failed.");
+      }
+
+      reset();
+      setSubmitMessage({
+        tone: "success",
+        text: copy.submitSuccess,
+      });
+    } catch (error) {
+      console.error("[consult form submit error]", error);
+      setSubmitMessage({
+        tone: "error",
+        text: copy.submitError,
+      });
+    }
   };
 
   return (
@@ -275,6 +308,20 @@ export function HomeConsultRegisterSection({
                     ))}
                   </div>
                 </fieldset>
+
+                <div className="flex flex-col items-stretch gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
+                  {submitMessage ? (
+                    <p
+                      className={`rounded-xl border px-3 py-2 text-sm ${
+                        submitMessage.tone === "success"
+                          ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                          : "border-rose-200 bg-rose-50 text-rose-700"
+                      }`}
+                    >
+                      {submitMessage.text}
+                    </p>
+                  ) : null}
+                </div>
 
                 <div className="flex flex-col items-stretch gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
                   <button

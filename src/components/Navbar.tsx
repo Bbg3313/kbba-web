@@ -13,10 +13,12 @@ type NavbarProps = {
 };
 
 export function Navbar({ locale, copy }: NavbarProps) {
-  const [open, setOpen] = useState(false);
+  const [menuRoute, setMenuRoute] = useState<string | null>(null);
   const [hash, setHash] = useState("");
   const brandSrc = "/images/logos/kbba-header.svg";
   const pathname = usePathname();
+  const routeKey = `${pathname}${hash}`;
+  const open = menuRoute === routeKey;
 
   useEffect(() => {
     const syncHash = () => setHash(window.location.hash);
@@ -25,10 +27,6 @@ export function Navbar({ locale, copy }: NavbarProps) {
     window.addEventListener("hashchange", syncHash);
     return () => window.removeEventListener("hashchange", syncHash);
   }, []);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [hash, pathname]);
 
   const activeHref = useMemo(() => {
     const barePathname = stripLocaleFromPathname(pathname);
@@ -84,7 +82,7 @@ export function Navbar({ locale, copy }: NavbarProps) {
                   ? "bg-rose-100 text-pink-700 shadow-sm shadow-rose-100/60"
                   : "text-rose-900/85 hover:bg-rose-50"
               }`}
-              onClick={() => setOpen(false)}
+              onClick={() => setMenuRoute(null)}
               aria-label={item.label}
               title={item.label}
             >
@@ -141,7 +139,9 @@ export function Navbar({ locale, copy }: NavbarProps) {
           className="inline-flex shrink-0 items-center justify-center rounded-lg border border-rose-200 bg-white/80 p-2 text-rose-900 touch-manipulation lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() =>
+            setMenuRoute((value) => (value === routeKey ? null : routeKey))
+          }
         >
           <span className="sr-only">{copy.openMenuLabel}</span>
           <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden>
@@ -172,7 +172,7 @@ export function Navbar({ locale, copy }: NavbarProps) {
                 className={`rounded-full px-3 py-2 text-xs font-semibold transition ${
                   locale === "en" ? "bg-rose-100 text-pink-700" : "text-rose-900/80 hover:bg-rose-50"
                 }`}
-                onClick={() => setOpen(false)}
+                onClick={() => setMenuRoute(null)}
               >
                 {copy.englishLabel}
               </Link>
@@ -181,7 +181,7 @@ export function Navbar({ locale, copy }: NavbarProps) {
                 className={`rounded-full px-3 py-2 text-xs font-semibold transition ${
                   locale === "th" ? "bg-rose-100 text-pink-700" : "text-rose-900/80 hover:bg-rose-50"
                 }`}
-                onClick={() => setOpen(false)}
+                onClick={() => setMenuRoute(null)}
               >
                 {copy.thaiLabel}
               </Link>
@@ -195,7 +195,7 @@ export function Navbar({ locale, copy }: NavbarProps) {
                     ? "bg-rose-100 text-pink-700"
                     : "text-rose-900 hover:bg-rose-50"
                 }`}
-                onClick={() => setOpen(false)}
+                onClick={() => setMenuRoute(null)}
               >
                 {item.label}
               </Link>
@@ -203,7 +203,7 @@ export function Navbar({ locale, copy }: NavbarProps) {
             <a
               href="#contact"
               className="mt-2 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-md shadow-rose-300/30"
-              onClick={() => setOpen(false)}
+              onClick={() => setMenuRoute(null)}
             >
               {copy.contact}
             </a>

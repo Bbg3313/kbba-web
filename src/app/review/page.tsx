@@ -112,7 +112,7 @@ export default async function ReviewPage() {
                 <figure className="min-w-0 w-full">
                   <div className="flex items-center gap-3">
                     <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-rose-500 to-pink-600 text-xl text-white shadow-sm">
-                      "
+                      &ldquo;
                     </span>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pink-600">

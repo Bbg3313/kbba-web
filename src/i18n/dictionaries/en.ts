@@ -124,6 +124,10 @@ export const en = {
       },
       submitIdle: "Apply now",
       submitBusy: "Sending...",
+      submitSuccess:
+        "Thanks. Your consultation request was sent successfully and our team will contact you soon.",
+      submitError:
+        "We could not send your request right now. Please try again or contact us on LINE.",
       backToTop: "Back to top",
     },
   },
