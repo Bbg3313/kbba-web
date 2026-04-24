@@ -77,8 +77,21 @@ function StatPhotoVisual({
 export function HomeAcademyIntroBlock() {
   return (
     <div className="mt-2 border-t border-rose-100/60 pt-8 sm:mt-0 sm:border-t-0 sm:pt-0">
-      <div className="rounded-2xl border border-rose-100/80 bg-gradient-to-br from-white via-rose-50/30 to-fuchsia-50/25 p-5 shadow-sm shadow-rose-100/20 sm:p-7 lg:p-8">
-        <div className="flex flex-col items-center gap-5 lg:flex-row lg:items-center lg:gap-10">
+      <div className="relative overflow-hidden rounded-2xl border border-rose-100/80 bg-gradient-to-br from-[#fffdf8] via-[#fffaf5] to-[#fff7fb] p-5 shadow-sm shadow-rose-100/20 sm:p-7 lg:p-8">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 opacity-[0.28] [background-image:linear-gradient(to_right,rgba(120,53,15,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(120,53,15,0.06)_1px,transparent_1px)] [background-size:24px_24px]" />
+          <div className="absolute -left-10 top-5 rotate-[-8deg] rounded-sm border border-stone-300/70 bg-white/70 px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-stone-500 shadow-sm">
+            Seoul Edition
+          </div>
+          <div className="absolute right-6 top-8 hidden rounded-sm border border-stone-300/70 bg-white/70 px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.24em] text-stone-500 shadow-sm sm:block">
+            Beauty Business Journal
+          </div>
+          <div className="absolute -right-16 bottom-6 h-28 w-28 rounded-full border border-rose-200/60 bg-rose-100/30 blur-2xl" />
+          <div className="absolute left-10 top-20 h-px w-28 rotate-[12deg] bg-stone-300/70" />
+          <div className="absolute right-16 bottom-16 h-px w-24 rotate-[-10deg] bg-stone-300/70" />
+        </div>
+
+        <div className="relative flex flex-col items-center gap-5 lg:flex-row lg:items-center lg:gap-10">
           <Image
             src="/images/logos/kbba-header.svg"
             alt="KBBA — Korea Beauty Business Academy wordmark"
@@ -86,11 +99,8 @@ export function HomeAcademyIntroBlock() {
             height={150}
             className="h-auto w-full max-w-[240px] object-contain sm:max-w-[280px] lg:max-w-[300px]"
           />
-          <h3 className="max-w-xl text-center font-display text-pretty text-xl font-semibold leading-tight text-rose-950 sm:text-2xl lg:text-left lg:text-3xl">
-            Korea Beauty Business Academy
-          </h3>
         </div>
-        <p className="mx-auto mt-6 max-w-4xl text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base sm:leading-[1.7] lg:mt-8 lg:text-justify">
+        <p className="relative mx-auto mt-6 max-w-4xl text-pretty text-sm leading-relaxed text-rose-900/80 sm:text-base sm:leading-[1.7] lg:mt-8 lg:text-justify">
           <span className="font-semibold text-pink-600">KBBA</span> is a training and support hub for launching
           beauty businesses, built through partnerships between leading institutes in South Korea and Thailand.
           We help you succeed in the international beauty industry by connecting your operations with{" "}

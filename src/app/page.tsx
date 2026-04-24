@@ -15,16 +15,22 @@ const courses = [
     name: "Compliant Korean plastic surgery agency programme",
     note: "For people starting an agency, working as a consultant, or in hospital / clinic plastic surgery roles.",
     price: "THB 59,000",
+    imageSrc: "/images/reviews/gallery/doctor-lobby.png",
+    imageAlt: "Business consultation and partner planning session",
   },
   {
     name: "Agency programme with a study tour in Korea",
     note: "For those who want an agency or consulting career plus hands-on observation experience at Korean hospitals.",
     price: "THB 99,000",
+    imageSrc: "/images/reviews/gallery/note-group.png",
+    imageAlt: "Study tour and partner hospital visit in Korea",
   },
   {
     name: "Skills training with Korean plastic surgeons",
     note: "For surgeons who want to sharpen techniques and learn approaches used by leading Korean specialists.",
     price: "THB 159,000",
+    imageSrc: "/images/reviews/gallery/bio-surgeons.png",
+    imageAlt: "Training with Korean plastic surgery specialists",
   },
 ] as const;
 
@@ -169,7 +175,7 @@ export default function Home() {
           <HomeAcademyIntroBlock />
 
           <div className="mt-10 grid min-w-0 items-start gap-y-8 rounded-2xl border border-rose-100/50 bg-white/40 px-3 py-6 shadow-sm shadow-rose-100/20 sm:gap-y-12 sm:px-6 sm:py-10 md:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] md:items-stretch md:gap-x-8 md:gap-y-0 md:px-7 md:py-11 lg:mt-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1fr)] lg:gap-x-10 lg:px-8 lg:py-12">
-            <div className="relative isolate hidden w-full max-w-none justify-self-stretch overflow-visible md:block">
+            <div className="relative isolate w-full max-w-none justify-self-stretch overflow-visible">
               <div className="relative aspect-[16/11] min-h-[220px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 via-white to-pink-50/80 p-1 shadow-md shadow-rose-100/50 ring-1 ring-rose-100/80 sm:aspect-[16/11] sm:min-h-[300px] sm:p-5 md:aspect-[980/558] md:min-h-[380px] md:p-6 lg:min-h-[440px] lg:p-7 xl:min-h-[500px]">
                 <Image
                   src={HOME_CONSULTING_VISUAL}
@@ -182,26 +188,26 @@ export default function Home() {
               </div>
             </div>
             <div className="flex min-h-0 min-w-0 flex-col justify-start gap-5 text-left sm:gap-8 md:h-full md:max-w-none md:justify-center md:py-1 lg:py-2">
-              <div className="order-1 relative w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)] md:order-2">
-                <div className="relative mx-auto aspect-[4/3] w-full max-w-[18rem] min-h-[12rem] sm:max-w-2xl sm:min-h-[11rem] md:min-h-[13rem] lg:min-h-[15rem]">
+              <p className="order-1 text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base sm:leading-[1.7] md:order-none">
+                Become a certified beauty consultant with strong earning potential — and earn your Korean
+                hospital coordinator credentials with us.
+              </p>
+              <div className="order-2 relative w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-white/95 shadow-[0_22px_45px_-32px_rgba(190,24,93,0.45)] md:order-none">
+                <div className="relative mx-auto aspect-[16/10] w-full max-w-none min-h-[11rem] sm:max-w-2xl sm:min-h-[11rem] md:min-h-[13rem] lg:min-h-[15rem]">
                   <Image
                     src={HOME_CONSULTING_CERT_IMAGE}
                     alt="Hospital coordinator certificates"
                     fill
-                    className="object-contain object-center p-2.5 sm:p-3"
+                    className="object-contain object-center"
                     sizes="(max-width: 768px) 100vw, 46vw"
                   />
                 </div>
               </div>
-              <p className="order-2 text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base sm:leading-[1.7] md:order-1">
-                Become a certified beauty consultant with strong earning potential — and earn your Korean
-                hospital coordinator credentials with us.
-              </p>
               <a
                 href="https://line.me/R/ti/p/@756xidmw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 w-fit max-w-full items-center justify-center self-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-300/40 transition hover:brightness-110 sm:px-7"
+                className="order-3 inline-flex min-h-11 w-fit max-w-full items-center justify-center self-center rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-300/40 transition hover:brightness-110 sm:px-7 md:order-none md:self-center"
               >
                 Ask on LINE — fit for you?
               </a>
@@ -228,6 +234,15 @@ export default function Home() {
                 key={c.name}
                 className="flex min-w-0 flex-col rounded-2xl border border-rose-100/90 bg-white/95 p-6 shadow-md shadow-rose-100/25"
               >
+                <div className="relative mb-5 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-rose-100/80 bg-rose-50/40">
+                  <Image
+                    src={c.imageSrc}
+                    alt={c.imageAlt}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
                 <h3 className="font-display text-pretty text-base font-semibold leading-snug text-rose-950 sm:text-lg">
                   {c.name}
                 </h3>

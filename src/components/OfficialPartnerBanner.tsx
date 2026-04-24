@@ -8,30 +8,35 @@ const featuredPartners = [
     name: "Blue Bridge Global",
     role: "Korea business bridge",
     imageSrc: wixTopStripImages[0]?.imageSrc,
+    logoClassName: "scale-[0.8]",
   },
   {
     short: "S.K.I",
     name: "Surgery Korea Info",
     role: "Thailand market partner",
     imageSrc: wixTopStripImages[1]?.imageSrc,
+    logoClassName: "",
   },
   {
     short: "ILI",
     name: "International License Institute",
     role: "Certification partner",
     imageSrc: wixTopStripImages[2]?.imageSrc,
+    logoClassName: "",
   },
   {
     short: "LEI",
     name: "Long Life Education Institute",
     role: "Lifelong learning partner",
     imageSrc: wixTopStripImages[3]?.imageSrc,
+    logoClassName: "",
   },
   {
     short: "KRIVET",
     name: "KRIVET",
     role: "Curriculum reference",
     imageSrc: wixTopStripImages[4]?.imageSrc,
+    logoClassName: "",
   },
 ] as const;
 
@@ -75,7 +80,7 @@ export function OfficialPartnerBanner() {
                 >
                   <div className="flex items-start">
                     <div className="flex h-16 min-w-0 w-full items-center justify-center sm:h-20">
-                      <div className="relative h-14 w-full sm:h-16">
+                      <div className={`relative h-14 w-full sm:h-16 ${partner.logoClassName}`.trim()}>
                         <Image
                           src={partner.imageSrc}
                           alt={partner.name}

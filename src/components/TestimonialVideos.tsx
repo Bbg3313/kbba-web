@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { MainSectionEyebrow } from "@/components/MainSectionEyebrow";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const TESTIMONIAL_EMBEDS = [
   {
@@ -76,6 +76,7 @@ function embedSrc(videoId: string) {
 
 export function TestimonialVideos() {
   const [activeReview, setActiveReview] = useState(0);
+  const mobileReviewStripRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -87,6 +88,76 @@ export function TestimonialVideos() {
     }, 3000);
 
     return () => window.clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    const strip = mobileReviewStripRef.current;
+
+    if (!strip || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    let rafId = 0;
+    let lastFrame = 0;
+    let isTouching = false;
+    let resumeAfter = 0;
+
+    const pauseAutoScroll = () => {
+      resumeAfter = performance.now() + 2400;
+    };
+
+    const handleTouchStart = () => {
+      isTouching = true;
+    };
+
+    const handleTouchEnd = () => {
+      isTouching = false;
+      pauseAutoScroll();
+    };
+
+    const handlePointerDown = () => {
+      isTouching = true;
+    };
+
+    const handlePointerUp = () => {
+      isTouching = false;
+      pauseAutoScroll();
+    };
+
+    const tick = (timestamp: number) => {
+      if (!lastFrame) {
+        lastFrame = timestamp;
+      }
+
+      const elapsed = timestamp - lastFrame;
+      lastFrame = timestamp;
+
+      if (!isTouching && timestamp > resumeAfter) {
+        strip.scrollLeft += elapsed * 0.03;
+
+        const loopWidth = strip.scrollWidth / 2;
+        if (strip.scrollLeft >= loopWidth) {
+          strip.scrollLeft -= loopWidth;
+        }
+      }
+
+      rafId = window.requestAnimationFrame(tick);
+    };
+
+    strip.addEventListener("touchstart", handleTouchStart, { passive: true });
+    strip.addEventListener("touchend", handleTouchEnd, { passive: true });
+    strip.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("pointerup", handlePointerUp);
+
+    rafId = window.requestAnimationFrame(tick);
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      strip.removeEventListener("touchstart", handleTouchStart);
+      strip.removeEventListener("touchend", handleTouchEnd);
+      strip.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("pointerup", handlePointerUp);
+    };
   }, []);
 
   return (
@@ -188,12 +259,15 @@ export function TestimonialVideos() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[1.5rem] border border-rose-100/90 bg-white/95 shadow-[0_24px_60px_-36px_rgba(190,24,93,0.24)] sm:hidden">
-            <div className="flex w-max animate-marquee items-stretch gap-4 px-4 py-4 pr-8 [--marquee-duration:22s]">
+          <div
+            ref={mobileReviewStripRef}
+            className="overflow-x-auto overscroll-x-contain rounded-[1.5rem] border border-rose-100/90 bg-white/95 shadow-[0_24px_60px_-36px_rgba(190,24,93,0.24)] sm:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            <div className="flex w-max items-stretch gap-4 px-4 py-4 pr-8">
               {MOBILE_REVIEW_LOOP.map((review, index) => (
                 <article
                   key={`${review.name}-${index}`}
-                  className="flex min-h-[24rem] w-[17rem] shrink-0 flex-col rounded-[1.4rem] border border-rose-100/90 bg-gradient-to-b from-white via-white to-rose-50/35 p-4 shadow-sm shadow-rose-100/25"
+                  className="flex min-h-[24rem] w-[17rem] shrink-0 snap-start flex-col rounded-[1.4rem] border border-rose-100/90 bg-gradient-to-b from-white via-white to-rose-50/35 p-4 shadow-sm shadow-rose-100/25"
                 >
                   <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-rose-100/90 bg-[#f3eff6] shadow-sm">
                     <Image
