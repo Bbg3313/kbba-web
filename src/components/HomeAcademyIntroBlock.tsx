@@ -103,17 +103,17 @@ export function HomeAcademyIntroBlock() {
         </p>
       </div>
 
-      <ul className="mt-8 grid min-w-0 gap-4 sm:grid-cols-2 lg:mt-10 lg:grid-cols-4 lg:gap-5">
+      <ul className="mt-8 grid min-w-0 grid-cols-2 gap-3 sm:gap-4 lg:mt-10 lg:grid-cols-4 lg:gap-5">
         {stats.map(({ value, label, imageSrc, imageAlt }, index) => (
           <li
             key={value}
-            className="flex min-w-0 flex-col items-center rounded-2xl border border-rose-100/90 bg-white/90 px-4 py-5 text-center shadow-sm shadow-rose-100/15 sm:px-5"
+            className="flex min-w-0 flex-col items-center rounded-2xl border border-rose-100/90 bg-white/90 px-3 py-4 text-center shadow-sm shadow-rose-100/15 sm:px-5 sm:py-5"
           >
             <StatPhotoVisual imageSrc={imageSrc} imageAlt={imageAlt} index={index} />
-            <p className="mt-4 font-display text-2xl font-semibold tracking-tight text-rose-950 sm:text-[1.65rem]">
+            <p className="mt-3 font-display text-xl font-semibold tracking-tight text-rose-950 sm:mt-4 sm:text-[1.65rem]">
               {value}
             </p>
-            <p className="mt-2 text-pretty text-xs leading-relaxed text-rose-900/70 sm:text-sm">{label}</p>
+            <p className="mt-2 text-pretty text-[0.72rem] leading-relaxed text-rose-900/70 sm:text-sm">{label}</p>
           </li>
         ))}
       </ul>

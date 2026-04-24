@@ -57,7 +57,7 @@ export function HospitalGrid() {
                 aria-hidden
               />
               <div className="border-b border-rose-100/50 bg-gradient-to-b from-rose-50/15 to-transparent py-4 sm:py-5 md:py-6">
-                <div className="flex w-max animate-marquee items-center gap-4 px-2 pr-8 sm:gap-8 sm:px-4 sm:pr-12">
+                <div className="flex w-max animate-marquee items-center gap-4 px-2 pr-8 [--marquee-duration:22s] sm:gap-8 sm:px-4 sm:pr-12 sm:[--marquee-duration:34s]">
                   {marqueeItems.map((h, idx) => (
                     <div
                       key={`${h.id}-marquee-${idx}`}

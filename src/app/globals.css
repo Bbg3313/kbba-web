@@ -61,7 +61,8 @@ h3 {
 }
 
 .animate-marquee {
-  animation: marquee 55s linear infinite;
+  animation: marquee var(--marquee-duration, 42s) linear infinite;
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {

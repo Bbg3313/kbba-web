@@ -84,49 +84,49 @@ const reviewGalleryItems = [
   {
     src: "/images/reviews/gallery/note-group.png",
     alt: "Group photo at Note Plastic Surgery",
-    className: "md:col-span-4",
+    className: "col-span-1 md:col-span-4",
     aspectClassName: "aspect-[4/5]",
   },
   {
     src: "/images/reviews/gallery/note-visit-1.png",
     alt: "Visit to Note Plastic Surgery",
-    className: "md:col-span-4",
+    className: "col-span-1 md:col-span-4",
     aspectClassName: "aspect-[4/5]",
   },
   {
     src: "/images/reviews/gallery/note-visit-2.png",
     alt: "Partner visit at Note Plastic Surgery",
-    className: "md:col-span-4",
+    className: "col-span-1 md:col-span-4",
     aspectClassName: "aspect-[4/5]",
   },
   {
     src: "/images/reviews/gallery/doctor-lobby.png",
     alt: "Partner meeting in clinic lobby",
-    className: "md:col-span-4",
+    className: "col-span-1 md:col-span-4",
     aspectClassName: "aspect-[4/5]",
   },
   {
     src: "/images/reviews/gallery/bio-surgeons.png",
     alt: "Meeting with BIO Plastic Surgery medical team",
-    className: "md:col-span-4",
+    className: "col-span-1 md:col-span-4",
     aspectClassName: "aspect-[4/5]",
   },
   {
     src: "/images/reviews/gallery/consultation-room.png",
     alt: "Consultation room visit with medical team",
-    className: "md:col-span-4",
+    className: "col-span-1 md:col-span-4",
     aspectClassName: "aspect-[4/5]",
   },
   {
     src: "/images/reviews/gallery/certificate-banobagi.png",
     alt: "Certification milestone with Banobagi",
-    className: "md:col-span-6",
+    className: "col-span-2 md:col-span-6",
     aspectClassName: "aspect-[4/3]",
   },
   {
     src: "/images/reviews/gallery/certificate.png",
     alt: "KBBA certification documents",
-    className: "md:col-span-6",
+    className: "col-span-2 md:col-span-6",
     aspectClassName: "aspect-[4/3]",
   },
 ] as const;
@@ -272,7 +272,7 @@ export default function ReviewPage() {
             KBBA network.
           </p>
 
-          <div className="mt-10 grid min-w-0 gap-4 md:grid-cols-12">
+          <div className="mt-10 grid min-w-0 grid-cols-2 gap-3 sm:gap-4 md:grid-cols-12">
             {reviewGalleryItems.map((item) => (
               <figure
                 key={item.src}
