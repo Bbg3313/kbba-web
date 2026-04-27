@@ -44,7 +44,9 @@ export function HeroSection({
                 <>
                   <span className="sm:block">{copy.titleLines[0]}</span>
                   <span className="sm:block">{copy.titleLines[1]}</span>
-                  <span className="sm:block">{copy.titleLines[2]}</span>
+                  <span className="block whitespace-nowrap text-[0.88em] sm:block">
+                    {copy.titleLines[2]}
+                  </span>
                 </>
               )}
             </h1>
