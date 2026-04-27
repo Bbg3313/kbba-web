@@ -18,6 +18,8 @@ export function HeroSection({
   heroImageSrc = HOME_HERO_IMAGE || WIX_HERO_IMAGE || "/images/hero/hero.svg",
   heroImageAlt = copy.heroImageAlt,
 }: HeroSectionProps) {
+  const titleText = copy.titleLines.join(" ");
+
   return (
     <section
       id="hero"
@@ -36,9 +38,15 @@ export function HeroSection({
             </p>
 
             <h1 className="font-display mt-5 text-balance text-[clamp(1.55rem,5.2vw,2.8rem)] font-semibold leading-[1.15] tracking-tight text-rose-950 sm:text-4xl lg:text-[2.8rem]">
-              <span className="sm:block">{copy.titleLines[0]} </span>
-              <span className="sm:block">{copy.titleLines[1]} </span>
-              <span className="sm:block">{copy.titleLines[2]}</span>
+              {locale === "en" ? (
+                titleText
+              ) : (
+                <>
+                  <span className="sm:block">{copy.titleLines[0]}</span>
+                  <span className="sm:block">{copy.titleLines[1]}</span>
+                  <span className="sm:block">{copy.titleLines[2]}</span>
+                </>
+              )}
             </h1>
 
             <p className="mt-5 max-w-xl text-pretty text-sm leading-relaxed text-rose-900/70 sm:text-base">
