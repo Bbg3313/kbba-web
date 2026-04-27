@@ -2,6 +2,7 @@ import { en } from "@/i18n/dictionaries/en";
 import { th } from "@/i18n/dictionaries/th";
 import type { Locale } from "@/i18n/routing";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+import { hasSupabaseEnv } from "@/lib/supabase/env";
 
 const dictionaries = { en, th } as const;
 const tableName = "consultation_submissions";
@@ -39,6 +40,26 @@ export type ConsultationSubmissionRecord = {
   submitted_at: string;
 };
 
+const previewSubmissions: ConsultationSubmissionRecord[] = [
+  {
+    id: "preview-seed-1",
+    locale: "en",
+    full_name: "Nina S.",
+    nickname: "Nina",
+    facebook: "nina.beauty.consult",
+    line_id: "@ninaagency",
+    email: "nina@example.com",
+    phone: "+66-81-222-3456",
+    course: "agency-study-tour",
+    course_label: "Agency programme with a study tour in Korea",
+    hear_about: "facebook",
+    hear_about_label: "Facebook",
+    status: "new",
+    admin_note: "Preview sample entry for layout review.",
+    submitted_at: new Date(Date.now() - 1000 * 60 * 48).toISOString(),
+  },
+];
+
 function getLocalizedLabel(
   locale: Locale,
   type: "course" | "hearAbout",
@@ -51,10 +72,8 @@ function getLocalizedLabel(
   return options.find((option) => option.value === value)?.label ?? value;
 }
 
-export async function createConsultationSubmission(input: ConsultationInsertInput) {
-  const supabase = createSupabaseAdminClient();
-
-  const payload = {
+function createSubmissionPayload(input: ConsultationInsertInput) {
+  return {
     locale: input.locale,
     full_name: input.fullName || null,
     nickname: input.nickname || null,
@@ -69,6 +88,23 @@ export async function createConsultationSubmission(input: ConsultationInsertInpu
       ? getLocalizedLabel(input.locale, "hearAbout", input.hearAbout)
       : null,
   };
+}
+
+export async function createConsultationSubmission(input: ConsultationInsertInput) {
+  const payload = createSubmissionPayload(input);
+
+  if (!hasSupabaseEnv()) {
+    previewSubmissions.unshift({
+      id: crypto.randomUUID(),
+      ...payload,
+      status: "new",
+      admin_note: null,
+      submitted_at: new Date().toISOString(),
+    });
+    return;
+  }
+
+  const supabase = createSupabaseAdminClient();
 
   const { error } = await supabase.from(tableName).insert(payload);
 
@@ -78,6 +114,10 @@ export async function createConsultationSubmission(input: ConsultationInsertInpu
 }
 
 export async function listConsultationSubmissions() {
+  if (!hasSupabaseEnv()) {
+    return [...previewSubmissions];
+  }
+
   const supabase = createSupabaseAdminClient();
   const { data, error } = await supabase
     .from(tableName)
@@ -98,6 +138,18 @@ export async function updateConsultationSubmission(
     adminNote: string;
   },
 ) {
+  if (!hasSupabaseEnv()) {
+    const previewSubmission = previewSubmissions.find((item) => item.id === id);
+
+    if (!previewSubmission) {
+      throw new Error("Preview submission not found.");
+    }
+
+    previewSubmission.status = updates.status;
+    previewSubmission.admin_note = updates.adminNote || null;
+    return;
+  }
+
   const supabase = createSupabaseAdminClient();
   const { error } = await supabase
     .from(tableName)

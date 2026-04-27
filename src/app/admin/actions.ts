@@ -8,6 +8,7 @@ import {
 } from "@/lib/consultations";
 import { isAdminEmail } from "@/lib/admin-auth";
 import { defaultLocale, isLocale, type Locale } from "@/i18n/routing";
+import { hasSupabaseEnv } from "@/lib/supabase/env";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export type AdminAuthActionState = {
@@ -32,6 +33,11 @@ export async function signInAdminAction(
   formData: FormData,
 ): Promise<AdminAuthActionState> {
   const locale = normalizeLocale(formData.get("locale"));
+
+  if (!hasSupabaseEnv()) {
+    redirectToAdmin(locale);
+  }
+
   const email = getTrimmedFormValue(formData, "email");
   const password = getTrimmedFormValue(formData, "password");
 
@@ -61,6 +67,11 @@ export async function signInAdminAction(
 
 export async function signOutAdminAction(formData: FormData) {
   const locale = normalizeLocale(formData.get("locale"));
+
+  if (!hasSupabaseEnv()) {
+    redirectToAdmin(locale);
+  }
+
   const supabase = await createSupabaseServerClient();
   await supabase.auth.signOut();
   redirectToAdmin(locale);
@@ -72,17 +83,19 @@ export async function updateSubmissionAction(formData: FormData) {
   const status = getTrimmedFormValue(formData, "status");
   const adminNote = getTrimmedFormValue(formData, "adminNote");
 
-  const supabase = await createSupabaseServerClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!isAdminEmail(user?.email)) {
-    redirectToAdmin(locale);
-  }
-
   if (!id || !consultationStatuses.includes(status as (typeof consultationStatuses)[number])) {
     throw new Error("Invalid submission update.");
+  }
+
+  if (hasSupabaseEnv()) {
+    const supabase = await createSupabaseServerClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!isAdminEmail(user?.email)) {
+      redirectToAdmin(locale);
+    }
   }
 
   await updateConsultationSubmission(id, {

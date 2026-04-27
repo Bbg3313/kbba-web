@@ -1,6 +1,20 @@
 const missingEnvMessage = (name: string) =>
   `Missing required environment variable: ${name}`;
 
+const requiredSupabaseEnvNames = [
+  "NEXT_PUBLIC_SUPABASE_URL",
+  "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+  "SUPABASE_SERVICE_ROLE_KEY",
+] as const;
+
+export function getMissingSupabaseEnvNames() {
+  return requiredSupabaseEnvNames.filter((name) => !process.env[name]);
+}
+
+export function hasSupabaseEnv() {
+  return getMissingSupabaseEnvNames().length === 0;
+}
+
 export function getSupabaseUrl() {
   const value = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
